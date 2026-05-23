@@ -13,7 +13,11 @@ body {
     width: 100vw;
     position: relative;
     /* Trỏ đến file ảnh background cục bộ của bạn */
-    background: url('assets/images/703760917_860850897062901_9071861183063486525_n.jpg') center 55%/cover no-repeat;
+    background-color: #141623;
+    background-image: url('./assets/images/703760917_860850897062901_9071861183063486525_n.jpg');
+    background-position: center 55%;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
