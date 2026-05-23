@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuấn Tú - Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font chữ Inter giống với ảnh mẫu -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Devicon cho Icon Tech Stack -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <!-- Icon của trang web -->
+    <link rel="icon" href="assets/images/627455463_782004324921612_3000827642054680263_n.jpg" type="image/jpeg">
+</head>
+<body>
+    <!-- Màn hình chào mừng để kích hoạt âm thanh -->
+    <div id="start-screen">
+        <div class="start-content">
+            <h1>HELLO WORLD !</h1>
+            <p>Chạm vào màn hình để bắt đầu</p>
+        </div>
+    </div>
+
+    <!-- Lớp nền làm mờ để ảnh nền tối đi -->
+    <div class="bg-overlay"></div>
+
+    <!-- Background Canvas cho hiệu ứng khối vuông (Squares) bay -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Nội dung Profile -->
+    <div id="profile-container" class="hidden">
+        <!-- Phần hiển thị toàn màn hình ban đầu -->
+        <div class="hero-section">
+            <h1 class="name" id="obf-name"></h1>
+            
+            <p class="bio">
+                 Code by day, ride by night — sống hết mình, không hối tiếc.<br>
+                Khám phá thêm về mình qua các liên kết <a href="#">dưới đây</a>.
+            </p>
+            
+            <div class="social-links">
+                <a href="javascript:void(0)" id="about-btn" class="social-btn">
+                    <span>About</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="javascript:void(0)" id="cv-btn" class="social-btn">
+                    <span>CV Profile</span>
+                    <i class="fa-solid fa-id-card"></i>
+                </a>
+                <a href="javascript:void(0)" id="skill-btn" class="social-btn">
+                    <span>Skill</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="javascript:void(0)" id="project-btn" class="social-btn">
+                    <span>Project</span>
+                    <i class="fa-solid fa-laptop-code"></i>
+                </a>
+                <a href="javascript:void(0)" id="check-sdt-btn" class="social-btn">
+                    <span>Check SĐT</span>
+                    <i class="fa-solid fa-search"></i>
+                </a>
+                <a href="https://zone-xsec.com/archive/team/Anonymous_VNPC" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>Zone-Xsec</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>Facebook</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://www.instagram.com/im_not_rich.n/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>Instagram</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://www.tiktok.com/@gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>TikTok</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://github.com/KAR13MA090" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>Github</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCHNcZM5vBN2dOoXmza-e6LA" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>YouTube</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://t.me/gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <span>Telegram</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+            
+            <!-- Icon mũi tên chỉ xuống để báo hiệu cuộn trang -->
+            <div class="scroll-indicator">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <!-- Phần dòng chạy ngang Tech Stack cực đẹp (2 hàng) -->
+        <div class="tech-marquee-wrapper">
+            <!-- Hàng 1: Ngôn ngữ & Framework -->
+            <div class="tech-marquee">
+                <div class="tech-track">
+                    <i class="devicon-html5-plain colored"></i>
+                    <i class="devicon-css3-plain colored"></i>
+                    <i class="devicon-javascript-plain colored"></i>
+                    <i class="devicon-typescript-plain colored"></i>
+                    <i class="devicon-react-original colored"></i>
+                    <i class="devicon-vuejs-plain colored"></i>
+                    <i class="devicon-angularjs-plain colored"></i>
+                    <i class="devicon-nodejs-plain colored"></i>
+                    <i class="devicon-python-plain colored"></i>
+                    <i class="devicon-java-plain colored"></i>
+                    <i class="devicon-cplusplus-plain colored"></i>
+                    <i class="devicon-csharp-plain colored"></i>
+                    <i class="devicon-php-plain colored"></i>
+                    <i class="devicon-swift-plain colored"></i>
+                </div>
+                <!-- Nhân bản hàng 1 -->
+                <div class="tech-track">
+                    <i class="devicon-html5-plain colored"></i>
+                    <i class="devicon-css3-plain colored"></i>
+                    <i class="devicon-javascript-plain colored"></i>
+                    <i class="devicon-typescript-plain colored"></i>
+                    <i class="devicon-react-original colored"></i>
+                    <i class="devicon-vuejs-plain colored"></i>
+                    <i class="devicon-angularjs-plain colored"></i>
+                    <i class="devicon-nodejs-plain colored"></i>
+                    <i class="devicon-python-plain colored"></i>
+                    <i class="devicon-java-plain colored"></i>
+                    <i class="devicon-cplusplus-plain colored"></i>
+                    <i class="devicon-csharp-plain colored"></i>
+                    <i class="devicon-php-plain colored"></i>
+                    <i class="devicon-swift-plain colored"></i>
+                </div>
+            </div>
+
+            <!-- Hàng 2: Công cụ, Database & Phần mềm thiết kế -->
+            <div class="tech-marquee reverse">
+                <div class="tech-track">
+                    <i class="devicon-mysql-original colored"></i>
+                    <i class="devicon-mongodb-plain colored"></i>
+                    <i class="devicon-postgresql-plain colored"></i>
+                    <i class="devicon-docker-plain colored"></i>
+                    <i class="devicon-amazonwebservices-original colored"></i>
+                    <i class="devicon-git-plain colored"></i>
+                    <i class="devicon-github-original colored"></i>
+                    <i class="devicon-vscode-plain colored"></i>
+                    <i class="devicon-figma-plain colored"></i>
+                    <i class="devicon-photoshop-plain colored"></i>
+                    <i class="devicon-illustrator-plain colored"></i>
+                    <i class="devicon-premierepro-plain colored"></i>
+                    <i class="devicon-android-plain colored"></i>
+                    <i class="devicon-apple-original colored"></i>
+                </div>
+                <!-- Nhân bản hàng 2 -->
+                <div class="tech-track">
+                    <i class="devicon-mysql-original colored"></i>
+                    <i class="devicon-mongodb-plain colored"></i>
+                    <i class="devicon-postgresql-plain colored"></i>
+                    <i class="devicon-docker-plain colored"></i>
+                    <i class="devicon-amazonwebservices-original colored"></i>
+                    <i class="devicon-git-plain colored"></i>
+                    <i class="devicon-github-original colored"></i>
+                    <i class="devicon-vscode-plain colored"></i>
+                    <i class="devicon-figma-plain colored"></i>
+                    <i class="devicon-photoshop-plain colored"></i>
+                    <i class="devicon-illustrator-plain colored"></i>
+                    <i class="devicon-premierepro-plain colored"></i>
+                    <i class="devicon-android-plain colored"></i>
+                    <i class="devicon-apple-original colored"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Section -->
+        <div class="video-section">
+            <video controls preload="metadata">
+                <source src="assets/video/VNPC.mp4" type="video/mp4">
+                Trình duyệt của bạn không hỗ trợ video.
+            </video>
+        </div>
+
+        <!-- Khoảng trống bên dưới để dễ nhìn -->
+        <div style="height: 60px;"></div>
+
+        <!-- Shop Section -->
+        <div class="shop-section">
+            <h2 class="shop-title">🛒 Sản Phẩm & Dịch Vụ</h2>
+            <p class="shop-subtitle">Liên hệ qua Facebook hoặc Instagram để đặt hàng nhé!</p>
+            <div class="shop-grid">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/esim-post-cover.png" alt="Esim" class="shop-logo-img">
+                    </div>
+                    <h3>Esim Du Lịch</h3>
+                    <p>eSIM quốc tế tiện lợi cho mọi chuyến đi</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/vietmap.png" alt="VIETMAP" class="shop-logo-img">
+                    </div>
+                    <h3>VIETMAP Live Pro 2 Năm</h3>
+                    <p>Bản đồ dẫn đường thông minh, cập nhật liên tục</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/vietmap.png" alt="VIETMAP" class="shop-logo-img">
+                    </div>
+                    <h3>VIETMAP Live Pro 1 Năm</h3>
+                    <p>Bản đồ dẫn đường thông minh, cập nhật liên tục</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/icallme_long_logo.jpg" alt="iCallme" class="shop-logo-img">
+                    </div>
+                    <h3>iCallme Premium Vĩnh Viễn</h3>
+                    <p>Ứng dụng gọi điện premium trọn đời</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/bitdefender.png" alt="Bitdefender" class="shop-logo-img">
+                    </div>
+                    <h3>Bitdefender Premium VPN</h3>
+                    <p>VPN bảo mật cao cấp, ẩn danh tuyệt đối</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/bitdefender.png" alt="Bitdefender" class="shop-logo-img">
+                    </div>
+                    <h3>Bitdefender Total Security</h3>
+                    <p>Bảo vệ toàn diện mọi thiết bị của bạn</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/Kaspersky.png" alt="Kaspersky" class="shop-logo-img">
+                    </div>
+                    <h3>Kaspersky Standard</h3>
+                    <p>Diệt virus hàng đầu thế giới từ Kaspersky</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/win logo.jpg" alt="Microsoft" class="shop-logo-img">
+                    </div>
+                    <h3>Cài Windows Bản Quyền</h3>
+                    <p>Nhận cài đặt Windows chính hãng, kích hoạt vĩnh viễn</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/adobe.png" alt="Adobe" class="shop-logo-img">
+                    </div>
+                    <h3>Adobe Full App</h3>
+                    <p>Toàn bộ ứng dụng Adobe: Pr, Ae, Ps, Ai và nhiều hơn nữa</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/steam logo.webp" alt="Steam" class="shop-logo-img">
+                    </div>
+                    <h3>Steam Wallet Code</h3>
+                    <p>Nạp tiền Steam nhanh chóng, giá tốt</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/steam logo.webp" alt="Steam" class="shop-logo-img">
+                    </div>
+                    <h3>Tài Khoản Game Steam</h3>
+                    <p>Tài khoản Steam với nhiều game giá trị</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/steam logo.webp" alt="Steam" class="shop-logo-img">
+                    </div>
+                    <h3>Tài Khoản Clone Steam</h3>
+                    <p>Clone Steam chơi game ổn định, chất lượng</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/exit logo.png" alt="ExitLag" class="shop-logo-img">
+                    </div>
+                    <h3>ExitLag</h3>
+                    <p>Giảm ping, tối ưu kết nối cho game thủ</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                    <div class="shop-icon">
+                        <img src="assets/images/netflix.jpg" alt="Netflix" class="shop-logo-img">
+                    </div>
+                    <h3>Netflix</h3>
+                    <p>Tài khoản Netflix xem phim không giới hạn</p>
+                </a>
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card shop-card-more">
+                    <div class="shop-icon">
+                        <i class="fa-brands fa-facebook" style="font-size:2.4rem; color:#1877f2;"></i>
+                    </div>
+                    <h3>Và Nhiều Hơn Nữa...</h3>
+                    <p>Liên hệ qua Facebook để biết thêm sản phẩm & dịch vụ khác</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bản quyền -->
+        <div class="footer-copyright">
+            <p id="obf-copyright"></p>
+            <div class="visitor-stats">
+                <span>IP của Bạn: <b id="user-ip">...</b></span>
+                <span class="divider">|</span>
+                <span>Quốc gia: <b id="user-country">...</b></span>
+                <span class="divider">|</span>
+                <span>Lượt truy cập hôm nay: <b id="visit-count">...</b></span>
+            </div>
+            <div class="hsts-badge" id="hsts-badge" style="cursor: pointer;">
+                <div class="vn-star-container">★</div>
+                <span>Hoàng Sa & Trường Sa là của Việt Nam!</span>
+            </div>
+        </div>
+
+        <!-- Khoảng trống cuối trang -->
+        <div style="height: 60px;"></div>
+    </div>
+
+    <!-- Thẻ Audio chứa nhạc nền -->
+    <audio id="bg-music" loop>
+        <source src="assets/audio/DỐC ĐỜI.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Modal Bản đồ Việt Nam -->
+    <div id="map-modal" class="custom-modal hidden">
+        <div class="custom-modal-content map-modal-content">
+            <span class="custom-close-btn map-close-btn">&times;</span>
+            <img src="assets/images/ban do vn.jpg" alt="Bản đồ Việt Nam" class="map-image">
+        </div>
+    </div>
+
+    <!-- Modal About -->
+    <div id="about-modal" class="custom-modal hidden">
+        <div class="custom-modal-content about-modal-content">
+            <span class="custom-close-btn">&times;</span>
+            <div class="about-header">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-body">
+                <p>Xin chào! Mình là <strong>Tuấn Tú</strong>, một lập trình viên đam mê khám phá và xây dựng các sản phẩm công nghệ.</p>
+                
+                <h3>Nơi từng làm việc</h3>
+                <ul class="experience-list">
+                    <li>
+                        <strong>Đang cập nhật...</strong><br>
+                        Vị trí: Đang cập nhật...
+                    </li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic; color: #a1a1aa; font-size: 0.9rem;"> ĐANG UPDATE THÔNG TIN ! </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Skill -->
+    <div id="skill-modal" class="custom-modal hidden">
+        <div class="custom-modal-content skill-modal-content">
+            <span class="custom-close-btn">&times;</span>
+            <div class="skill-header">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skill-body">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Full Stack Development</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Video Editing (Quay dựng)</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Adobe Software (Pr, Ae, Ps, Ai...)</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="expandable-text" title="Hover để xem toàn bộ">C++ / Python / Java / C# / C / Ruby / Dart / TypeScript / Kotlin / Swift / PHP / JavaScript / Rust / Go / Node.js / Django / Flask / Express.js / SQL / HTML / CSS / Tailwind / Bootstrap / React / React Native / Redux / Firebase / Git / GitHub </span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Photography (Chụp ảnh)</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Check SĐT -->
+    <div id="check-sdt-modal" class="custom-modal hidden">
+        <div class="custom-modal-content project-modal-content">
+            <span class="custom-close-btn">&times;</span>
+            <iframe src="https://phonel00kup01.vercel.app/" style="width: 100%; height: 100%; border: none; background: #fff; border-radius: 15px;"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal CV Profile -->
+    <div id="cv-modal" class="custom-modal hidden">
+        <div class="custom-modal-content project-modal-content">
+            <span class="custom-close-btn">&times;</span>
+            <iframe src="https://job.isvnu.vn/nguyen-trinh-tuan-tu-sv1559004" style="width: 100%; height: 100%; border: none; background: #fff; border-radius: 15px;"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal Project -->
+    <div id="project-modal" class="custom-modal hidden">
+        <div class="custom-modal-content project-modal-content">
+            <span class="custom-close-btn">&times;</span>
+            <iframe src="https://netgenievn.blogspot.com/" style="width: 100%; height: 100%; border: none; background: #fff; border-radius: 15px;"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

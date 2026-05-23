@@ -1,0 +1,236 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Obfuscated text injection
+    const _0x4f2a = ["Tmd1eeG7h24gVHLhu4tuaCBUdeG6pW4gVMO6", "wqkgQuG6o24gcXV54buBbiB0aHXhu5ljIHbhu4EgTmd1eeG7h24gVHLhu4tuaCBUdeG6pW4gVMO6"];
+    try {
+        const _n = document.getElementById('obf-name');
+        if(_n) _n.textContent = decodeURIComponent(escape(atob(_0x4f2a[0])));
+        const _c = document.getElementById('obf-copyright');
+        if(_c) _c.textContent = decodeURIComponent(escape(atob(_0x4f2a[1])));
+    } catch(e) {}
+
+    // 1. Quản lý Modal Bản Đồ Việt Nam
+    const mapModal = document.getElementById('map-modal');
+    const hstsBadge = document.getElementById('hsts-badge');
+    if (hstsBadge && mapModal) {
+        hstsBadge.addEventListener('click', () => {
+            mapModal.classList.remove('hidden');
+        });
+    }
+
+    // 2. Lấy thông tin IP & Quốc gia (ipwho.is)
+    fetch('https://ipwho.is/')
+        .then(res => res.json())
+        .then(data => {
+            const ipEl = document.getElementById('user-ip');
+            const countryEl = document.getElementById('user-country');
+            if(data.success) {
+                if(ipEl) ipEl.textContent = data.ip;
+                if(countryEl) countryEl.textContent = data.country;
+            } else {
+                if(ipEl) ipEl.textContent = 'Không rõ';
+                if(countryEl) countryEl.textContent = 'Không rõ';
+            }
+        })
+        .catch(() => {
+            const ipEl = document.getElementById('user-ip');
+            const countryEl = document.getElementById('user-country');
+            if(ipEl) ipEl.textContent = 'Lỗi';
+            if(countryEl) countryEl.textContent = 'Lỗi';
+        });
+
+    // 3. Cập nhật lượt truy cập hôm nay (Counter API)
+    const todayStr = new Date().toISOString().slice(0,10).replace(/-/g, '');
+    fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}/up`)
+        .then(res => res.json())
+        .then(data => {
+            const countEl = document.getElementById('visit-count');
+            if(countEl) countEl.textContent = data.count;
+            
+            // Tùy chọn: Tự động cập nhật lại mỗi 15 giây để thấy số tăng nếu có người khác vào
+            setInterval(() => {
+                fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}`)
+                    .then(r => r.json())
+                    .then(d => {
+                        if(countEl) countEl.textContent = d.count;
+                    }).catch(() => {});
+            }, 15000);
+        })
+        .catch(() => {
+            const countEl = document.getElementById('visit-count');
+            if(countEl) countEl.textContent = '---';
+        });
+
+    // 4. Quản lý màn hình Start và Nhạc nền
+    const startScreen = document.getElementById('start-screen');
+    const profileContainer = document.getElementById('profile-container');
+    const bgMusic = document.getElementById('bg-music');
+
+    // 4. Modal Popup Logic
+    const aboutBtn = document.getElementById('about-btn');
+    const aboutModal = document.getElementById('about-modal');
+    
+    if (aboutBtn && aboutModal) {
+        aboutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            aboutModal.classList.remove('hidden');
+        });
+    }
+
+    const skillBtn = document.getElementById('skill-btn');
+    const skillModal = document.getElementById('skill-modal');
+    
+    if (skillBtn && skillModal) {
+        skillBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            skillModal.classList.remove('hidden');
+        });
+    }
+
+    const cvBtn = document.getElementById('cv-btn');
+    const cvModal = document.getElementById('cv-modal');
+    
+    if (cvBtn && cvModal) {
+        cvBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            cvModal.classList.remove('hidden');
+        });
+    }
+
+    const projectBtn = document.getElementById('project-btn');
+    const projectModal = document.getElementById('project-modal');
+    
+    if (projectBtn && projectModal) {
+        projectBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            projectModal.classList.remove('hidden');
+        });
+    }
+
+    const checkSdtBtn = document.getElementById('check-sdt-btn');
+    const checkSdtModal = document.getElementById('check-sdt-modal');
+    
+    if (checkSdtBtn && checkSdtModal) {
+        checkSdtBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            checkSdtModal.classList.remove('hidden');
+        });
+    }
+
+    startScreen.addEventListener('click', () => {
+        startScreen.classList.add('fade-out');
+        profileContainer.classList.remove('hidden');
+        
+        bgMusic.volume = 0.5;
+        bgMusic.play().catch(error => {
+            console.log("Trình duyệt chặn autoplay hoặc có lỗi audio: ", error);
+        });
+    });
+
+    // 2. Hiệu ứng Canvas: Tuyết rơi mượt mà
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    let snowflakes = [];
+
+    function initCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+
+    class Snowflake {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height - height; // Bắt đầu từ trên màn hình
+            this.size = Math.random() * 3 + 1; // Kích thước hạt tuyết nhỏ
+            this.speedY = Math.random() * 1.5 + 0.5; // Tốc độ rơi xuống
+            this.speedX = (Math.random() - 0.5) * 1; // Lệch nhẹ sang ngang do gió
+            this.opacity = Math.random() * 0.6 + 0.2; // Độ mờ
+        }
+
+        update() {
+            this.y += this.speedY; // Rơi xuống
+            this.x += this.speedX + Math.sin(this.y * 0.01) * 0.5; // Bay lượn nhẹ do gió
+
+            // Reset vị trí khi bay khỏi màn hình bên dưới
+            if (this.y > height) {
+                this.y = -10;
+                this.x = Math.random() * width;
+                this.size = Math.random() * 3 + 1;
+            }
+            // Vòng lại hai bên màn hình
+            if (this.x > width) this.x = 0;
+            if (this.x < 0) this.x = width;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.shadowBlur = this.size;
+            ctx.shadowColor = "rgba(255, 255, 255, 0.8)";
+            ctx.fill();
+        }
+    }
+
+    function createSnowflakes() {
+        for (let i = 0; i < 150; i++) { // Tạo nhiều hạt tuyết
+            snowflakes.push(new Snowflake());
+        }
+    }
+
+    function animateSnowflakes() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < snowflakes.length; i++) {
+            snowflakes[i].update();
+            snowflakes[i].draw();
+        }
+        requestAnimationFrame(animateSnowflakes);
+    }
+
+    createSnowflakes();
+    animateSnowflakes();
+
+    // 3. Hiệu ứng hiện chữ "Tuấn Tú" khi click chuột
+    document.addEventListener('click', function(e) {
+        // Tránh tạo chữ nếu click vào màn hình start-screen lúc đầu hoặc click vào link
+        if (!startScreen.classList.contains('fade-out') || e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) return;
+
+        const textElement = document.createElement('div');
+        textElement.textContent = 'Tuấn Tú';
+        textElement.className = 'floating-text-effect';
+        
+        textElement.style.left = `${e.clientX}px`;
+        textElement.style.top = `${e.clientY}px`;
+        
+        document.body.appendChild(textElement);
+
+        setTimeout(() => {
+            textElement.remove();
+        }, 1500);
+    });
+
+    // Đóng modal khi nhấn nút X
+    document.querySelectorAll('.custom-close-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const modal = e.target.closest('.custom-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    });
+
+    // Đóng modal khi click ra ngoài vùng hiển thị
+    document.querySelectorAll('.custom-modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    });
+});
