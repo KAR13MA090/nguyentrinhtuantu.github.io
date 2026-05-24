@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Obfuscated text injection
     const _0x4f2a = ["Tmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6", "wqkgQuG6o24gcXV54buBbiB0aHXhu5ljIHbhu4EgTmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6"];
     try {
         const _n = document.getElementById('obf-name');
@@ -7,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const _c = document.getElementById('obf-copyright');
         if(_c) _c.textContent = decodeURIComponent(escape(atob(_0x4f2a[1])));
     } catch(e) {}
-
-    // 1. Quản lý Modal Bản Đồ Việt Nam
     const mapModal = document.getElementById('map-modal');
     const hstsBadge = document.getElementById('hsts-badge');
     if (hstsBadge && mapModal) {
@@ -16,8 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mapModal.classList.remove('hidden');
         });
     }
-
-    // 2. Lấy thông tin IP & Quốc gia (ipwho.is)
     fetch('https://ipwho.is/')
         .then(res => res.json())
         .then(data => {
@@ -45,8 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const countEl = document.getElementById('visit-count');
             if(countEl) countEl.textContent = data.count;
-            
-            // Tùy chọn: Tự động cập nhật lại mỗi 15 giây để thấy số tăng nếu có người khác vào
             setInterval(() => {
                 fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}`)
                     .then(r => r.json())
@@ -59,13 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const countEl = document.getElementById('visit-count');
             if(countEl) countEl.textContent = '---';
         });
-
-    // 4. Quản lý màn hình Start và Nhạc nền
     const startScreen = document.getElementById('start-screen');
     const profileContainer = document.getElementById('profile-container');
     const bgMusic = document.getElementById('bg-music');
-
-    // 4. Modal Popup Logic
     const aboutBtn = document.getElementById('about-btn');
     const aboutModal = document.getElementById('about-modal');
     
@@ -125,8 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Trình duyệt chặn autoplay hoặc có lỗi audio: ", error);
         });
     });
-
-    // 2. Hiệu ứng Canvas: Tuyết rơi mượt mà
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -146,24 +133,21 @@ document.addEventListener('DOMContentLoaded', () => {
     class Snowflake {
         constructor() {
             this.x = Math.random() * width;
-            this.y = Math.random() * height - height; // Bắt đầu từ trên màn hình
-            this.size = Math.random() * 3 + 1; // Kích thước hạt tuyết nhỏ
-            this.speedY = Math.random() * 1.5 + 0.5; // Tốc độ rơi xuống
-            this.speedX = (Math.random() - 0.5) * 1; // Lệch nhẹ sang ngang do gió
-            this.opacity = Math.random() * 0.6 + 0.2; // Độ mờ
+            this.y = Math.random() * height - height;
+            this.size = Math.random() * 3 + 1;
+            this.speedY = Math.random() * 1.5 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 1;
+            this.opacity = Math.random() * 0.6 + 0.2;
         }
 
         update() {
-            this.y += this.speedY; // Rơi xuống
-            this.x += this.speedX + Math.sin(this.y * 0.01) * 0.5; // Bay lượn nhẹ do gió
-
-            // Reset vị trí khi bay khỏi màn hình bên dưới
+            this.y += this.speedY;
+            this.x += this.speedX + Math.sin(this.y * 0.01) * 0.5;
             if (this.y > height) {
                 this.y = -10;
                 this.x = Math.random() * width;
                 this.size = Math.random() * 3 + 1;
             }
-            // Vòng lại hai bên màn hình
             if (this.x > width) this.x = 0;
             if (this.x < 0) this.x = width;
         }
@@ -179,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createSnowflakes() {
-        for (let i = 0; i < 150; i++) { // Tạo nhiều hạt tuyết
+        for (let i = 0; i < 150; i++) {
             snowflakes.push(new Snowflake());
         }
     }
@@ -195,10 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createSnowflakes();
     animateSnowflakes();
-
-    // 3. Hiệu ứng hiện chữ "Tuấn Tú" khi click chuột
     document.addEventListener('click', function(e) {
-        // Tránh tạo chữ nếu click vào màn hình start-screen lúc đầu hoặc click vào link
         if (!startScreen.classList.contains('fade-out') || e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) return;
 
         const textElement = document.createElement('div');
@@ -214,8 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
             textElement.remove();
         }, 1500);
     });
-
-    // Đóng modal khi nhấn nút X
     document.querySelectorAll('.custom-close-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const modal = e.target.closest('.custom-modal');
@@ -224,8 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Đóng modal khi click ra ngoài vùng hiển thị
     document.querySelectorAll('.custom-modal').forEach(modal => {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -234,58 +211,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-// ===== BẢO VỆ TRANG WEB =====
-
-// Chặn chuột phải (context menu)
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
-
-// Chặn F12, F5, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+Shift+J, Ctrl+Shift+C
 document.addEventListener('keydown', function(e) {
-    // Chặn F12
     if (e.key === 'F12' || e.keyCode === 123) {
         e.preventDefault();
         return false;
     }
-    // Chặn F5 (reload)
     if (e.key === 'F5' || e.keyCode === 116) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+R (reload)
     if (e.ctrlKey && (e.key === 'r' || e.key === 'R')) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+Shift+I (DevTools)
     if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+Shift+J (Console)
     if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+Shift+C (Inspector)
     if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+U (View Source)
     if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+S (Save)
     if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
         e.preventDefault();
         return false;
     }
-    // Chặn Ctrl+P (Print)
     if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
         e.preventDefault();
         return false;
