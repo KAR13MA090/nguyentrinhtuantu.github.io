@@ -8,7 +8,7 @@ body {
     font-family: 'Inter', sans-serif;
     color: #ffffff;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: auto; /* Cho phép cuộn dọc */
     height: 100vh;
     width: 100vw;
     position: relative;
@@ -20,6 +20,7 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Lớp phủ để làm tối ảnh nền + blur */
 .bg-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -42,6 +43,7 @@ body {
     pointer-events: none;
 }
 
+/* Màn hình Start Screen */
 #start-screen {
     position: fixed;
     top: 0;
@@ -86,6 +88,7 @@ body {
     margin-bottom: 15px;
     font-weight: 600;
     letter-spacing: 2px;
+    /* Hiệu ứng chữ chạy màu RGB */
     background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -106,6 +109,7 @@ body {
     100% { transform: scale(1); opacity: 0.8; }
 }
 
+/* Vùng chứa Profile */
 #profile-container {
     position: relative;
     z-index: 10;
@@ -130,6 +134,7 @@ body {
     position: relative;
 }
 
+/* Icon mũi tên cuộn trang */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -144,18 +149,32 @@ body {
     60% { transform: translateY(-7px); }
 }
 
-
 .name {
-    font-size: 3.5rem; 
+    font-size: 3.5rem; /* Cỡ chữ to như hình */
     font-weight: 600;
     margin-bottom: 25px;
     letter-spacing: -0.5px;
-    color: #ffffff;
+    animation: glowWhiteRed 4s ease-in-out infinite;
+}
+
+@keyframes glowWhiteRed {
+    0%, 100% {
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px rgba(255, 255, 255, 0.6),
+                     0 0 35px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        color: #ff3333;
+        text-shadow: 0 0 15px rgba(255, 51, 51, 0.9),
+                     0 0 25px rgba(255, 51, 51, 0.7),
+                     0 0 45px rgba(255, 51, 51, 0.5);
+    }
 }
 
 .bio {
     font-size: 1rem;
-    color: #cbd5e1; 
+    color: #cbd5e1; /* Màu xám nhạt */
     margin-bottom: 50px;
     font-weight: 300;
     max-width: 550px;
@@ -163,9 +182,9 @@ body {
     line-height: 1.6;
 }
 
-
+/* Nổi bật text trong đoạn văn */
 .bio a {
-    color: #93c5fd; 
+    color: #93c5fd; /* Xanh lơ nhạt */
     text-decoration: none;
     border-bottom: 1px solid #93c5fd;
     transition: color 0.3s, border-color 0.3s;
@@ -176,7 +195,7 @@ body {
     border-color: #c7d2fe;
 }
 
-
+/* Social Buttons - Hàng ngang */
 .social-links {
     display: flex;
     flex-wrap: wrap;
@@ -192,7 +211,7 @@ body {
     color: #e2e8f0;
     background: transparent;
     padding: 12px 30px;
-    border-radius: 30px; 
+    border-radius: 30px; /* Bo tròn dạng viên thuốc */
     border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.95rem;
     font-weight: 400;
@@ -204,25 +223,25 @@ body {
 }
 
 .social-btn:hover {
-    border-color: #818cf8; 
+    border-color: #818cf8; /* Đổi viền sang tím nhạt khi hover */
     color: #ffffff;
-    background: rgba(129, 140, 248, 0.05); 
-    box-shadow: 0 0 15px rgba(129, 140, 248, 0.2); 
+    background: rgba(129, 140, 248, 0.05); /* Tím rất mờ */
+    box-shadow: 0 0 15px rgba(129, 140, 248, 0.2); /* Sáng nhẹ */
     transform: translateY(-2px);
 }
 
 .social-btn i {
-    font-size: 0.8rem; 
+    font-size: 0.8rem; /* Mũi tên nhỏ */
     color: #94a3b8;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-btn:hover i {
-    transform: translateX(4px); 
+    transform: translateX(4px); /* Mũi tên dịch sang phải */
     color: #818cf8;
 }
 
-
+/* Vùng bọc Dòng chạy ngang Tech Stack */
 .tech-marquee-wrapper {
     width: 100%;
     padding: 50px 0;
@@ -234,14 +253,16 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 40px; 
+    gap: 40px; /* Khoảng cách giữa 2 hàng */
 }
 
+/* Dòng chạy ngang */
 .tech-marquee {
     display: flex;
     overflow: hidden;
     user-select: none;
     gap: 50px;
+    /* Hiệu ứng mờ dần ở 2 đầu */
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
@@ -251,9 +272,10 @@ body {
     gap: 50px;
     flex-shrink: 0;
     align-items: center;
-    animation: scrollMarquee 30s linear infinite; 
+    animation: scrollMarquee 30s linear infinite; /* Chạy chậm lại xíu cho sang */
 }
 
+/* Hàng thứ 2 chạy ngược lại */
 .tech-marquee.reverse .tech-track {
     animation-direction: reverse;
 }
@@ -275,15 +297,15 @@ body {
         transform: translateX(0);
     }
     to {
-        transform: translateX(calc(-100% - 50px)); 
+        transform: translateX(calc(-100% - 50px)); /* Độ dịch bằng đúng 1 list + gap */
     }
 }
 
-
+/* Hiệu ứng Text "Tuấn Tú" bay lên khi click chuột */
 .floating-text-effect {
     position: absolute;
     font-family: 'Dancing Script', cursive;
-    font-size: 0.8rem; 
+    font-size: 0.8rem; /* Chữ siêu nhỏ nhắn */
     color: #ffffff;
     pointer-events: none;
     z-index: 9999;
@@ -304,7 +326,7 @@ body {
     }
     20% {
         opacity: 1;
-        transform: translate(-50%, -60%) scale(1); 
+        transform: translate(-50%, -60%) scale(1); /* Không phóng to quá nhiều */
     }
     100% {
         opacity: 0;
@@ -312,6 +334,7 @@ body {
     }
 }
 
+/* Modal Check SĐT */
 .custom-modal {
     position: fixed;
     top: 0;
@@ -350,7 +373,7 @@ body {
     position: absolute;
     top: 10px;
     right: 15px;
-    color: #333; 
+    color: #333; /* Darker color for visibility on light backgrounds */
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     width: 30px;
@@ -377,7 +400,7 @@ body {
     background: #fff;
 }
 
-
+/* About Modal Styles */
 .about-modal-content {
     background: #1e1e2f;
     color: #e2e8f0;
@@ -429,6 +452,7 @@ body {
     font-size: 1.1rem;
 }
 
+/* Skill Modal Styles */
 .skill-modal-content {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
@@ -518,26 +542,206 @@ body {
     }
 }
 
+/* Video Section Styles */
 .video-section {
     width: 100%;
-    max-width: 800px;
+    max-width: 1100px; /* Tăng chiều rộng để 2 video đứng cạnh nhau thoải mái */
     margin: 50px auto 0;
     padding: 0 20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Tự động thành 2 cột trên PC, 1 cột trên Điện thoại */
+    gap: 30px; /* Khoảng cách giữa các video */
     justify-content: center;
     position: relative;
     z-index: 10;
 }
 
+.video-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.video-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.video-label i {
+    color: #ef4444; /* Màu đỏ cho chấm live */
+    font-size: 0.9rem;
+    animation: blinkLive 1.5s infinite ease-in-out;
+}
+
+@keyframes blinkLive {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1); 
+        filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.8)); 
+    }
+    50% { 
+        opacity: 0.3; 
+        transform: scale(0.9); 
+        filter: drop-shadow(0 0 1px rgba(239, 68, 68, 0.1)); 
+    }
+}
+
 .video-section video {
     width: 100%;
     border-radius: 15px;
+    aspect-ratio: 16/9; /* Đảm bảo tỷ lệ khung hình 16:9 cho truyền hình */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: #000;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.video-section video:hover {
+    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.25);
+}
 
+/* Live Channel Cards styling for VTV1 & VTV3 */
+.live-channel-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    overflow: hidden;
+    text-decoration: none;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    padding: 20px;
+    z-index: 2;
+}
+
+.live-channel-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 15px 35px rgba(129, 140, 248, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.live-channel-bg {
+    position: absolute;
+    inset: 0;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    opacity: 0.12;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.live-channel-card:hover .live-channel-bg {
+    opacity: 0.25;
+    transform: scale(1.05);
+}
+
+.vtv1-bg {
+    background-image: url('assets/images/VTV1.png');
+}
+
+.vtv3-bg {
+    background-image: url('assets/images/VTV3_logo_2013_final.svg');
+}
+
+.live-channel-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.live-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #ef4444;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: blinkLive 1.5s infinite ease-in-out;
+}
+
+.live-channel-logo {
+    margin-top: 10px;
+}
+
+.live-channel-name {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.live-channel-name strong {
+    font-weight: 700;
+    color: #ef4444;
+}
+
+.live-channel-desc {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    line-height: 1.5;
+    margin: 8px 0;
+    font-weight: 300;
+}
+
+.live-watch-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #818cf8;
+    transition: color 0.3s ease;
+}
+
+.live-channel-card:hover .live-watch-btn {
+    color: #a5b4fc;
+}
+
+.live-watch-btn i {
+    font-size: 0.75rem;
+}
+
+/* ========================
+   Shop Section
+   ======================== */
 .shop-section {
     width: 100%;
     max-width: 960px;
@@ -576,7 +780,8 @@ body {
     padding: 24px 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: default;
+    cursor: pointer;
+    text-decoration: none; /* Xóa bỏ gạch chân mặc định của thẻ a */
     position: relative;
     overflow: hidden;
 }
@@ -622,12 +827,41 @@ body {
 }
 
 .shop-card-more {
-    border: 1px dashed rgba(129, 140, 248, 0.5);
-    background: rgba(129, 140, 248, 0.05);
+    border: 1px dashed rgba(239, 68, 68, 0.6);
+    background: rgba(239, 68, 68, 0.04);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+    animation: redPulse 3s infinite alternate ease-in-out;
 }
 
 .shop-card-more h3 {
-    color: #818cf8;
+    color: #f87171 !important;
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+.shop-card-more p {
+    color: #fca5a5 !important;
+}
+
+.shop-card-more::before {
+    background: linear-gradient(90deg, #ef4444, #b91c1c) !important;
+}
+
+.shop-card-more:hover {
+    transform: translateY(-6px);
+    border-style: solid !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5), inset 0 0 10px rgba(239, 68, 68, 0.2) !important;
+}
+
+@keyframes redPulse {
+    0% {
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+        border-color: rgba(239, 68, 68, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 22px rgba(239, 68, 68, 0.35);
+        border-color: rgba(239, 68, 68, 0.8);
+    }
 }
 
 .shop-logo-img {
@@ -669,7 +903,7 @@ body {
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    animation: none; 
+    animation: none; /* Do not inherit the glow */
 }
 
 .visitor-stats .divider {
