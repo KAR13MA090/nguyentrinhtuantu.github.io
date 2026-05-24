@@ -234,3 +234,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ===== BẢO VỆ TRANG WEB =====
+
+// Chặn chuột phải (context menu)
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Chặn F12, F5, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+Shift+J, Ctrl+Shift+C
+document.addEventListener('keydown', function(e) {
+    // Chặn F12
+    if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn F5 (reload)
+    if (e.key === 'F5' || e.keyCode === 116) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+R (reload)
+    if (e.ctrlKey && (e.key === 'r' || e.key === 'R')) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+Shift+I (DevTools)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+Shift+J (Console)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+Shift+C (Inspector)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+U (View Source)
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+S (Save)
+    if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+        return false;
+    }
+    // Chặn Ctrl+P (Print)
+    if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault();
+        return false;
+    }
+});
