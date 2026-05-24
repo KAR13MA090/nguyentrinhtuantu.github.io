@@ -12,20 +12,24 @@ body {
     height: 100vh;
     width: 100vw;
     position: relative;
-    /* Trỏ đến file ảnh background cục bộ của bạn */
-    background-color: #141623;
-    background-image: url('./assets/images/703760917_860850897062901_9071861183063486525_n.jpg');
-    background-position: center 55%;
+    background-color: #0a0a0a;
+    background-image: url('assets/images/703760917_860850897062901_9071861183063486525_n.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-/* Lớp phủ để làm mờ và tối ảnh nền */
+/* Lớp phủ để làm tối ảnh nền + blur */
 .bg-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(20, 22, 35, 0.7); /* Màu xanh đen mờ */
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(5, 5, 20, 0.38) 50%,
+        rgba(0, 0, 0, 0.50) 100%
+    );
     z-index: 0;
 }
 
@@ -46,13 +50,25 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #141623;
+    background-color: #0a0a0a;
+    background-image: url('assets/images/703760917_860850897062901_9071861183063486525_n.jpg');
+    background-size: cover;
+    background-position: center center;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     cursor: pointer;
     transition: opacity 1.5s ease-out, visibility 1.5s;
+}
+
+#start-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 #start-screen.fade-out {
@@ -63,6 +79,8 @@ body {
 .start-content {
     text-align: center;
     animation: pulseStart 2s infinite;
+    position: relative;
+    z-index: 1;
 }
 
 .start-content h1 {
