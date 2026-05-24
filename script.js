@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Obfuscated text injection
-    const _0x4f2a = ["Tmd1eeG7h24gVHLhu4tuaCBUdeG6pW4gVMO6", "wqkgQuG6o24gcXV54buBbiB0aHXhu5ljIHbhu4EgTmd1eeG7h24gVHLhu4tuaCBUdeG6pW4gVMO6"];
+    const _0x4f2a = ["Tmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6", "wqkgQuG6o24gcXV54buBbiB0aHXhu5ljIHbhu4EgTmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6"];
     try {
         const _n = document.getElementById('obf-name');
         if(_n) _n.textContent = decodeURIComponent(escape(atob(_0x4f2a[0])));
