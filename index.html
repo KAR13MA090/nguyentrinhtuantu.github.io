@@ -11,6 +11,7 @@
     <link rel="icon" href="assets/images/627455463_782004324921612_3000827642054680263_n.jpg" type="image/jpeg">
 </head>
 <body>
+
     <div id="start-screen">
         <div class="start-content">
             <h1>HELLO WORLD !</h1>
@@ -24,8 +25,8 @@
             <h1 class="name">Nguyễn Trịnh Tuấn Tú</h1>
             
             <p class="bio">
-                 Code by day, ride by night — sống hết mình, không hối tiếc.<br>
-                Khám phá thêm về mình qua các liên kết <a href="#">dưới đây</a>.
+                Code by day, secure by night — Không có hệ thống nào an toàn tuyệt đối, cũng như không có giới hạn nào cho sự kiên trì.<br>
+                Khám phá thêm về mình qua các liên kết bên dưới.
             </p>
             
             <div class="social-links">
@@ -152,15 +153,51 @@
                 </div>
             </div>
         </div>
+        <!-- Video Section (Hiển thị VTV1 - Clip VNPC - VTV3 song song) -->
         <div class="video-section">
-            <video controls preload="metadata">
-                <source src="assets/video/VNPC.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ video.
-            </video>
+            <!-- VTV1 Live Card (Bên trái) -->
+            <div class="video-container">
+                <h3 class="video-label">VTV1 HD</h3>
+                <a href="https://vtvgo.vn/xem-truc-tuyen-kenh-VTV1-1.html" target="_blank" rel="noopener noreferrer" class="live-channel-card" id="vtv1-card">
+                    <div class="live-channel-bg vtv1-bg"></div>
+                    <div class="live-channel-content">
+                        <div class="live-badge"><span class="live-dot"></span> TRỰC TIẾP</div>
+                        <div class="live-channel-logo">
+                            <span class="live-channel-name">VTV<strong>1</strong></span>
+                        </div>
+                        <p class="live-channel-desc">Kênh thời sự, chính trị tổng hợp<br>của Đài Truyền hình Việt Nam</p>
+                        <div class="live-watch-btn"><i class="fa-solid fa-play"></i> Xem ngay</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Clip VNPC (Ở giữa) -->
+            <div class="video-container">
+                <h3 class="video-label"><i class="fa-solid fa-circle-play" style="color: #818cf8;"></i></h3>
+                <video controls preload="metadata" poster="assets/images/627455463_782004324921612_3000827642054680263_n.jpg">
+                    <source src="assets/video/VNPC.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- VTV3 Live Card (Bên phải) -->
+            <div class="video-container">
+                <h3 class="video-label">VTV3 HD</h3>
+                <a href="https://vtvgo.vn/xem-truc-tuyen-kenh-VTV3-3.html" target="_blank" rel="noopener noreferrer" class="live-channel-card" id="vtv3-card">
+                    <div class="live-channel-bg vtv3-bg"></div>
+                    <div class="live-channel-content">
+                        <div class="live-badge"><span class="live-dot"></span> TRỰC TIẾP</div>
+                        <div class="live-channel-logo">
+                            <span class="live-channel-name">VTV<strong>3</strong></span>
+                        </div>
+                        <p class="live-channel-desc">Kênh giải trí, thể thao hàng đầu<br>của Đài Truyền hình Việt Nam</p>
+                        <div class="live-watch-btn"><i class="fa-solid fa-play"></i> Xem ngay</div>
+                    </div>
+                </a>
+            </div>
         </div>
         <div style="height: 60px;"></div>
         <div class="shop-section">
-            <h2 class="shop-title">🛒 Sản Phẩm & Dịch Vụ</h2>
+            <h2 class="shop-title">  Sản Phẩm & Dịch Vụ</h2>
             <p class="shop-subtitle">Liên hệ qua Facebook hoặc Instagram để đặt hàng nhé!</p>
             <div class="shop-grid">
                 <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
@@ -273,9 +310,9 @@
         <div class="footer-copyright">
             <p id="obf-copyright"></p>
             <div class="visitor-stats">
-                <span>IP của Bạn: <b id="user-ip"></b></span>
+                <span>IP của Bạn: <b id="user-ip">...</b></span>
                 <span class="divider">|</span>
-                <span>Quốc gia: <b id="user-country"></b></span>
+                <span>Quốc gia: <b id="user-country">...</b></span>
                 <span class="divider">|</span>
                 <span>Lượt truy cập hôm nay: <b id="visit-count">...</b></span>
             </div>
@@ -286,7 +323,7 @@
         </div>
         <div style="height: 60px;"></div>
     </div>
-    <audio id="bg-music" loop>
+    <audio id="bg-music">
         <source src="assets/audio/DỐC ĐỜI.mp3" type="audio/mpeg">
     </audio>
     <div id="map-modal" class="custom-modal hidden">
@@ -312,8 +349,8 @@
                         <span style="font-size:0.85rem; color:#a1a1aa;">Giám sát, phân tích và phản hồi các sự cố bảo mật hệ thống</span>
                     </li>
                     <li>
-                        <strong>...</strong><br>
-                        Vị trí: Software Engineer<br>
+                        <strong>VNPT Cyber Immunity</strong><br>
+                        Vị trí: <br>
                         <span style="font-size:0.85rem; color:#a1a1aa;">Phát triển và duy trì các ứng dụng phần mềm nội bộ</span>
                     </li>
                 </ul>
@@ -397,6 +434,8 @@
             <iframe src="https://netgenievn.blogspot.com/" style="width: 100%; height: 100%; border: none; background: #fff; border-radius: 15px;"></iframe>
         </div>
     </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
