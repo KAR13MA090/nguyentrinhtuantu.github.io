@@ -443,8 +443,15 @@ document.addEventListener('DOMContentLoaded', () => {
         "assets/audio/Cỏ Dại Và Hoa Dành Dành.mp3",
         "assets/audio/DỐC ĐỜI.mp3",
         "assets/audio/HÀNH LÝ TRÊN TAY.mp3",
+        "assets/audio/Hẹn Lần Sau.mp3",
+        "assets/audio/NGÔ LAN HƯƠNG - Về Đi Thôi.mp3",
+        "assets/audio/Nhạc 8x đến đầu 9x.mp3",
         "assets/audio/SAU NÀY EM CƯỚI AI RỒI.mp3",
-        "assets/audio/VIỆT NAM TÔ.mp3"
+        "assets/audio/TRỘM VÍA.mp3",
+        "assets/audio/VIỆT NAM TÔI.mp3",
+        "assets/audio/Xuân Thì.mp3",
+        "assets/audio/Đó chỉ là thành phố của anh.mp3",
+        "assets/audio/Đập vỡ cây đàn.mp3"
     ];
 
     let currentPlaylist = [];
