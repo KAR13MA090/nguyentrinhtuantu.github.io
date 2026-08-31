@@ -1020,6 +1020,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (profileContainer) {
                 profileContainer.classList.remove('hidden');
             }
+            // Hiện Floating Music Player khi vào trang
+            const fmpWidget = document.getElementById('floating-music-player');
+            if (fmpWidget) {
+                fmpWidget.classList.remove('hidden');
+            }
         }
     }
 
