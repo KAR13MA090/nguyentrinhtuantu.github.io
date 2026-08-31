@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuấn Tú - Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2.2">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
@@ -30,12 +30,12 @@
     <div id="profile-container" class="hidden">
         <div id="holiday-top-banner" class="holiday-banner hidden">
             <div class="holiday-banner-content">
-                <div class="holiday-flag-icon">🇻🇳</div>
+                <div class="holiday-flag-icon"><i class="fa-solid fa-star"></i></div>
                 <div class="holiday-text-wrap">
                     <span class="holiday-title">CHÀO MỪNG QUỐC KHÁNH 2/9 NƯỚC CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
                     <span class="holiday-desc">Tự hào non sông gấm vóc • Đoàn kết - Độc lập - Tự do - Hạnh phúc</span>
                 </div>
-                <div class="holiday-flag-icon">🇻🇳</div>
+                <div class="holiday-flag-icon"><i class="fa-solid fa-star"></i></div>
             </div>
         </div>
         <div class="hero-section">
@@ -556,7 +556,7 @@
     </div>
 
     <!-- Floating Music Player Widget -->
-    <div id="floating-music-player" class="floating-music-player">
+    <div id="floating-music-player" class="floating-music-player hidden">
         <div class="fmp-disc-wrap" id="fmp-disc-toggle" title="Mở danh sách bài hát">
             <div class="fmp-disc" id="fmp-disc">
                 <div class="fmp-disc-center">
@@ -569,10 +569,10 @@
         </div>
         <div class="fmp-info" id="fmp-info-area">
             <div class="fmp-title-row">
-                <span class="fmp-badge" id="fmp-badge">🎵 Chill</span>
-                <span class="fmp-song-title" id="fmp-song-title">Đang tải nhạc...</span>
+                <span class="fmp-badge patriotic" id="fmp-badge">🇻🇳 Yêu Nước</span>
+                <span class="fmp-song-title" id="fmp-song-title">VIỆT NAM TÔI</span>
             </div>
-            <div class="fmp-artist" id="fmp-artist">Tuấn Tú Playlist</div>
+            <div class="fmp-artist" id="fmp-artist">Jack ft. K-ICM & Chấn Quốc</div>
         </div>
         <div class="fmp-controls">
             <button class="fmp-btn" id="fmp-prev-btn" title="Bài trước (Prev)">
@@ -585,7 +585,7 @@
                 <i class="fa-solid fa-forward-step"></i>
             </button>
             <button class="fmp-btn fmp-mode-btn" id="fmp-mode-btn" title="Chuyển chế độ: Nhạc Thường / Yêu Nước">
-                <span id="fmp-mode-icon">🇻🇳</span>
+                <span id="fmp-mode-icon"><i class="fa-solid fa-flag" style="color:#ffd700;"></i></span>
             </button>
             <button class="fmp-btn fmp-list-btn" id="fmp-list-btn" title="Danh sách bài hát">
                 <i class="fa-solid fa-bars-staggered"></i>
