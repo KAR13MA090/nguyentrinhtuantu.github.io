@@ -4,8 +4,14 @@
     box-sizing: border-box;
 }
 
+:root{
+    --font-family: 'Inter', sans-serif;
+    --name-font-size: 3.5rem;
+    --bg-size: cover;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     color: #ffffff;
     overflow-x: hidden;
     overflow-y: auto; /* Cho phép cuộn dọc */
@@ -14,7 +20,7 @@ body {
     position: relative;
     background-color: #0a0a0a;
     background-image: url('assets/images/703760917_860850897062901_9071861183063486525_n.jpg');
-    background-size: cover;
+    background-size: var(--bg-size);
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -192,7 +198,7 @@ body {
 }
 
 .name {
-    font-size: 3.5rem; /* Cỡ chữ to như hình */
+    font-size: var(--name-font-size); /* Cỡ chữ to như hình */
     font-weight: 600;
     margin-bottom: 25px;
     letter-spacing: -0.5px;
@@ -978,6 +984,350 @@ body {
     animation: badgeGlow 2s ease-in-out infinite alternate;
 }
 
+.admin-link-btn {
+    border-color: rgba(56, 189, 248, 0.45);
+    color: #7dd3fc;
+}
+
+.admin-link-btn:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.08);
+}
+
+.admin-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #020617 0%, #0b1220 55%, #111827 100%);
+    color: #e5e7eb;
+    padding: 30px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.admin-login-overlay,
+.admin-dashboard {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.admin-login-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.admin-login-card {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(96, 165, 250, 0.18);
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, 0.65);
+    text-align: center;
+}
+
+.admin-login-card h1 {
+    margin-bottom: 18px;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+}
+
+.admin-login-card p {
+    color: #cbd5e1;
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.admin-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+}
+
+.admin-alert-info {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #bae6fd;
+}
+
+.admin-cta-button,
+.admin-primary-button,
+.admin-secondary-button {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.admin-cta-button,
+.admin-primary-button {
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: white;
+    box-shadow: 0 14px 30px rgba(56, 189, 248, 0.18);
+    margin-bottom: 18px;
+}
+
+.admin-secondary-button {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.admin-cta-button:hover,
+.admin-primary-button:hover,
+.admin-secondary-button:hover {
+    transform: translateY(-1px);
+}
+
+.admin-login-card label {
+    display: block;
+    text-align: left;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+.admin-login-card input,
+.admin-card textarea {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    padding: 14px 16px;
+    background: rgba(15, 23, 42, 0.95);
+    color: #e5e7eb;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.admin-login-error,
+.admin-status-msg {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #fecaca;
+    text-align: left;
+}
+
+.admin-status-msg.success {
+    color: #a7f3d0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.admin-dashboard {
+    padding-bottom: 60px;
+}
+
+.admin-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+}
+
+.admin-header p {
+    margin: 8px 0 0;
+    color: #cbd5e1;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+.admin-card {
+    grid-column: span 12;
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+}
+
+.admin-card-half {
+    grid-column: span 6;
+}
+
+.admin-card-full {
+    grid-column: span 12;
+}
+
+.admin-section-desc {
+    margin: 10px 0 18px;
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+.admin-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.admin-card textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.admin-table-wrapper {
+    overflow-x: auto;
+}
+
+#admin-visitor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+#admin-visitor-table th,
+#admin-visitor-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    font-size: 0.95rem;
+}
+
+#admin-visitor-table th {
+    color: #93c5fd;
+    text-align: left;
+    font-weight: 600;
+}
+
+.admin-table-empty {
+    padding: 28px 12px;
+    color: #94a3b8;
+    text-align: center;
+}
+
+.admin-log-panel {
+    display: grid;
+    gap: 12px;
+    max-height: 380px;
+    overflow-y: auto;
+}
+
+.admin-log-entry {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.admin-log-time {
+    display: block;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+
+.admin-log-text {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.admin-bot-help ul {
+    display: grid;
+    gap: 10px;
+    padding-left: 18px;
+    color: #cbd5e1;
+}
+
+.admin-bot-help li {
+    line-height: 1.75;
+}
+
+.admin-bot-help code {
+    background: rgba(148, 163, 184, 0.12);
+    color: #fff;
+    border-radius: 8px;
+    padding: 2px 8px;
+}
+
+.admin-popup-notice {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99999;
+    max-width: 360px;
+    width: calc(100% - 40px);
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    animation: adminPopupIn 0.35s ease-out;
+}
+
+.admin-popup-inner {
+    padding: 20px 22px;
+}
+
+.admin-popup-title {
+    color: #38bdf8;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.admin-popup-body {
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    white-space: pre-wrap;
+}
+
+.admin-popup-close {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    color: #e2e8f0;
+    border-radius: 14px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.admin-popup-close:hover {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+@keyframes adminPopupIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 980px) {
+    .admin-card-half {
+        grid-column: span 12;
+    }
+}
+
 .map-modal-content {
     background: transparent !important;
     box-shadow: none !important;
@@ -1612,5 +1962,815 @@ body {
     margin-top: 1px;
     flex-shrink: 0;
 }
+
+/* ===================================================
+   HOLIDAY & PATRIOTIC THEME (QUỐC KHÁNH 2/9 & LỄ LỚN)
+   =================================================== */
+
+/* Banner Chào Mừng Ngày Lễ */
+.holiday-banner {
+    width: 100%;
+    background: linear-gradient(90deg, #7f1d1d, #b91c1c, #dc2626, #ef4444, #b91c1c, #7f1d1d);
+    background-size: 300% 100%;
+    animation: bannerGradientFlow 6s ease infinite;
+    border-bottom: 2px solid #ffd700;
+    box-shadow: 0 4px 25px rgba(220, 38, 38, 0.45), 0 0 20px rgba(255, 215, 0, 0.35);
+    padding: 10px 20px;
+    position: relative;
+    z-index: 50;
+    text-align: center;
+}
+
+.holiday-banner.hidden {
+    display: none !important;
+}
+
+.holiday-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.holiday-flag-icon {
+    font-size: 1.5rem;
+    animation: flagWave 2s ease-in-out infinite alternate;
+}
+
+.holiday-text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.holiday-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.holiday-desc {
+    font-size: 0.78rem;
+    color: #fef08a;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+@keyframes bannerGradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes flagWave {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.15) rotate(5deg); }
+    100% { transform: scale(1) rotate(-5deg); }
+}
+
+/* Start Screen Holiday Elements - Tinh tế, sang trọng, thiết kế chuyên nghiệp */
+.start-holiday-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(130, 16, 22, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 215, 0, 0.45);
+    color: #ffffff;
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 18px rgba(0, 0, 0, 0.5), 0 0 15px rgba(220, 38, 38, 0.25);
+    animation: subtleHolidayGlow 3s ease-in-out infinite alternate;
+}
+
+.start-holiday-badge.hidden {
+    display: none !important;
+}
+
+.start-holiday-badge .star-icon {
+    color: #ffd700;
+    font-size: 0.85rem;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
+    display: inline-block;
+}
+
+@keyframes subtleHolidayGlow {
+    0% {
+        border-color: rgba(255, 215, 0, 0.35);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(220, 38, 38, 0.2);
+    }
+    100% {
+        border-color: rgba(255, 215, 0, 0.65);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(220, 38, 38, 0.35);
+    }
+}
+
+/* Định dạng Tiêu Đề Ngày Lễ: TỰ HÀO màu trắng, VIỆT NAM màu vàng đỏ */
+body.patriotic-theme .start-content h1 {
+    background: none;
+    -webkit-text-fill-color: initial;
+    animation: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.title-tu-hao {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.25);
+    display: inline-block;
+}
+
+.title-viet-nam {
+    background: linear-gradient(135deg, #ffd700 0%, #ff3b3b 50%, #ffd700 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    letter-spacing: 3px;
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.75)) drop-shadow(0 0 25px rgba(220, 38, 38, 0.6));
+    animation: goldRedShimmer 4s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes goldRedShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes spinStar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Lớp phủ & Màu sắc khi ở Patriotic Theme */
+body.patriotic-theme .bg-overlay {
+    background: radial-gradient(
+        circle at 50% 25%,
+        rgba(150, 20, 20, 0.32) 0%,
+        rgba(35, 8, 12, 0.5) 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+body.patriotic-theme .name {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+body.patriotic-theme .social-btn {
+    border-color: rgba(255, 215, 0, 0.22);
+}
+
+body.patriotic-theme .social-btn:hover {
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.35), 0 0 10px rgba(255, 215, 0, 0.25);
+}
+
+body.patriotic-theme .hsts-badge {
+    border-color: rgba(255, 215, 0, 0.7);
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.35), rgba(185, 28, 28, 0.25));
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.3);
+    animation: patrioticGlow 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes patrioticGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 35px rgba(239, 68, 68, 0.7), inset 0 0 20px rgba(255, 215, 0, 0.45);
+    }
+}
+
+/* ===================================================
+   FLOATING MUSIC PLAYER WIDGET
+   =================================================== */
+
+.floating-music-player {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 990;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 60px;
+    padding: 8px 16px 8px 10px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(124, 58, 237, 0.2);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s, border-color 0.3s;
+    max-width: 440px;
+}
+
+body.patriotic-theme .floating-music-player {
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(220, 38, 38, 0.35), 0 0 10px rgba(255, 215, 0, 0.25);
+    background: rgba(25, 10, 15, 0.9);
+}
+
+.floating-music-player:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(124, 58, 237, 0.35);
+}
+
+/* Đĩa Vinyl Mini */
+.fmp-disc-wrap {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.fmp-disc {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2a2a30 0%, #111116 50%, #000000 100%);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s;
+}
+
+.fmp-disc.spinning {
+    animation: spinDisc 3.5s linear infinite;
+}
+
+.fmp-disc-center {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.55rem;
+    color: #fff;
+}
+
+body.patriotic-theme .fmp-disc-center {
+    background: linear-gradient(135deg, #dc2626, #ffd700);
+}
+
+@keyframes spinDisc {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Equalizer Bars */
+.fmp-equalizer {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 14px;
+    padding: 2px 3px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+}
+
+.fmp-equalizer span {
+    width: 2.5px;
+    height: 3px;
+    background: #a78bfa;
+    border-radius: 1px;
+    transition: height 0.2s;
+}
+
+body.patriotic-theme .fmp-equalizer span {
+    background: #ffd700;
+}
+
+.fmp-equalizer.active span:nth-child(1) { animation: eqBar 0.6s infinite ease-in-out 0.1s alternate; }
+.fmp-equalizer.active span:nth-child(2) { animation: eqBar 0.8s infinite ease-in-out 0.3s alternate; }
+.fmp-equalizer.active span:nth-child(3) { animation: eqBar 0.5s infinite ease-in-out 0.2s alternate; }
+.fmp-equalizer.active span:nth-child(4) { animation: eqBar 0.7s infinite ease-in-out 0.4s alternate; }
+
+@keyframes eqBar {
+    0% { height: 3px; }
+    100% { height: 12px; }
+}
+
+/* Thông tin bài hát */
+.fmp-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 130px;
+    max-width: 170px;
+    cursor: pointer;
+}
+
+.fmp-title-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.fmp-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background: rgba(124, 58, 237, 0.25);
+    color: #c4b5fd;
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    white-space: nowrap;
+}
+
+.fmp-badge.patriotic {
+    background: rgba(220, 38, 38, 0.3);
+    color: #ffd700;
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.fmp-song-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.fmp-artist {
+    font-size: 0.72rem;
+    color: #a1a1aa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Nút điều khiển */
+.fmp-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fmp-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e4e4e7;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.fmp-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.fmp-play-btn {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+}
+
+body.patriotic-theme .fmp-play-btn {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+}
+
+.fmp-play-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    transform: scale(1.1);
+}
+
+body.patriotic-theme .fmp-play-btn:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.fmp-mode-btn {
+    background: rgba(255, 215, 0, 0.12);
+    border-color: rgba(255, 215, 0, 0.3);
+    font-size: 0.85rem;
+}
+
+.fmp-mode-btn:hover {
+    background: rgba(255, 215, 0, 0.25);
+    border-color: rgba(255, 215, 0, 0.6);
+}
+
+/* ===================================================
+   PLAYLIST MODAL STYLING
+   =================================================== */
+
+.playlist-modal-content {
+    max-width: 580px;
+    width: 92%;
+    background: rgba(18, 18, 26, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 85vh;
+}
+
+body.patriotic-theme .playlist-modal-content {
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(220, 38, 38, 0.25);
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.playlist-header-icon {
+    font-size: 1.8rem;
+    color: #a78bfa;
+}
+
+body.patriotic-theme .playlist-header-icon {
+    color: #ffd700;
+}
+
+.playlist-title-wrap h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.playlist-subtitle {
+    font-size: 0.8rem;
+    color: #a1a1aa;
+    margin-top: 2px;
+}
+
+.playlist-tabs {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.playlist-tab-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: #a1a1aa;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.playlist-tab-btn.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#tab-holiday-btn.active {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.8), rgba(185, 28, 28, 0.8));
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+#tab-regular-btn.active {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), rgba(79, 70, 229, 0.8));
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+/* Playlist Scrollable Items Body */
+.playlist-body {
+    overflow-y: auto;
+    max-height: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 4px;
+}
+
+.playlist-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.playlist-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.playlist-item:hover {
+    background: rgba(255, 255, 255, 0.09);
+    transform: translateX(3px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.playlist-item.playing {
+    background: rgba(124, 58, 237, 0.18);
+    border-color: rgba(124, 58, 237, 0.45);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.15);
+}
+
+body.patriotic-theme .playlist-item.playing,
+.playlist-item.playing.patriotic {
+    background: rgba(220, 38, 38, 0.2);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.25);
+}
+
+.pi-index {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #71717a;
+    width: 20px;
+    text-align: center;
+}
+
+.playlist-item.playing .pi-index {
+    color: #a78bfa;
+}
+
+body.patriotic-theme .playlist-item.playing .pi-index,
+.playlist-item.playing.patriotic .pi-index {
+    color: #ffd700;
+}
+
+.pi-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.pi-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e4e4e7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playlist-item.playing .pi-title {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.pi-artist {
+    font-size: 0.75rem;
+    color: #a1a1aa;
+}
+
+.pi-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #d4d4d8;
+    white-space: nowrap;
+}
+
+.pi-badge.patriotic {
+    background: rgba(220, 38, 38, 0.25);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+.pi-play-btn {
+    color: #a1a1aa;
+    font-size: 0.85rem;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.playlist-item:hover .pi-play-btn {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.playlist-item.playing .pi-play-btn {
+    color: #ffd700;
+}
+
+/* Modal Footer & Mode Switch */
+.playlist-footer-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 12px;
+}
+
+.fmp-mode-switch-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mode-switch-label {
+    font-size: 0.78rem;
+    color: #a1a1aa;
+    font-weight: 600;
+}
+
+.mode-switch-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.mode-opt-btn {
+    padding: 8px 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #d4d4d8;
+    font-size: 0.74rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.mode-opt-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.mode-opt-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+#mode-opt-auto.active {
+    background: linear-gradient(135deg, #059669, #10b981);
+    border-color: #34d399;
+}
+
+#mode-opt-patriotic.active {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    border-color: #ffd700;
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.5);
+}
+
+#mode-opt-regular.active {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border-color: #a78bfa;
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
+}
+
+/* ===================================================
+   FLOATING TEXT EFFECT (CLICK CHUỘT)
+   =================================================== */
+
+.floating-text-effect {
+    position: fixed;
+    pointer-events: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(124, 58, 237, 0.8), 0 2px 4px rgba(0,0,0,0.8);
+    transform: translate(-50%, -50%);
+    animation: floatUpFade 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+.floating-text-effect.patriotic {
+    color: #ffd700;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(239, 68, 68, 0.9), 0 0 6px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0,0,0,0.9);
+}
+
+@keyframes floatUpFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    40% {
+        transform: translate(-50%, -85px) scale(1.15);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -140px) scale(1);
+    }
+}
+
+/* ===================================================
+   RESPONSIVE CHO MOBILE
+   =================================================== */
+
+@media (max-width: 768px) {
+    .floating-music-player {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: unset;
+        justify-content: space-between;
+        padding: 6px 12px 6px 8px;
+    }
+
+    .fmp-info {
+        max-width: 140px;
+        min-width: 100px;
+    }
+
+    .holiday-banner {
+        padding: 8px 12px;
+    }
+
+    .holiday-title {
+        font-size: 0.8rem;
+    }
+
+    .holiday-desc {
+        font-size: 0.7rem;
+    }
+
+    .playlist-modal-content {
+        padding: 18px 16px;
+        width: 95%;
+    }
+
+    .mode-switch-options {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
