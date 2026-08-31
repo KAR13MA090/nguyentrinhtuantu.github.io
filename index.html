@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuấn Tú - Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="icon" href="assets/images/627455463_782004324921612_3000827642054680263_n.jpg" type="image/jpeg">
 </head>
+
 <body>
 
     <div id="start-screen">
         <div class="start-content">
-            <h1>HELLO WORLD !</h1>
-            <p>Chạm vào màn hình để bắt đầu</p>
+            <div class="start-holiday-badge hidden" id="start-holiday-badge">
+                <span class="star-icon">★</span> <span>CHÀO MỪNG QUỐC KHÁNH 2/9</span> <span class="star-icon">★</span>
+            </div>
+            <h1 id="start-title">HELLO WORLD !</h1>
+            <p id="start-subtitle">Chạm vào màn hình để bắt đầu</p>
         </div>
     </div>
     <div class="bg-overlay"></div>
     <canvas id="canvas"></canvas>
     <div id="profile-container" class="hidden">
+        <div id="holiday-top-banner" class="holiday-banner hidden">
+            <div class="holiday-banner-content">
+                <div class="holiday-flag-icon">🇻🇳</div>
+                <div class="holiday-text-wrap">
+                    <span class="holiday-title">CHÀO MỪNG QUỐC KHÁNH 2/9 NƯỚC CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+                    <span class="holiday-desc">Tự hào non sông gấm vóc • Đoàn kết - Độc lập - Tự do - Hạnh phúc</span>
+                </div>
+                <div class="holiday-flag-icon">🇻🇳</div>
+            </div>
+        </div>
         <div class="hero-section">
             <div class="weather-datetime-header" id="weather-datetime">Hà Nội - Đang tải...</div>
             <h1 class="name">Nguyễn Trịnh Tuấn Tú</h1>
-            
+
             <p class="bio">
                 Không có hệ thống nào an toàn tuyệt đối, cũng như không có giới hạn nào cho sự kiên trì.<br>
                 Khám phá thêm về mình qua các liên kết bên dưới.
             </p>
-            
+
             <div class="social-links">
                 <a href="javascript:void(0)" id="about-btn" class="social-btn">
                     <span>About</span>
@@ -55,19 +72,23 @@
                     <span>Check Host</span>
                     <i class="fa-solid fa-server"></i>
                 </a>
-                <a href="https://zone-xsec.com/archive/team/Anonymous_VNPC" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <a href="https://zone-xsec.com/archive/team/Anonymous_VNPC" target="_blank" rel="noopener noreferrer"
+                    class="social-btn">
                     <span>Zone-Xsec</span>
                     <i class="fa-solid fa-shield-halved"></i>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="social-btn">
                     <span>Facebook</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="https://www.instagram.com/im_not_rich.n/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <a href="https://www.instagram.com/im_not_rich.n/" target="_blank" rel="noopener noreferrer"
+                    class="social-btn">
                     <span>Instagram</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="https://www.tiktok.com/@gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <a href="https://www.tiktok.com/@gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer"
+                    class="social-btn">
                     <span>TikTok</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
@@ -75,13 +96,18 @@
                     <span>Github</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="https://www.youtube.com/channel/UCHNcZM5vBN2dOoXmza-e6LA" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <a href="https://www.youtube.com/channel/UCHNcZM5vBN2dOoXmza-e6LA" target="_blank"
+                    rel="noopener noreferrer" class="social-btn">
                     <span>YouTube</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="https://t.me/gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <span>Telegram</span>
                     <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="admin.html" target="_blank" rel="noopener noreferrer" class="social-btn admin-link-btn">
+                    <span>TUAN TU</span>
+                    <i class="fa-solid fa-user-shield"></i>
                 </a>
             </div>
             <div class="scroll-indicator">
@@ -161,34 +187,40 @@
         <div class="video-section">
             <div class="video-container">
                 <h3 class="video-label">VTV1 HD</h3>
-                <a href="https://vtvgo.vn/xem-truc-tuyen-kenh-VTV1-1.html" target="_blank" rel="noopener noreferrer" class="live-channel-card" id="vtv1-card">
+                <a href="https://vtvgo.vn/xem-truc-tuyen-kenh-VTV1-1.html" target="_blank" rel="noopener noreferrer"
+                    class="live-channel-card" id="vtv1-card">
                     <div class="live-channel-bg vtv1-bg"></div>
                     <div class="live-channel-content">
                         <div class="live-badge"><span class="live-dot"></span> TRỰC TIẾP</div>
                         <div class="live-channel-logo">
                             <span class="live-channel-name">VTV<strong>1</strong></span>
                         </div>
-                        <p class="live-channel-desc">Kênh thời sự, chính trị tổng hợp<br>của Đài Truyền hình Việt Nam</p>
+                        <p class="live-channel-desc">Kênh thời sự, chính trị tổng hợp<br>của Đài Truyền hình Việt Nam
+                        </p>
                         <div class="live-watch-btn"><i class="fa-solid fa-play"></i> Xem ngay</div>
                     </div>
                 </a>
             </div>
             <div class="video-container">
-                <h3 class="video-label"><i class="fa-solid fa-circle-play" style="color: #ff0000;"></i>Clip Tiêu Biểu Ngày Ấy</h3>
-                <video controls preload="metadata" poster="assets/images/627455463_782004324921612_3000827642054680263_n.jpg">
+                <h3 class="video-label"><i class="fa-solid fa-circle-play" style="color: #ff0000;"></i>Clip Tiêu Biểu
+                    Ngày Ấy</h3>
+                <video controls preload="metadata"
+                    poster="assets/images/627455463_782004324921612_3000827642054680263_n.jpg">
                     <source src="assets/video/VNPC.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="video-container">
                 <h3 class="video-label">VTV3 HD</h3>
-                <a href="https://vtvgo.vn/xem-truc-tuyen-kenh-VTV3-3.html" target="_blank" rel="noopener noreferrer" class="live-channel-card" id="vtv3-card">
+                <a href="https://vtvgo.vn/xem-truc-tuyen-kenh-VTV3-3.html" target="_blank" rel="noopener noreferrer"
+                    class="live-channel-card" id="vtv3-card">
                     <div class="live-channel-bg vtv3-bg"></div>
                     <div class="live-channel-content">
                         <div class="live-badge"><span class="live-dot"></span> TRỰC TIẾP</div>
                         <div class="live-channel-logo">
                             <span class="live-channel-name">VTV<strong>3</strong></span>
                         </div>
-                        <p class="live-channel-desc">Kênh giải trí, thể thao hàng đầu<br>của Đài Truyền hình Việt Nam</p>
+                        <p class="live-channel-desc">Kênh giải trí, thể thao hàng đầu<br>của Đài Truyền hình Việt Nam
+                        </p>
                         <div class="live-watch-btn"><i class="fa-solid fa-play"></i> Xem ngay</div>
                     </div>
                 </a>
@@ -196,108 +228,123 @@
         </div>
         <div style="height: 60px;"></div>
         <div class="shop-section">
-            <h2 class="shop-title">  Sản Phẩm & Dịch Vụ</h2>
+            <h2 class="shop-title"> Sản Phẩm & Dịch Vụ</h2>
             <p class="shop-subtitle">Liên hệ qua Facebook hoặc Instagram để đặt hàng nhé!</p>
             <div class="shop-grid">
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/esim-post-cover.png" alt="Esim" class="shop-logo-img">
                     </div>
                     <h3>Esim Du Lịch</h3>
                     <p>eSIM quốc tế tiện lợi cho mọi chuyến đi</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/vietmap.png" alt="VIETMAP" class="shop-logo-img">
                     </div>
                     <h3>VIETMAP Live Pro 2 Năm</h3>
                     <p>Bản đồ dẫn đường thông minh, cập nhật liên tục</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/vietmap.png" alt="VIETMAP" class="shop-logo-img">
                     </div>
                     <h3>VIETMAP Live Pro 1 Năm</h3>
                     <p>Bản đồ dẫn đường thông minh, cập nhật liên tục</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/icallme_long_logo.jpg" alt="iCallme" class="shop-logo-img">
                     </div>
                     <h3>iCallme Premium Vĩnh Viễn</h3>
                     <p>Ứng dụng gọi điện premium trọn đời</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/bitdefender.png" alt="Bitdefender" class="shop-logo-img">
                     </div>
                     <h3>Bitdefender Premium VPN</h3>
                     <p>VPN bảo mật cao cấp, ẩn danh tuyệt đối</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/bitdefender.png" alt="Bitdefender" class="shop-logo-img">
                     </div>
                     <h3>Bitdefender Total Security</h3>
                     <p>Bảo vệ toàn diện mọi thiết bị của bạn</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/Kaspersky.png" alt="Kaspersky" class="shop-logo-img">
                     </div>
                     <h3>Kaspersky Standard</h3>
                     <p>Diệt virus hàng đầu thế giới từ Kaspersky</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/win logo.jpg" alt="Microsoft" class="shop-logo-img">
                     </div>
                     <h3>Cài Windows Bản Quyền</h3>
                     <p>Nhận cài đặt Windows chính hãng, kích hoạt vĩnh viễn</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/adobe.png" alt="Adobe" class="shop-logo-img">
                     </div>
                     <h3>Adobe Full App</h3>
                     <p>Toàn bộ ứng dụng Adobe: Pr, Ae, Ps, Ai và nhiều hơn nữa</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/steam logo.webp" alt="Steam" class="shop-logo-img">
                     </div>
                     <h3>Steam Wallet Code</h3>
                     <p>Nạp tiền Steam nhanh chóng, giá tốt</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/steam logo.webp" alt="Steam" class="shop-logo-img">
                     </div>
                     <h3>Tài Khoản Game Steam</h3>
                     <p>Tài khoản Steam với nhiều game giá trị</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/steam logo.webp" alt="Steam" class="shop-logo-img">
                     </div>
                     <h3>Tài Khoản Clone Steam</h3>
                     <p>Clone Steam chơi game ổn định, chất lượng</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/exit logo.png" alt="ExitLag" class="shop-logo-img">
                     </div>
                     <h3>ExitLag</h3>
                     <p>Giảm ping, tối ưu kết nối cho game thủ</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card">
                     <div class="shop-icon">
                         <img src="assets/images/netflix.jpg" alt="Netflix" class="shop-logo-img">
                     </div>
                     <h3>Netflix</h3>
                     <p>Tài khoản Netflix xem phim không giới hạn</p>
                 </a>
-                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer" class="shop-card shop-card-more">
+                <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                    class="shop-card shop-card-more">
                     <div class="shop-icon">
                         <i class="fa-brands fa-facebook" style="font-size:2.4rem; color:#1877f2;"></i>
                     </div>
@@ -338,19 +385,22 @@
                 <h2>About Me</h2>
             </div>
             <div class="about-body">
-                <p>Xin chào! Mình là <strong>Tuấn Tú</strong>, một lập trình viên & Là Thành Viên Kì Cựu Của Anonymous_VNPC và nhieu Nhóm Khác và đam mê khám phá và xây dựng các sản phẩm công nghệ.</p>
-                
+                <p>Xin chào! Mình là <strong>Tuấn Tú</strong>, một lập trình viên & Là Thành Viên Kì Cựu Của
+                    Anonymous_VNPC và nhieu Nhóm Khác và đam mê khám phá và xây dựng các sản phẩm công nghệ.</p>
+
                 <h3>Nơi từng làm việc</h3>
                 <ul class="experience-list">
                     <li>
                         <strong>VNPT</strong><br>
                         Vị trí: Security Operations Center (SOC)<br>
-                        <span style="font-size:0.85rem; color:#a1a1aa;">Giám sát, phân tích và phản hồi các sự cố bảo mật hệ thống</span>
+                        <span style="font-size:0.85rem; color:#a1a1aa;">Giám sát, phân tích và phản hồi các sự cố bảo
+                            mật hệ thống</span>
                     </li>
                     <li>
                         <strong>VNPT Cyber Immunity</strong><br>
                         Vị trí: <br>
-                        <span style="font-size:0.85rem; color:#a1a1aa;">Phát triển và duy trì các ứng dụng phần mềm nội bộ</span>
+                        <span style="font-size:0.85rem; color:#a1a1aa;">Phát triển và duy trì các ứng dụng phần mềm nội
+                            bộ</span>
                     </li>
                 </ul>
             </div>
@@ -372,7 +422,7 @@
                         <div class="skill-progress" style="width: 95%;"></div>
                     </div>
                 </div>
-                
+
                 <div class="skill-item">
                     <div class="skill-info">
                         <span>Video Editing (Quay dựng)</span>
@@ -392,10 +442,13 @@
                         <div class="skill-progress" style="width: 95%;"></div>
                     </div>
                 </div>
-                
+
                 <div class="skill-item">
                     <div class="skill-info">
-                        <span class="expandable-text" title="Hover để xem toàn bộ">C++ / Python / Java / C# / C / Ruby / Dart / TypeScript / Kotlin / Swift / PHP / JavaScript / Rust / Go / Node.js / Django / Flask / Express.js / SQL / HTML / CSS / Tailwind / Bootstrap / React / React Native / Redux / Firebase / Git / GitHub </span>
+                        <span class="expandable-text" title="Hover để xem toàn bộ">C++ / Python / Java / C# / C / Ruby /
+                            Dart / TypeScript / Kotlin / Swift / PHP / JavaScript / Rust / Go / Node.js / Django / Flask
+                            / Express.js / SQL / HTML / CSS / Tailwind / Bootstrap / React / React Native / Redux /
+                            Firebase / Git / GitHub </span>
                         <span>75%</span>
                     </div>
                     <div class="skill-bar">
@@ -423,7 +476,8 @@
                 <p class="sdt-subtitle">Tra cứu nhà mạng & thông tin đầu số điện thoại</p>
             </div>
             <div class="sdt-input-row">
-                <input type="tel" id="sdt-input" class="sdt-input" placeholder="Nhập số điện thoại (vd: 0912345678)" maxlength="15" />
+                <input type="tel" id="sdt-input" class="sdt-input" placeholder="Nhập số điện thoại (vd: 0912345678)"
+                    maxlength="15" />
                 <button id="sdt-check-btn" class="sdt-check-btn">
                     <i class="fa-solid fa-search"></i> Tra cứu
                 </button>
@@ -443,21 +497,23 @@
     <div id="cv-modal" class="custom-modal hidden">
         <div class="custom-modal-content project-modal-content">
             <span class="custom-close-btn">&times;</span>
-           
+
         </div>
     </div>
     <div id="project-modal" class="custom-modal hidden">
-        <div class="custom-modal-content project-modal-content" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; padding: 40px 30px;">
+        <div class="custom-modal-content project-modal-content"
+            style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; padding: 40px 30px;">
             <span class="custom-close-btn">&times;</span>
             <div style="text-align:center;">
                 <i class="fa-solid fa-laptop-code" style="font-size:3rem; color:#7c3aed; margin-bottom:16px;"></i>
                 <h2 style="font-size:1.6rem; font-weight:700; color:#fff; margin:0 0 8px;">Blog & Dự Án</h2>
-                <p style="color:#a1a1aa; font-size:0.95rem; margin:0 0 24px;">Khám phá các bài viết, dự án và kiến thức công nghệ của mình trên Netgenie.</p>
+                <p style="color:#a1a1aa; font-size:0.95rem; margin:0 0 24px;">Khám phá các bài viết, dự án và kiến thức
+                    công nghệ của mình trên Netgenie.</p>
             </div>
             <a href="https://netgenievn.blogspot.com/?m=1" target="_blank" rel="noopener noreferrer"
-               style="display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,#7c3aed,#4f46e5); color:#fff; padding:14px 32px; border-radius:12px; text-decoration:none; font-weight:600; font-size:1rem; transition:transform 0.2s, box-shadow 0.2s; box-shadow:0 4px 20px rgba(124,58,237,0.4);"
-               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 30px rgba(124,58,237,0.6)';"
-               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(124,58,237,0.4)';">
+                style="display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,#7c3aed,#4f46e5); color:#fff; padding:14px 32px; border-radius:12px; text-decoration:none; font-weight:600; font-size:1rem; transition:transform 0.2s, box-shadow 0.2s; box-shadow:0 4px 20px rgba(124,58,237,0.4);"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 30px rgba(124,58,237,0.6)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(124,58,237,0.4)';">
                 <i class="fa-brands fa-blogger"></i>
                 Mở Blog Ở Nút Này Ku
                 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.85rem;"></i>
@@ -473,7 +529,8 @@
                 <p class="ch-subtitle">Kiểm tra Ping, HTTP, DNS, TCP từ nhiều quốc gia</p>
             </div>
             <div class="ch-input-row">
-                <input type="text" id="ch-input" class="ch-input" placeholder="Nhập hostname hoặc IP (vd: google.com)" />
+                <input type="text" id="ch-input" class="ch-input"
+                    placeholder="Nhập hostname hoặc IP (vd: google.com)" />
                 <div class="ch-type-btns">
                     <button class="ch-type-btn active" data-type="ping">Ping</button>
                     <button class="ch-type-btn" data-type="http">HTTP</button>
@@ -486,7 +543,8 @@
             </div>
             <div id="ch-tcp-port-row" class="ch-tcp-port-row hidden">
                 <label>Port:</label>
-                <input type="number" id="ch-port-input" class="ch-port-input" placeholder="80" value="80" min="1" max="65535" />
+                <input type="number" id="ch-port-input" class="ch-port-input" placeholder="80" value="80" min="1"
+                    max="65535" />
             </div>
             <div id="ch-results" class="ch-results">
                 <div class="ch-placeholder">
@@ -497,7 +555,92 @@
         </div>
     </div>
 
+    <!-- Floating Music Player Widget -->
+    <div id="floating-music-player" class="floating-music-player">
+        <div class="fmp-disc-wrap" id="fmp-disc-toggle" title="Mở danh sách bài hát">
+            <div class="fmp-disc" id="fmp-disc">
+                <div class="fmp-disc-center">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+            </div>
+            <div class="fmp-equalizer" id="fmp-eq">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="fmp-info" id="fmp-info-area">
+            <div class="fmp-title-row">
+                <span class="fmp-badge" id="fmp-badge">🎵 Chill</span>
+                <span class="fmp-song-title" id="fmp-song-title">Đang tải nhạc...</span>
+            </div>
+            <div class="fmp-artist" id="fmp-artist">Tuấn Tú Playlist</div>
+        </div>
+        <div class="fmp-controls">
+            <button class="fmp-btn" id="fmp-prev-btn" title="Bài trước (Prev)">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="fmp-btn fmp-play-btn" id="fmp-play-btn" title="Phát/Tạm dừng">
+                <i class="fa-solid fa-play" id="fmp-play-icon"></i>
+            </button>
+            <button class="fmp-btn" id="fmp-next-btn" title="Bài tiếp (Next)">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <button class="fmp-btn fmp-mode-btn" id="fmp-mode-btn" title="Chuyển chế độ: Nhạc Thường / Yêu Nước">
+                <span id="fmp-mode-icon">🇻🇳</span>
+            </button>
+            <button class="fmp-btn fmp-list-btn" id="fmp-list-btn" title="Danh sách bài hát">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Playlist Modal -->
+    <div id="playlist-modal" class="custom-modal hidden">
+        <div class="custom-modal-content playlist-modal-content">
+            <span class="custom-close-btn playlist-close-btn">&times;</span>
+            <div class="playlist-header">
+                <div class="playlist-title-wrap">
+                    <i class="fa-solid fa-compact-disc playlist-header-icon"></i>
+                    <div>
+                        <h2>Danh Sách Âm Nhạc</h2>
+                        <p class="playlist-subtitle">Tự động phát nhạc Yêu Nước vào dịp lễ (2/9), nhạc Chill ngày
+                            thường.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="playlist-tabs">
+                <button class="playlist-tab-btn" id="tab-holiday-btn" data-tab="holiday">
+                    <span class="tab-flag">🇻🇳</span> Nhạc Cách Mạng & Yêu Nước Trẻ
+                </button>
+                <button class="playlist-tab-btn" id="tab-regular-btn" data-tab="regular">
+                    <span class="tab-icon">🎵</span> Nhạc Thường Ngày
+                </button>
+            </div>
+            <div class="playlist-body" id="playlist-items-container">
+                <!-- Danh sách bài hát render tự động -->
+            </div>
+            <div class="playlist-footer-info">
+                <div class="fmp-mode-switch-wrap">
+                    <span class="mode-switch-label"><i class="fa-solid fa-sliders"></i> Chế độ phát & giao diện:</span>
+                    <div class="mode-switch-options">
+                        <button class="mode-opt-btn" id="mode-opt-auto" data-mode="auto"
+                            title="Tự động theo lịch ngày lễ (2/9, 30/4...)">
+                            <i class="fa-solid fa-calendar-check"></i> Tự động (Lễ 2/9)
+                        </button>
+                        <button class="mode-opt-btn" id="mode-opt-patriotic" data-mode="patriotic"
+                            title="Luôn bật nhạc & giao diện Yêu Nước">
+                            <span>🇻🇳</span> Luôn Yêu Nước
+                        </button>
+                        <button class="mode-opt-btn" id="mode-opt-regular" data-mode="regular"
+                            title="Luôn dùng nhạc & giao diện Thường">
+                            <span>🎵</span> Nhạc Thường
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
