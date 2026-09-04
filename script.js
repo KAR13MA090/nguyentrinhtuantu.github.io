@@ -471,9 +471,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function hideStartScreen() {
         if (startScreen && !startScreen.classList.contains('fade-out')) {
             startScreen.classList.add('fade-out');
+            startScreen.style.pointerEvents = 'none';
             if (profileContainer) {
                 profileContainer.classList.remove('hidden');
             }
+            setTimeout(() => {
+                if (startScreen) startScreen.style.display = 'none';
+            }, 1500);
         }
     }
     function playNextSong() {
@@ -507,14 +511,26 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("FROM NGUYEN TRINH TUAN TU WHIT LOVE <3 ");
         });
     }
-    startScreen.addEventListener('click', () => {
+
+    function onStartScreenDismiss() {
         hideStartScreen();
         if (bgMusic && bgMusic.paused) {
             bgMusic.play().catch(error => {
                 console.log("Lỗi khi phát nhạc sau tương tác: ", error);
             });
         }
-    });
+    }
+
+    if (startScreen) {
+        startScreen.addEventListener('click', onStartScreenDismiss);
+        startScreen.addEventListener('pointerdown', onStartScreenDismiss);
+        startScreen.addEventListener('touchstart', onStartScreenDismiss, { passive: true });
+    }
+    window.addEventListener('click', () => {
+        if (startScreen && !startScreen.classList.contains('fade-out')) {
+            onStartScreenDismiss();
+        }
+    }, { once: true });
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -875,6 +891,10 @@ function applySiteSettings() {
     } catch (e) {
         console.warn('Không thể áp dụng site settings', e);
     }
+}
+
+function warnStealer() {
+    console.log("%cSTOP! Khu vực dành cho quản trị viên.", "color: red; font-size: 20px; font-weight: bold;");
 }
 
 // Cảnh báo ngay khi script tải
