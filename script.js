@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const _0x4f2a = ["Tmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6", "wqkgQuG6o24gcXV54buBbiB0aHXhu5ljIHbhu4EgTmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6"];
     try {
         const _n = document.getElementById('obf-name');
-        if (_n) _n.textContent = decodeURIComponent(escape(atob(_0x4f2a[0])));
+        if(_n) _n.textContent = decodeURIComponent(escape(atob(_0x4f2a[0])));
         const _c = document.getElementById('obf-copyright');
-        if (_c) _c.textContent = decodeURIComponent(escape(atob(_0x4f2a[1])));
-    } catch (e) { }
+        if(_c) _c.textContent = decodeURIComponent(escape(atob(_0x4f2a[1])));
+    } catch(e) {}
     const mapModal = document.getElementById('map-modal');
     const hstsBadge = document.getElementById('hsts-badge');
     if (hstsBadge && mapModal) {
@@ -17,60 +17,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const countryEl = document.getElementById('user-country');
 
     if (window.location.protocol === 'file:') {
-        if (ipEl) ipEl.textContent = '127.0.0.1 ';
-        if (countryEl) countryEl.textContent = 'Việt Nam';
+        if(ipEl) ipEl.textContent = '127.0.0.1 ';
+        if(countryEl) countryEl.textContent = 'Việt Nam';
     } else {
         fetch('https://freeipapi.com/api/json')
             .then(res => res.json())
             .then(data => {
-                if (data.ipAddress) {
-                    if (ipEl) ipEl.textContent = data.ipAddress;
-                    if (countryEl) countryEl.textContent = data.countryName;
+                if(data.ipAddress) {
+                    if(ipEl) ipEl.textContent = data.ipAddress;
+                    if(countryEl) countryEl.textContent = data.countryName;
                 } else {
-                    if (ipEl) ipEl.textContent = 'Không rõ';
-                    if (countryEl) countryEl.textContent = 'Không rõ';
+                    if(ipEl) ipEl.textContent = 'Không rõ';
+                    if(countryEl) countryEl.textContent = 'Không rõ';
                 }
             })
             .catch(() => {
                 fetch('https://ipapi.co/json/')
                     .then(res => res.json())
                     .then(data => {
-                        if (data.ip) {
-                            if (ipEl) ipEl.textContent = data.ip;
-                            if (countryEl) countryEl.textContent = data.country_name;
+                        if(data.ip) {
+                            if(ipEl) ipEl.textContent = data.ip;
+                            if(countryEl) countryEl.textContent = data.country_name;
                         } else {
-                            if (ipEl) ipEl.textContent = 'Không rõ';
-                            if (countryEl) countryEl.textContent = 'Không rõ';
+                            if(ipEl) ipEl.textContent = 'Không rõ';
+                            if(countryEl) countryEl.textContent = 'Không rõ';
                         }
                     })
                     .catch(() => {
-                        if (ipEl) ipEl.textContent = 'Lỗi';
-                        if (countryEl) countryEl.textContent = 'Lỗi';
+                        if(ipEl) ipEl.textContent = 'Lỗi';
+                        if(countryEl) countryEl.textContent = 'Lỗi';
                     });
             });
     }
-    const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const todayStr = new Date().toISOString().slice(0,10).replace(/-/g, '');
     const countEl = document.getElementById('visit-count');
     if (window.location.protocol === 'file:') {
         let localVisits = localStorage.getItem(`visits_${todayStr}`) || 0;
         localVisits = parseInt(localVisits) + 1;
         localStorage.setItem(`visits_${todayStr}`, localVisits);
-        if (countEl) countEl.textContent = localVisits + " (Local)";
+        if(countEl) countEl.textContent = localVisits + " (Local)";
     } else {
         fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}/up`)
             .then(res => res.json())
             .then(data => {
-                if (countEl) countEl.textContent = data.count;
+                if(countEl) countEl.textContent = data.count;
                 setInterval(() => {
                     fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}`)
                         .then(r => r.json())
                         .then(d => {
-                            if (countEl) countEl.textContent = d.count;
-                        }).catch(() => { });
+                            if(countEl) countEl.textContent = d.count;
+                        }).catch(() => {});
                 }, 15000);
             })
             .catch(() => {
-                if (countEl) countEl.textContent = '---';
+                if(countEl) countEl.textContent = '---';
             });
     }
     const startScreen = document.getElementById('start-screen');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgMusic = document.getElementById('bg-music');
     const aboutBtn = document.getElementById('about-btn');
     const aboutModal = document.getElementById('about-modal');
-
+    
     if (aboutBtn && aboutModal) {
         aboutBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const skillBtn = document.getElementById('skill-btn');
     const skillModal = document.getElementById('skill-modal');
-
+    
     if (skillBtn && skillModal) {
         skillBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cvBtn = document.getElementById('cv-btn');
     const cvModal = document.getElementById('cv-modal');
-
+    
     if (cvBtn && cvModal) {
         cvBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const projectBtn = document.getElementById('project-btn');
     const projectModal = document.getElementById('project-modal');
-
+    
     if (projectBtn && projectModal) {
         projectBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -118,54 +118,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checkSdtBtn = document.getElementById('check-sdt-btn');
     const checkSdtModal = document.getElementById('check-sdt-modal');
-
+    
     if (checkSdtBtn && checkSdtModal) {
         checkSdtBtn.addEventListener('click', (e) => {
             e.preventDefault();
             checkSdtModal.classList.remove('hidden');
         });
     }
-    const sdtInput = document.getElementById('sdt-input');
+    const sdtInput  = document.getElementById('sdt-input');
     const sdtCheckBtn = document.getElementById('sdt-check-btn');
-    const sdtResult = document.getElementById('sdt-result');
+    const sdtResult   = document.getElementById('sdt-result');
 
     const VN_PREFIXES = {
-        '032': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '033': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '034': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '035': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '036': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '037': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '038': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '039': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '086': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '096': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '097': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '098': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
-        '070': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '076': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '077': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '078': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '079': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '089': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '090': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '093': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
-        '081': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '082': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '083': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '084': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '085': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '091': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '094': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '088': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
-        '052': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
-        '056': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
-        '058': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
-        '092': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
-        '059': { carrier: 'Gmobile', type: 'Di động', color: '#7b1fa2', bg: '#1a0a1e', emoji: '' },
-        '099': { carrier: 'Gmobile', type: 'Di động', color: '#7b1fa2', bg: '#1a0a1e', emoji: '' },
-        '055': { carrier: 'Reddi (Mobicast)', type: 'Di động', color: '#c62828', bg: '#200808', emoji: '' },
-        '069': { carrier: 'Indochina Telecom', type: 'Di động', color: '#00838f', bg: '#001a1c', emoji: '' },
+        '032':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '033':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '034':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '035':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '036':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '037':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '038':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '039':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '086':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '096':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '097':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '098':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
+        '070':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '076':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '077':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '078':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '079':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '089':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '090':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '093':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
+        '081':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '082':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '083':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '084':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '085':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '091':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '094':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '088':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
+        '052':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
+        '056':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
+        '058':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
+        '092':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
+        '059':{ carrier:'Gmobile', type:'Di động', color:'#7b1fa2', bg:'#1a0a1e', emoji:'' },
+        '099':{ carrier:'Gmobile', type:'Di động', color:'#7b1fa2', bg:'#1a0a1e', emoji:'' },
+        '055':{ carrier:'Reddi (Mobicast)', type:'Di động', color:'#c62828', bg:'#200808', emoji:'' },
+        '069':{ carrier:'Indochina Telecom', type:'Di động', color:'#00838f', bg:'#001a1c', emoji:'' },
     };
 
     function formatVNPhone(raw) {
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!info) return { valid: false, reason: `Đầu số ${prefix3} không nhận dạng được (chưa được cấp phép tại VN)` };
 
         // Format dạng đẹp: 0xxx xxx xxxx
-        const fmt = `${num.slice(0, 4)} ${num.slice(4, 7)} ${num.slice(7, 10)}`;
+        const fmt = `${num.slice(0,4)} ${num.slice(4,7)} ${num.slice(7,10)}`;
         return { valid: true, num, fmt, prefix: prefix3, ...info };
     }
 
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checkHostBtn = document.getElementById('check-host-btn');
     const checkHostModal = document.getElementById('check-host-modal');
-
+    
     if (checkHostBtn && checkHostModal) {
         checkHostBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 chPollInterval = null;
                                 chCheckBtn.disabled = false;
                             }
-                        }).catch(() => { });
+                        }).catch(() => {});
                 }, 2500);
             })
             .catch(err => {
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const country = info[1] || '';
             const city = info[2] || '';
             const flag = countryFlags[country] || '';
-            html += `<div class="ch-node-card pending" id="ch-node-${nodeKey.replace(/\./g, '-')}">
+            html += `<div class="ch-node-card pending" id="ch-node-${nodeKey.replace(/\./g,'-')}">
                 <div class="ch-node-location"><span class="ch-flag">${flag}</span>${city}, ${country}</div>
                 <div class="ch-node-value pending"> Đang kiểm tra...</div>
                 <div class="ch-node-sub">${nodeKey}</div>
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 valueHtml = `<div class="ch-node-value ${statusClass}">${parsed.label}</div>`;
                 if (parsed.ok) okCount++; else errCount++;
             }
-            cards[nodeKey] = `<div class="ch-node-card ${statusClass}" id="ch-node-${nodeKey.replace(/\./g, '-')}">
+            cards[nodeKey] = `<div class="ch-node-card ${statusClass}" id="ch-node-${nodeKey.replace(/\./g,'-')}">
                 <div class="ch-node-location"><span class="ch-flag">${flag}</span>${city}, ${country}</div>
                 ${valueHtml}
                 <div class="ch-node-sub">${nodeKey}</div>
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const arr = result[0];
                 const times = arr.filter(r => r && r[0] === 'OK').map(r => r[1]);
                 if (times.length === 0) return { ok: false, label: ' Không phản hồi' };
-                const avg = (times.reduce((a, b) => a + b, 0) / times.length * 1000).toFixed(1);
+                const avg = (times.reduce((a,b) => a+b, 0) / times.length * 1000).toFixed(1);
                 return { ok: true, label: ` ${avg} ms` };
             } else if (type === 'http') {
                 if (!result || !result[0]) return { ok: false, label: ' Lỗi' };
@@ -434,285 +434,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return { ok: false, label: ' Không kết nối được' };
             }
-        } catch (e) { }
+        } catch(e) {}
         return { ok: false, label: ' Không rõ' };
     }
 
-    // ===================================================
-    // HỆ THỐNG NHẬN DIỆN NGÀY LỄ & CHỦ ĐỀ YÊU NƯỚC (2/9)
-    // ===================================================
-    const HOLIDAY_CONFIGS = {
-        '2-9': {
-            id: '2-9',
-            name: 'Quốc Khánh 2/9',
-            bannerTitle: 'CHÀO MỪNG QUỐC KHÁNH 2/9 NƯỚC CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM',
-            bannerDesc: 'Tự hào non sông gấm vóc • Đoàn kết - Độc lập - Tự do - Hạnh phúc',
-            startBadge: 'CHÀO MỪNG QUỐC KHÁNH 2/9',
-            startTitleHtml: '<span class="title-tu-hao">TỰ HÀO</span> <span class="title-viet-nam">VIỆT NAM !</span>',
-            startSubtitle: 'Chào mừng đại lễ 2/9 • Chạm màn hình để bắt đầu'
-        },
-        '30-4': {
-            id: '30-4',
-            name: 'Kỷ Niệm 30/4 - 1/5',
-            bannerTitle: 'CHÀO MỪNG NGÀY GIẢI PHÓNG MIỀN NAM 30/4 & QUỐC TẾ LAO ĐỘNG 1/5',
-            bannerDesc: 'Kỷ niệm non sông thu về một mối • Hòa bình - Thống nhất - Phát triển',
-            startBadge: 'CHÀO MỪNG ĐẠI LỄ 30/4 - 1/5',
-            startTitleHtml: '<span class="title-tu-hao">NON SÔNG</span> <span class="title-viet-nam">LIỀN MỘT DẢI !</span>',
-            startSubtitle: 'Kỷ niệm ngày toàn thắng • Chạm màn hình để bắt đầu'
-        },
-        '19-8': {
-            id: '19-8',
-            name: 'Cách Mạng Tháng Tám 19/8',
-            bannerTitle: 'CHÀO MỪNG KỶ NIỆM CÁCH MẠNG THÁNG TÁM THÀNH CÔNG (19/8)',
-            bannerDesc: 'Hào khí Cách mạng Tháng Tám bất diệt • Tự hào trang sử vẻ vang',
-            startBadge: 'KỶ NIỆM CÁCH MẠNG THÁNG TÁM',
-            startTitleHtml: '<span class="title-tu-hao">HÀO KHÍ</span> <span class="title-viet-nam">THÁNG TÁM !</span>',
-            startSubtitle: 'Tự hào lịch sử hào hùng • Chạm màn hình để bắt đầu'
-        },
-        '22-12': {
-            id: '22-12',
-            name: 'Thành Lập QĐND Việt Nam 22/12',
-            bannerTitle: 'KỶ NIỆM NGÀY THÀNH LẬP QUÂN ĐỘI NHÂN DÂN VIỆT NAM (22/12)',
-            bannerDesc: 'Bộ đội Cụ Hồ • Vì nước quên thân, vì dân phục vụ',
-            startBadge: 'KỶ NIỆM NGÀY 22/12',
-            startTitleHtml: '<span class="title-tu-hao">QUÂN ĐỘI</span> <span class="title-viet-nam">NHÂN DÂN VIỆT NAM !</span>',
-            startSubtitle: 'Anh bộ đội Cụ Hồ • Chạm màn hình để bắt đầu'
-        }
-    };
-
-    function checkIsHolidayDate() {
-        const now = new Date();
-        const month = now.getMonth(); // 0 = Jan, 7 = Aug, 8 = Sep, 11 = Dec
-        const date = now.getDate();
-
-        // 1. Quốc Khánh 2/9 (từ 30/8 đến 4/9)
-        if ((month === 7 && date >= 30) || (month === 8 && date <= 4)) {
-            return { isHoliday: true, info: HOLIDAY_CONFIGS['2-9'] };
-        }
-        // 2. Kỷ niệm 30/4 - 1/5 (từ 29/4 đến 3/5)
-        if ((month === 3 && date >= 29) || (month === 4 && date <= 3)) {
-            return { isHoliday: true, info: HOLIDAY_CONFIGS['30-4'] };
-        }
-        // 3. Cách Mạng Tháng Tám 19/8 (từ 18/8 đến 20/8)
-        if (month === 7 && date >= 18 && date <= 20) {
-            return { isHoliday: true, info: HOLIDAY_CONFIGS['19-8'] };
-        }
-        // 4. Ngày 22/12 (từ 21/12 đến 23/12)
-        if (month === 11 && date >= 21 && date <= 23) {
-            return { isHoliday: true, info: HOLIDAY_CONFIGS['22-12'] };
-        }
-        return { isHoliday: false, info: null };
-    }
-
-    function getActiveThemeMode() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('theme') === 'patriotic' || urlParams.get('holiday') === '2-9') {
-            return 'patriotic';
-        }
-        if (urlParams.get('theme') === 'regular' || urlParams.get('theme') === 'normal') {
-            return 'regular';
-        }
-
-        const savedMode = localStorage.getItem('patriotic_mode_setting') || 'auto';
-        if (savedMode === 'patriotic') return 'patriotic';
-        if (savedMode === 'regular') return 'regular';
-
-        const hol = checkIsHolidayDate();
-        return hol.isHoliday ? 'patriotic' : 'regular';
-    }
-
-    // ===================================================
-    // DANH SÁCH ÂM NHẠC: NGÀY THƯỜNG & NGÀY LỄ YÊU NƯỚC
-    // ===================================================
-
-    // Danh sách bài hát ngày bình thường (không có lễ)
-    const REGULAR_SONGS = [
-        {
-            title: "DỐC ĐỜI",
-            artist: "14 Casper & Bon",
-            src: "assets/audio/DỐC ĐỜI.mp3",
-            badge: "Chill",
-            type: "regular"
-        },
-        {
-            title: "HÀNH LÝ TRÊN TAY",
-            artist: "Kiên Trịnh",
-            src: "assets/audio/HÀNH LÝ TRÊN TAY.mp3",
-            badge: "Acoustic",
-            type: "regular"
-        },
-        {
-            title: "TRỘM VÍA",
-            artist: "Nguyễn Trịnh Tuấn Tú",
-            src: "assets/audio/TRỘM VÍA.mp3",
-            badge: "Pop",
-            type: "regular"
-        },
-        {
-            title: "Cỏ Dại Và Hoa Dành Dành",
-            artist: "Nghệ sĩ trẻ",
-            src: "assets/audio/Cỏ Dại Và Hoa Dành Dành.mp3",
-            badge: "Indie",
-            type: "regular"
-        },
-        {
-            title: "Về Đi Thôi",
-            artist: "Ngô Lan Hương",
-            src: "assets/audio/NGÔ LAN HƯƠNG - Về Đi Thôi.mp3",
-            badge: "Pop Ballad",
-            type: "regular"
-        },
-        {
-            title: "SAU NÀY EM CƯỚI AI RỒI",
-            artist: "Nghệ sĩ trẻ",
-            src: "assets/audio/SAU NÀY EM CƯỚI AI RỒI.mp3",
-            badge: "Ballad",
-            type: "regular"
-        },
-        {
-            title: "Hẹn Lần Sau",
-            artist: "Nghệ sĩ trẻ",
-            src: "assets/audio/Hẹn Lần Sau.mp3",
-            badge: "Chill",
-            type: "regular"
-        },
-        {
-            title: "Xuân Thì",
-            artist: "Hà Anh Tuấn",
-            src: "assets/audio/Xuân Thì.mp3",
-            badge: "Acoustic",
-            type: "regular"
-        },
-        {
-            title: "Đó chỉ là thành phố của anh",
-            artist: "Nghệ sĩ trẻ",
-            src: "assets/audio/Đó chỉ là thành phố của anh.mp3",
-            badge: "Lofi",
-            type: "regular"
-        },
-        {
-            title: "Đập vỡ cây đàn",
-            artist: "Nghệ sĩ trẻ",
-            src: "assets/audio/Đập vỡ cây đàn.mp3",
-            badge: "Remix",
-            type: "regular"
-        },
-        {
-            title: "Beauty and a Beat",
-            artist: "Justin Bieber ft. Nicki Minaj",
-            src: "assets/audio/Beauty and a Beat.mp3",
-            badge: "EDM",
-            type: "regular"
-        }
+    const songs = [
+        "assets/audio/Beauty and a Beat.mp3",
+        "assets/audio/Cỏ Dại Và Hoa Dành Dành.mp3",
+        "assets/audio/DỐC ĐỜI.mp3",
+        "assets/audio/HÀNH LÝ TRÊN TAY.mp3",
+        "assets/audio/Hẹn Lần Sau.mp3",
+        "assets/audio/NGÔ LAN HƯƠNG - Về Đi Thôi.mp3",
+        "assets/audio/Nhạc 8x đến đầu 9x.mp3",
+        "assets/audio/SAU NÀY EM CƯỚI AI RỒI.mp3",
+        "assets/audio/TRỘM VÍA.mp3",
+        "assets/audio/VIỆT NAM TÔI.mp3",
+        "assets/audio/Xuân Thì.mp3",
+        "assets/audio/Đó chỉ là thành phố của anh.mp3",
+        "assets/audio/Đập vỡ cây đàn.mp3"
     ];
 
-    // Danh sách bài hát Cách Mạng & Yêu Nước Nghệ Sĩ Trẻ (Tự động phát vào ngày lễ 2/9, 30/4...)
-    const HOLIDAY_SONGS = [
-        {
-            title: "VIỆT NAM TÔI",
-            artist: "Jack ft. K-ICM & Chấn Quốc",
-            src: "assets/audio/VIỆT NAM TÔI.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Hào Khí Trẻ",
-            type: "holiday"
-        },
-        {
-            title: "Một Vòng Việt Nam",
-            artist: "Tùng Dương / Trúc Nhân",
-            src: "https://ia801509.us.archive.org/15/items/mot-vong-viet-nam/MotVongVietNam.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Tự Hào Dân Tộc",
-            type: "holiday"
-        },
-        {
-            title: "Khát Vọng Tuổi Trẻ",
-            artist: "Tuổi Trẻ Việt Nam (Remix)",
-            src: "https://ia801509.us.archive.org/15/items/khat-vong-tuoi-tre/KhatVongTuoiTre.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Nhiệt Huyết",
-            type: "holiday"
-        },
-        {
-            title: "Máu Đỏ Da Vàng",
-            artist: "Erik ft. DTAP",
-            src: "https://ia801509.us.archive.org/15/items/mau-do-da-vang/MauDoDaVang.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Bản Sắc Việt",
-            type: "holiday"
-        },
-        {
-            title: "Nối Vòng Tay Lớn",
-            artist: "Rock / Modern EDM Version",
-            src: "https://ia801509.us.archive.org/15/items/noi-vong-tay-lon/NoiVongTayLon.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Đại Đoàn Kết",
-            type: "holiday"
-        },
-        {
-            title: "Lá Cờ",
-            artist: "Tạ Quang Thắng",
-            src: "https://ia801509.us.archive.org/15/items/la-co-ta-quang-thang/LaCo.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Yêu Nước",
-            type: "holiday"
-        },
-        {
-            title: "Tiến Quân Ca",
-            artist: "Quốc Ca Hào Hùng",
-            src: "https://ia801509.us.archive.org/15/items/tien-quan-ca/TienQuanCa.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Quốc Ca",
-            type: "holiday"
-        },
-        {
-            title: "Hát Mãi Khúc Quân Hành",
-            artist: "Bản Phối Trẻ Trung",
-            src: "https://ia801509.us.archive.org/15/items/hat-mai-khuc-quan-hanh/HatMaiKhucQuanHanh.mp3",
-            fallbackSrc: "assets/audio/VIỆT NAM TÔI.mp3",
-            badge: "🇻🇳 Cách Mạng",
-            type: "holiday"
-        }
-    ];
-
-    // ===================================================
-    // TRÌNH PHÁT NHẠC THÔNG MINH (SMART AUDIO ENGINE)
-    // ===================================================
-    let currentThemeMode = getActiveThemeMode();
     let currentPlaylist = [];
-    let currentSongIndex = 0;
-    let currentActiveTab = currentThemeMode === 'patriotic' ? 'holiday' : 'regular';
-
-    // UI elements
-    const holidayBanner = document.getElementById('holiday-top-banner');
-    const startHolidayBadge = document.getElementById('start-holiday-badge');
-    const startTitle = document.getElementById('start-title');
-    const startSubtitle = document.getElementById('start-subtitle');
-
-    // Floating player elements
-    const fmpDisc = document.getElementById('fmp-disc');
-    const fmpEq = document.getElementById('fmp-eq');
-    const fmpBadge = document.getElementById('fmp-badge');
-    const fmpSongTitle = document.getElementById('fmp-song-title');
-    const fmpArtist = document.getElementById('fmp-artist');
-    const fmpPlayIcon = document.getElementById('fmp-play-icon');
-    const fmpPlayBtn = document.getElementById('fmp-play-btn');
-    const fmpPrevBtn = document.getElementById('fmp-prev-btn');
-    const fmpNextBtn = document.getElementById('fmp-next-btn');
-    const fmpModeBtn = document.getElementById('fmp-mode-btn');
-    const fmpModeIcon = document.getElementById('fmp-mode-icon');
-    const fmpListBtn = document.getElementById('fmp-list-btn');
-    const fmpDiscToggle = document.getElementById('fmp-disc-toggle');
-    const fmpInfoArea = document.getElementById('fmp-info-area');
-
-    // Playlist modal elements
-    const playlistModal = document.getElementById('playlist-modal');
-    const tabHolidayBtn = document.getElementById('tab-holiday-btn');
-    const tabRegularBtn = document.getElementById('tab-regular-btn');
-    const playlistContainer = document.getElementById('playlist-items-container');
-    const modeOptAuto = document.getElementById('mode-opt-auto');
-    const modeOptPatriotic = document.getElementById('mode-opt-patriotic');
-    const modeOptRegular = document.getElementById('mode-opt-regular');
-
+    let currentSongIndex = -1;
     function shuffleArray(array) {
         let shuffled = [...array];
         for (let i = shuffled.length - 1; i > 0; i--) {
@@ -721,340 +464,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return shuffled;
     }
-
-    function initPlaylist(mode) {
-        if (mode === 'patriotic') {
-            // Đưa bài VIỆT NAM TÔI lên đầu để chào mừng ngày lễ, các bài sau shuffle
-            const firstSong = HOLIDAY_SONGS[0];
-            const remaining = shuffleArray(HOLIDAY_SONGS.slice(1));
-            currentPlaylist = [firstSong, ...remaining];
-        } else {
-            currentPlaylist = shuffleArray(REGULAR_SONGS);
-        }
+    function initPlaylist() {
+        currentPlaylist = shuffleArray(songs);
         currentSongIndex = 0;
     }
-
-    function updateFloatingPlayerUI(song, isPlaying) {
-        if (!song) return;
-        if (fmpSongTitle) fmpSongTitle.textContent = song.title;
-        if (fmpArtist) fmpArtist.textContent = song.artist;
-        if (fmpBadge) {
-            fmpBadge.textContent = song.badge || (song.type === 'holiday' ? '🇻🇳 Yêu Nước' : '🎵 Chill');
-            fmpBadge.className = `fmp-badge ${song.type === 'holiday' ? 'patriotic' : ''}`;
-        }
-        if (fmpPlayIcon) {
-            fmpPlayIcon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
-        }
-        if (fmpDisc) {
-            if (isPlaying) fmpDisc.classList.add('spinning');
-            else fmpDisc.classList.remove('spinning');
-        }
-        if (fmpEq) {
-            if (isPlaying) fmpEq.classList.add('active');
-            else fmpEq.classList.remove('active');
-        }
-        if (fmpModeIcon) {
-            fmpModeIcon.textContent = currentThemeMode === 'patriotic' ? '🇻🇳' : '🎵';
-        }
-        renderPlaylistItems();
-    }
-
-    function playSongByIndex(index, forcePlay = true) {
-        if (!currentPlaylist || currentPlaylist.length === 0) {
-            initPlaylist(currentThemeMode);
-        }
-        if (index < 0) index = currentPlaylist.length - 1;
-        if (index >= currentPlaylist.length) index = 0;
-        currentSongIndex = index;
-
-        const song = currentPlaylist[currentSongIndex];
-        if (!song) return;
-
-        bgMusic.src = song.src;
-        bgMusic.volume = 0.55;
-
-        if (forcePlay) {
-            const playPromise = bgMusic.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    updateFloatingPlayerUI(song, true);
-                    hideStartScreen();
-                }).catch(err => {
-                    console.log("Cần tương tác để phát nhạc: ", err);
-                    updateFloatingPlayerUI(song, false);
-                });
-            }
-        } else {
-            updateFloatingPlayerUI(song, false);
-        }
-    }
-
-    function playNextSong() {
-        let nextIdx = currentSongIndex + 1;
-        if (nextIdx >= currentPlaylist.length) {
-            initPlaylist(currentThemeMode);
-            nextIdx = 0;
-        }
-        playSongByIndex(nextIdx, true);
-    }
-
-    function playPrevSong() {
-        let prevIdx = currentSongIndex - 1;
-        if (prevIdx < 0) {
-            prevIdx = currentPlaylist.length - 1;
-        }
-        playSongByIndex(prevIdx, true);
-    }
-
-    function togglePlayPause() {
-        if (!bgMusic) return;
-        if (bgMusic.paused) {
-            bgMusic.play().then(() => {
-                const currentSong = currentPlaylist[currentSongIndex];
-                updateFloatingPlayerUI(currentSong, true);
-            }).catch(e => console.log("Lỗi play:", e));
-        } else {
-            bgMusic.pause();
-            const currentSong = currentPlaylist[currentSongIndex];
-            updateFloatingPlayerUI(currentSong, false);
-        }
-    }
-
-    function handleSongError() {
-        const currentSong = currentPlaylist[currentSongIndex];
-        console.warn("Lỗi tải bài hát: ", currentSong ? currentSong.title : 'N/A');
-        if (currentSong && currentSong.fallbackSrc && bgMusic.src !== currentSong.fallbackSrc) {
-            bgMusic.src = currentSong.fallbackSrc;
-            bgMusic.play().catch(() => playNextSong());
-        } else {
-            // Tự động chuyển bài tiếp theo
-            setTimeout(playNextSong, 500);
-        }
-    }
-
-    if (bgMusic) {
-        bgMusic.addEventListener('ended', playNextSong);
-        bgMusic.addEventListener('error', handleSongError);
-        bgMusic.addEventListener('play', () => {
-            const currentSong = currentPlaylist[currentSongIndex];
-            updateFloatingPlayerUI(currentSong, true);
-        });
-        bgMusic.addEventListener('pause', () => {
-            const currentSong = currentPlaylist[currentSongIndex];
-            updateFloatingPlayerUI(currentSong, false);
-        });
-    }
-
-    function applyHolidayTheme(mode) {
-        currentThemeMode = mode;
-        const isPatriotic = mode === 'patriotic';
-        document.body.classList.toggle('patriotic-theme', isPatriotic);
-
-        const hol = checkIsHolidayDate();
-        const holInfo = (hol.isHoliday && hol.info) ? hol.info : HOLIDAY_CONFIGS['2-9'];
-
-        if (holidayBanner) {
-            if (isPatriotic) {
-                holidayBanner.classList.remove('hidden');
-                const titleEl = holidayBanner.querySelector('.holiday-title');
-                const descEl = holidayBanner.querySelector('.holiday-desc');
-                if (titleEl) titleEl.textContent = holInfo.bannerTitle;
-                if (descEl) descEl.textContent = holInfo.bannerDesc;
-            } else {
-                holidayBanner.classList.add('hidden');
-            }
-        }
-
-        if (startHolidayBadge) {
-            if (isPatriotic) {
-                startHolidayBadge.classList.remove('hidden');
-                startHolidayBadge.innerHTML = `<span class="star-icon">★</span> <span>${holInfo.startBadge}</span> <span class="star-icon">★</span>`;
-            } else {
-                startHolidayBadge.classList.add('hidden');
-            }
-        }
-
-        if (startTitle) {
-            if (isPatriotic) {
-                startTitle.innerHTML = holInfo.startTitleHtml || '<span class="title-tu-hao">TỰ HÀO</span> <span class="title-viet-nam">VIỆT NAM !</span>';
-            } else {
-                startTitle.innerHTML = 'HELLO WORLD !';
-            }
-        }
-        if (startSubtitle) {
-            startSubtitle.textContent = isPatriotic ? holInfo.startSubtitle : 'Chạm vào màn hình để bắt đầu';
-        }
-
-        // Cập nhật nút option trong modal
-        const savedSetting = localStorage.getItem('patriotic_mode_setting') || 'auto';
-        if (modeOptAuto) modeOptAuto.classList.toggle('active', savedSetting === 'auto');
-        if (modeOptPatriotic) modeOptPatriotic.classList.toggle('active', savedSetting === 'patriotic');
-        if (modeOptRegular) modeOptRegular.classList.toggle('active', savedSetting === 'regular');
-
-        if (fmpModeIcon) {
-            fmpModeIcon.textContent = isPatriotic ? '🇻🇳' : '🎵';
-        }
-
-        // Đổi playlist phù hợp
-        initPlaylist(mode);
-        playSongByIndex(0, !bgMusic.paused);
-        resetCanvasParticles();
-    }
-
-    function renderPlaylistItems() {
-        if (!playlistContainer) return;
-        const listToRender = currentActiveTab === 'holiday' ? HOLIDAY_SONGS : REGULAR_SONGS;
-        const currentSong = currentPlaylist[currentSongIndex];
-
-        playlistContainer.innerHTML = listToRender.map((song, idx) => {
-            const isPlaying = currentSong && currentSong.title === song.title && !bgMusic.paused;
-            const isCurrent = currentSong && currentSong.title === song.title;
-            const isPatriotic = song.type === 'holiday';
-
-            return `
-                <div class="playlist-item ${isCurrent ? 'playing' : ''} ${isPatriotic ? 'patriotic' : ''}" data-tab="${song.type}" data-index="${idx}">
-                    <div class="pi-index">${isCurrent && isPlaying ? '<i class="fa-solid fa-volume-high"></i>' : (idx + 1)}</div>
-                    <div class="pi-info">
-                        <div class="pi-title">${song.title}</div>
-                        <div class="pi-artist">${song.artist}</div>
-                    </div>
-                    <span class="pi-badge ${isPatriotic ? 'patriotic' : ''}">${song.badge || (isPatriotic ? '🇻🇳 Yêu Nước' : '🎵 Chill')}</span>
-                    <div class="pi-play-btn">
-                        <i class="fa-solid ${isCurrent && isPlaying ? 'fa-pause' : 'fa-play'}"></i>
-                    </div>
-                </div>
-            `;
-        }).join('');
-
-        // Gắn sự kiện click từng bài
-        playlistContainer.querySelectorAll('.playlist-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const tab = item.dataset.tab;
-                const idx = parseInt(item.dataset.index, 10);
-                const targetSong = (tab === 'holiday' ? HOLIDAY_SONGS : REGULAR_SONGS)[idx];
-
-                if (tab !== (currentThemeMode === 'patriotic' ? 'holiday' : 'regular')) {
-                    // Chuyển sang playlist của tab đó
-                    currentPlaylist = tab === 'holiday' ? [...HOLIDAY_SONGS] : [...REGULAR_SONGS];
-                }
-
-                const foundIdx = currentPlaylist.findIndex(s => s.title === targetSong.title);
-                if (foundIdx !== -1) {
-                    if (currentSongIndex === foundIdx && !bgMusic.paused) {
-                        togglePlayPause();
-                    } else {
-                        playSongByIndex(foundIdx, true);
-                    }
-                }
-            });
-        });
-    }
-
-    // Gắn sự kiện cho các nút điều khiển Player
-    if (fmpPlayBtn) fmpPlayBtn.addEventListener('click', togglePlayPause);
-    if (fmpNextBtn) fmpNextBtn.addEventListener('click', playNextSong);
-    if (fmpPrevBtn) fmpPrevBtn.addEventListener('click', playPrevSong);
-
-    if (fmpModeBtn) {
-        fmpModeBtn.addEventListener('click', () => {
-            const nextMode = currentThemeMode === 'patriotic' ? 'regular' : 'patriotic';
-            localStorage.setItem('patriotic_mode_setting', nextMode);
-            applyHolidayTheme(nextMode);
-        });
-    }
-
-    const openPlaylist = () => {
-        if (playlistModal) {
-            currentActiveTab = currentThemeMode === 'patriotic' ? 'holiday' : 'regular';
-            if (tabHolidayBtn) tabHolidayBtn.classList.toggle('active', currentActiveTab === 'holiday');
-            if (tabRegularBtn) tabRegularBtn.classList.toggle('active', currentActiveTab === 'regular');
-            renderPlaylistItems();
-            playlistModal.classList.remove('hidden');
-        }
-    };
-
-    if (fmpListBtn) fmpListBtn.addEventListener('click', openPlaylist);
-    if (fmpDiscToggle) fmpDiscToggle.addEventListener('click', openPlaylist);
-    if (fmpInfoArea) fmpInfoArea.addEventListener('click', openPlaylist);
-
-    if (tabHolidayBtn) {
-        tabHolidayBtn.addEventListener('click', () => {
-            currentActiveTab = 'holiday';
-            tabHolidayBtn.classList.add('active');
-            if (tabRegularBtn) tabRegularBtn.classList.remove('active');
-            renderPlaylistItems();
-        });
-    }
-
-    if (tabRegularBtn) {
-        tabRegularBtn.addEventListener('click', () => {
-            currentActiveTab = 'regular';
-            tabRegularBtn.classList.add('active');
-            if (tabHolidayBtn) tabHolidayBtn.classList.remove('active');
-            renderPlaylistItems();
-        });
-    }
-
-    if (modeOptAuto) {
-        modeOptAuto.addEventListener('click', () => {
-            localStorage.setItem('patriotic_mode_setting', 'auto');
-            applyHolidayTheme(getActiveThemeMode());
-        });
-    }
-    if (modeOptPatriotic) {
-        modeOptPatriotic.addEventListener('click', () => {
-            localStorage.setItem('patriotic_mode_setting', 'patriotic');
-            applyHolidayTheme('patriotic');
-        });
-    }
-    if (modeOptRegular) {
-        modeOptRegular.addEventListener('click', () => {
-            localStorage.setItem('patriotic_mode_setting', 'regular');
-            applyHolidayTheme('regular');
-        });
-    }
-
     function hideStartScreen() {
         if (startScreen && !startScreen.classList.contains('fade-out')) {
             startScreen.classList.add('fade-out');
             if (profileContainer) {
                 profileContainer.classList.remove('hidden');
             }
-            // Hiện Floating Music Player khi vào trang
-            const fmpWidget = document.getElementById('floating-music-player');
-            if (fmpWidget) {
-                fmpWidget.classList.remove('hidden');
-            }
         }
     }
-
-    // Khởi tạo Playlist & Theme ban đầu
-    applyHolidayTheme(currentThemeMode);
-
-    if (startScreen) {
-        startScreen.addEventListener('click', () => {
+    function playNextSong() {
+        if (currentPlaylist.length === 0 || currentSongIndex >= currentPlaylist.length) {
+            initPlaylist();
+        }
+        const songPath = currentPlaylist[currentSongIndex];
+        bgMusic.src = songPath;
+        bgMusic.volume = 0.5;
+        
+        bgMusic.play().then(() => {
+            console.log("Đang phát bài hát ngẫu nhiên: " + songPath);
             hideStartScreen();
-            if (bgMusic && bgMusic.paused) {
-                bgMusic.play().then(() => {
-                    const currentSong = currentPlaylist[currentSongIndex];
-                    updateFloatingPlayerUI(currentSong, true);
-                }).catch(error => {
-                    console.log("Lỗi khi phát nhạc sau tương tác: ", error);
-                });
-            }
+        }).catch(error => {
+            console.log("Không thể tự động phát nhạc: ", error);
+        });
+        
+        currentSongIndex++;
+    }
+    bgMusic.addEventListener('ended', playNextSong);
+    initPlaylist();
+    if (bgMusic) {
+        bgMusic.src = currentPlaylist[currentSongIndex];
+        bgMusic.volume = 0.5;
+        currentSongIndex++;
+        bgMusic.play().then(() => {
+            console.log("Autoplay thành công!");
+            hideStartScreen();
+        }).catch(error => {
+            console.log("HOANG SA AND TRUONG SA BELONGS TO VIET NAM ! ");
+            console.log("FROM NGUYEN TRINH TUAN TU WHIT LOVE <3 ");
         });
     }
-
-    // ===================================================
-    // CANVAS HIỆU ỨNG LỄ HỘI (PHÁO HOA + SAO VÀNG / TUYẾT)
-    // ===================================================
+    startScreen.addEventListener('click', () => {
+        hideStartScreen();
+        if (bgMusic && bgMusic.paused) {
+            bgMusic.play().catch(error => {
+                console.log("Lỗi khi phát nhạc sau tương tác: ", error);
+            });
+        }
+    });
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
     let width, height;
     let snowflakes = [];
-    let fireworks = [];
-    let goldenStars = [];
 
     function initCanvas() {
         width = window.innerWidth;
@@ -1066,7 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', initCanvas);
     initCanvas();
 
-    // Tuyết rơi ngày thường
     class Snowflake {
         constructor() {
             this.x = Math.random() * width;
@@ -1097,244 +561,32 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fill();
         }
     }
-
-    // Pháo hoa lễ hội rực rỡ
-    class FireworkSpark {
-        constructor(x, y, color) {
-            this.x = x;
-            this.y = y;
-            this.color = color;
-            const angle = Math.random() * Math.PI * 2;
-            const speed = Math.random() * 4 + 1;
-            this.vx = Math.cos(angle) * speed;
-            this.vy = Math.sin(angle) * speed;
-            this.alpha = 1;
-            this.decay = Math.random() * 0.02 + 0.012;
-            this.gravity = 0.06;
-            this.size = Math.random() * 2.5 + 1.5;
-        }
-        update() {
-            this.vx *= 0.98;
-            this.vy += this.gravity;
-            this.x += this.vx;
-            this.y += this.vy;
-            this.alpha -= this.decay;
-        }
-        draw() {
-            ctx.save();
-            ctx.globalAlpha = Math.max(this.alpha, 0);
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.shadowBlur = 6;
-            ctx.shadowColor = this.color;
-            ctx.fill();
-            ctx.restore();
+    function createSnowflakes() {
+        for (let i = 0; i < 150; i++) { 
+            snowflakes.push(new Snowflake());
         }
     }
-
-    class FireworkRocket {
-        constructor() {
-            this.x = Math.random() * (width - 100) + 50;
-            this.y = height;
-            this.targetY = Math.random() * (height * 0.45) + 60;
-            this.speed = Math.random() * 3 + 5;
-            this.color = ['#ff0033', '#ffd700', '#ff6b00', '#ffffff', '#eab308'][Math.floor(Math.random() * 5)];
-            this.sparks = [];
-            this.exploded = false;
-            this.dead = false;
-        }
-        update() {
-            if (!this.exploded) {
-                this.y -= this.speed;
-                if (this.y <= this.targetY) {
-                    this.explode();
-                }
-            } else {
-                for (let i = this.sparks.length - 1; i >= 0; i--) {
-                    this.sparks[i].update();
-                    if (this.sparks[i].alpha <= 0) {
-                        this.sparks.splice(i, 1);
-                    }
-                }
-                if (this.sparks.length === 0) {
-                    this.dead = true;
-                }
-            }
-        }
-        explode() {
-            this.exploded = true;
-            const sparkCount = Math.floor(Math.random() * 25) + 35;
-            for (let i = 0; i < sparkCount; i++) {
-                this.sparks.push(new FireworkSpark(this.x, this.y, this.color));
-            }
-        }
-        draw() {
-            if (!this.exploded) {
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = this.color;
-                ctx.fill();
-                ctx.restore();
-            } else {
-                for (const spark of this.sparks) {
-                    spark.draw();
-                }
-            }
-        }
-    }
-
-    // Sao vàng 5 cánh lấp lánh ngày lễ
-    class GoldenStar {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height - height;
-            this.size = Math.random() * 6 + 4;
-            this.speedY = Math.random() * 1 + 0.4;
-            this.speedX = (Math.random() - 0.5) * 0.8;
-            this.angle = Math.random() * Math.PI * 2;
-            this.rotSpeed = (Math.random() - 0.5) * 0.04;
-            this.opacity = Math.random() * 0.6 + 0.3;
-        }
-        update() {
-            this.y += this.speedY;
-            this.x += this.speedX + Math.sin(this.y * 0.015) * 0.4;
-            this.angle += this.rotSpeed;
-            if (this.y > height + 20) {
-                this.y = -20;
-                this.x = Math.random() * width;
-            }
-            if (this.x > width) this.x = 0;
-            if (this.x < 0) this.x = width;
-        }
-        draw() {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.angle);
-            ctx.beginPath();
-            const spikes = 5;
-            const outerRadius = this.size;
-            const innerRadius = this.size / 2.2;
-            let rot = (Math.PI / 2) * 3;
-            let x = 0, y = 0;
-            const step = Math.PI / spikes;
-
-            ctx.moveTo(0, -outerRadius);
-            for (let i = 0; i < spikes; i++) {
-                x = Math.cos(rot) * outerRadius;
-                y = Math.sin(rot) * outerRadius;
-                ctx.lineTo(x, y);
-                rot += step;
-
-                x = Math.cos(rot) * innerRadius;
-                y = Math.sin(rot) * innerRadius;
-                ctx.lineTo(x, y);
-                rot += step;
-            }
-            ctx.lineTo(0, -outerRadius);
-            ctx.closePath();
-
-            ctx.fillStyle = `rgba(255, 215, 0, ${this.opacity})`;
-            ctx.shadowBlur = 8;
-            ctx.shadowColor = "rgba(255, 215, 0, 0.9)";
-            ctx.fill();
-            ctx.restore();
-        }
-    }
-
-    function resetCanvasParticles() {
-        snowflakes = [];
-        fireworks = [];
-        goldenStars = [];
-
-        if (currentThemeMode === 'patriotic') {
-            for (let i = 0; i < 40; i++) {
-                goldenStars.push(new GoldenStar());
-            }
-        } else {
-            for (let i = 0; i < 150; i++) {
-                snowflakes.push(new Snowflake());
-            }
-        }
-    }
-
-    let lastFireworkTime = 0;
-    function animateCanvas() {
+    function animateSnowflakes() {
         ctx.clearRect(0, 0, width, height);
-
-        if (currentThemeMode === 'patriotic') {
-            // Hiệu ứng pháo hoa
-            const now = Date.now();
-            if (now - lastFireworkTime > 1100 && fireworks.length < 5) {
-                fireworks.push(new FireworkRocket());
-                lastFireworkTime = now;
-            }
-
-            for (let i = fireworks.length - 1; i >= 0; i--) {
-                fireworks[i].update();
-                fireworks[i].draw();
-                if (fireworks[i].dead) {
-                    fireworks.splice(i, 1);
-                }
-            }
-
-            // Sao vàng bay
-            for (let i = 0; i < goldenStars.length; i++) {
-                goldenStars[i].update();
-                goldenStars[i].draw();
-            }
-        } else {
-            // Tuyết rơi ngày thường
-            for (let i = 0; i < snowflakes.length; i++) {
-                snowflakes[i].update();
-                snowflakes[i].draw();
-            }
+        for (let i = 0; i < snowflakes.length; i++) {
+            snowflakes[i].update();
+            snowflakes[i].draw();
         }
-
-        requestAnimationFrame(animateCanvas);
+        requestAnimationFrame(animateSnowflakes);
     }
 
-    resetCanvasParticles();
-    animateCanvas();
-
-    // ===================================================
-    // HIỆU ỨNG CLICK CHUỘT (TỰ HÀO DÂN TỘC / NGÀY THƯỜNG)
-    // ===================================================
-    const PATRIOTIC_SLOGANS = [
-        "🇻🇳 Việt Nam Muôn Năm!",
-        "⭐️ Tự Hào Việt Nam ⭐️",
-        "🇻🇳 Quốc Khánh 2/9 Bất Diệt!",
-        "★ Hoàng Sa & Trường Sa là của VN! ★",
-        "Nguyễn Trịnh Tuấn Tú ❤️ Việt Nam",
-        "🇻🇳 Độc Lập - Tự Do - Hạnh Phúc",
-        "🇻🇳 Tôi Yêu Tổ Quốc Tôi!"
-    ];
-
-    const REGULAR_SLOGANS = [
-        "Tuấn Tú",
-        "Hello World!",
-        "✨ Welcome!",
-        "⚡ Code with Passion",
-        "Tuấn Tú Profile"
-    ];
-
-    document.addEventListener('click', function (e) {
-        if (!startScreen.classList.contains('fade-out') || e.target.tagName.toLowerCase() === 'a' || e.target.closest('a') || e.target.closest('button') || e.target.closest('.floating-music-player')) return;
-
-        const isPatriotic = currentThemeMode === 'patriotic';
-        const sloganList = isPatriotic ? PATRIOTIC_SLOGANS : REGULAR_SLOGANS;
-        const randomText = sloganList[Math.floor(Math.random() * sloganList.length)];
+    createSnowflakes();
+    animateSnowflakes();
+    document.addEventListener('click', function(e) {
+        if (!startScreen.classList.contains('fade-out') || e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) return;
 
         const textElement = document.createElement('div');
-        textElement.textContent = randomText;
-        textElement.className = `floating-text-effect ${isPatriotic ? 'patriotic' : ''}`;
-
+        textElement.textContent = 'Tuấn Tú';
+        textElement.className = 'floating-text-effect';
+        
         textElement.style.left = `${e.clientX}px`;
         textElement.style.top = `${e.clientY}px`;
-
+        
         document.body.appendChild(textElement);
 
         setTimeout(() => {
@@ -1371,10 +623,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             hls.loadSource(streamUrl);
             hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
                 console.log(videoElementId + " manifest loaded successfully!");
             });
-            hls.on(Hls.Events.ERROR, function (event, data) {
+            hls.on(Hls.Events.ERROR, function(event, data) {
                 if (data.fatal) {
                     switch (data.type) {
                         case Hls.ErrorTypes.NETWORK_ERROR:
@@ -1400,26 +652,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getWeatherDescription(code) {
         const codes = {
-            0: { desc: 'Trời quang', icon: '<i class="fa-solid fa-sun weather-icon-sun" style="color: #f59e0b; margin-left: 5px;"></i>' },
-            1: { desc: 'Ít mây', icon: '<i class="fa-solid fa-cloud-sun" style="color: #e2e8f0; margin-left: 5px;"></i>' },
-            2: { desc: 'Mây rải rác', icon: '<i class="fa-solid fa-cloud-sun" style="color: #cbd5e1; margin-left: 5px;"></i>' },
-            3: { desc: 'Nhiều mây', icon: '<i class="fa-solid fa-cloud" style="color: #94a3b8; margin-left: 5px;"></i>' },
-            45: { desc: 'Sương mù', icon: '<i class="fa-solid fa-smog" style="color: #cbd5e1; margin-left: 5px;"></i>' },
-            48: { desc: 'Sương mù', icon: '<i class="fa-solid fa-smog" style="color: #cbd5e1; margin-left: 5px;"></i>' },
-            51: { desc: 'Mưa phùn nhẹ', icon: '<i class="fa-solid fa-cloud-rain" style="color: #60a5fa; margin-left: 5px;"></i>' },
-            53: { desc: 'Mưa phùn vừa', icon: '<i class="fa-solid fa-cloud-rain" style="color: #3b82f6; margin-left: 5px;"></i>' },
-            55: { desc: 'Mưa phùn dày', icon: '<i class="fa-solid fa-cloud-rain" style="color: #2563eb; margin-left: 5px;"></i>' },
-            61: { desc: 'Mưa nhẹ', icon: '<i class="fa-solid fa-cloud-showers-heavy" style="color: #60a5fa; margin-left: 5px;"></i>' },
-            63: { desc: 'Mưa vừa', icon: '<i class="fa-solid fa-cloud-showers-heavy" style="color: #3b82f6; margin-left: 5px;"></i>' },
-            65: { desc: 'Mưa to', icon: '<i class="fa-solid fa-cloud-showers-heavy" style="color: #1d4ed8; margin-left: 5px;"></i>' },
-            80: { desc: 'Mưa rào nhẹ', icon: '<i class="fa-solid fa-cloud-showers-heavy" style="color: #60a5fa; margin-left: 5px;"></i>' },
-            81: { desc: 'Mưa rào vừa', icon: '<i class="fa-solid fa-cloud-showers-heavy" style="color: #3b82f6; margin-left: 5px;"></i>' },
-            82: { desc: 'Mưa rào mạnh', icon: '<i class="fa-solid fa-cloud-showers-heavy" style="color: #1d4ed8; margin-left: 5px;"></i>' },
-            95: { desc: 'Mưa dông', icon: '<i class="fa-solid fa-cloud-bolt weather-icon-thunder" style="color: #facc15; margin-left: 5px;"></i>' },
-            96: { desc: 'Mưa dông kèm đá', icon: '<i class="fa-solid fa-cloud-bolt weather-icon-thunder" style="color: #eab308; margin-left: 5px;"></i>' },
-            99: { desc: 'Mưa dông kèm đá', icon: '<i class="fa-solid fa-cloud-bolt weather-icon-thunder" style="color: #ca8a04; margin-left: 5px;"></i>' }
+            0: { desc: 'Trời quang', icon: '<i class=\"fa-solid fa-sun weather-icon-sun\" style=\"color: #f59e0b; margin-left: 5px;\"></i>' },
+            1: { desc: 'Ít mây', icon: '<i class=\"fa-solid fa-cloud-sun\" style=\"color: #e2e8f0; margin-left: 5px;\"></i>' },
+            2: { desc: 'Mây rải rác', icon: '<i class=\"fa-solid fa-cloud-sun\" style=\"color: #cbd5e1; margin-left: 5px;\"></i>' },
+            3: { desc: 'Nhiều mây', icon: '<i class=\"fa-solid fa-cloud\" style=\"color: #94a3b8; margin-left: 5px;\"></i>' },
+            45: { desc: 'Sương mù', icon: '<i class=\"fa-solid fa-smog\" style=\"color: #cbd5e1; margin-left: 5px;\"></i>' },
+            48: { desc: 'Sương mù', icon: '<i class=\"fa-solid fa-smog\" style=\"color: #cbd5e1; margin-left: 5px;\"></i>' },
+            51: { desc: 'Mưa phùn nhẹ', icon: '<i class=\"fa-solid fa-cloud-rain\" style=\"color: #60a5fa; margin-left: 5px;\"></i>' },
+            53: { desc: 'Mưa phùn vừa', icon: '<i class=\"fa-solid fa-cloud-rain\" style=\"color: #3b82f6; margin-left: 5px;\"></i>' },
+            55: { desc: 'Mưa phùn dày', icon: '<i class=\"fa-solid fa-cloud-rain\" style=\"color: #2563eb; margin-left: 5px;\"></i>' },
+            61: { desc: 'Mưa nhẹ', icon: '<i class=\"fa-solid fa-cloud-showers-heavy\" style=\"color: #60a5fa; margin-left: 5px;\"></i>' },
+            63: { desc: 'Mưa vừa', icon: '<i class=\"fa-solid fa-cloud-showers-heavy\" style=\"color: #3b82f6; margin-left: 5px;\"></i>' },
+            65: { desc: 'Mưa to', icon: '<i class=\"fa-solid fa-cloud-showers-heavy\" style=\"color: #1d4ed8; margin-left: 5px;\"></i>' },
+            80: { desc: 'Mưa rào nhẹ', icon: '<i class=\"fa-solid fa-cloud-showers-heavy\" style=\"color: #60a5fa; margin-left: 5px;\"></i>' },
+            81: { desc: 'Mưa rào vừa', icon: '<i class=\"fa-solid fa-cloud-showers-heavy\" style=\"color: #3b82f6; margin-left: 5px;\"></i>' },
+            82: { desc: 'Mưa rào mạnh', icon: '<i class=\"fa-solid fa-cloud-showers-heavy\" style=\"color: #1d4ed8; margin-left: 5px;\"></i>' },
+            95: { desc: 'Mưa dông', icon: '<i class=\"fa-solid fa-cloud-bolt weather-icon-thunder\" style=\"color: #facc15; margin-left: 5px;\"></i>' },
+            96: { desc: 'Mưa dông kèm đá', icon: '<i class=\"fa-solid fa-cloud-bolt weather-icon-thunder\" style=\"color: #eab308; margin-left: 5px;\"></i>' },
+            99: { desc: 'Mưa dông kèm đá', icon: '<i class=\"fa-solid fa-cloud-bolt weather-icon-thunder\" style=\"color: #ca8a04; margin-left: 5px;\"></i>' }
         };
-        return codes[code] || { desc: 'Thời tiết ổn định', icon: '<i class="fa-solid fa-temperature-half" style="color: #f87171; margin-left: 5px;"></i>' };
+        return codes[code] || { desc: 'Thời tiết ổn định', icon: '<i class=\"fa-solid fa-temperature-half\" style=\"color: #f87171; margin-left: 5px;\"></i>' };
     }
 
     function updateDateTime() {
@@ -1458,8 +710,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (hnData && hnData.current) {
                     const correctedCode = adjustWeatherCode(
-                        hnData.current.weather_code,
-                        hnData.current.precipitation,
+                        hnData.current.weather_code, 
+                        hnData.current.precipitation, 
                         hnData.current.cloud_cover
                     );
                     const info = getWeatherDescription(correctedCode);
@@ -1467,8 +719,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (hcmData && hcmData.current) {
                     const correctedCode = adjustWeatherCode(
-                        hcmData.current.weather_code,
-                        hcmData.current.precipitation,
+                        hcmData.current.weather_code, 
+                        hcmData.current.precipitation, 
                         hcmData.current.cloud_cover
                     );
                     const info = getWeatherDescription(correctedCode);
@@ -1477,8 +729,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateDateTime();
             })
             .catch(() => {
-                hanoiWeather = '<i class="fa-solid fa-circle-exclamation" style="color: #ef4444; margin-left: 5px;"></i> N/A';
-                hcmWeather = '<i class="fa-solid fa-circle-exclamation" style="color: #ef4444; margin-left: 5px;"></i> N/A';
+                hanoiWeather = '<i class=\"fa-solid fa-circle-exclamation\" style=\"color: #ef4444; margin-left: 5px;\"></i> N/A';
+                hcmWeather = '<i class=\"fa-solid fa-circle-exclamation\" style=\"color: #ef4444; margin-left: 5px;\"></i> N/A';
                 updateDateTime();
             });
     }
@@ -1563,10 +815,10 @@ function showAdminPopupMessage() {
     const popup = document.createElement('div');
     popup.className = 'admin-popup-notice';
     popup.innerHTML = `
-        <div class="admin-popup-inner">
-            <div class="admin-popup-title">Thông báo Admin</div>
-            <div class="admin-popup-body">${message}</div>
-            <button type="button" class="admin-popup-close">Đã hiểu</button>
+        <div class=\"admin-popup-inner\">
+            <div class=\"admin-popup-title\">Thông báo Admin</div>
+            <div class=\"admin-popup-body\">${message}</div>
+            <button type=\"button\" class=\"admin-popup-close\">Đã hiểu</button>
         </div>
     `;
     document.body.appendChild(popup);
@@ -1625,19 +877,15 @@ function applySiteSettings() {
     }
 }
 
-function warnStealer() {
-    console.log("%cHOANG SA AND TRUONG SA BELONGS TO VIET NAM !\nFROM NGUYEN TRINH TUAN TU WITH LOVE <3", "color: #ff0000; font-size: 16px; font-weight: bold; text-shadow: 0 0 10px rgba(255,0,0,0.5);");
-}
-
 // Cảnh báo ngay khi script tải
 warnStealer();
 
-document.addEventListener('contextmenu', function (e) {
+document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
 
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', function(e) {
     if (e.key === 'F12' || e.keyCode === 123) {
         warnStealer();
         e.preventDefault();
