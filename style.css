@@ -96,28 +96,35 @@ body {
     margin-bottom: 15px;
     font-weight: 700;
     letter-spacing: 4px;
-    color: #ffffff;
+    color: #ffffff !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
     text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.9),
-        0 0 15px rgba(255, 255, 255, 0.75),
-        0 0 28px rgba(255, 255, 255, 0.5),
-        0 0 45px rgba(255, 255, 255, 0.3);
-    animation: neonWhitePulse 2.5s ease-in-out infinite alternate;
+        0 0 6px #ffffff,
+        0 0 15px rgba(255, 255, 255, 0.95),
+        0 0 28px rgba(255, 255, 255, 0.8),
+        0 0 50px rgba(255, 255, 255, 0.5) !important;
+    animation: neonWhitePulse 2s ease-in-out infinite alternate !important;
 }
 
 @keyframes neonWhitePulse {
     0% {
         text-shadow:
-            0 0 5px rgba(255, 255, 255, 0.85),
-            0 0 12px rgba(255, 255, 255, 0.6),
-            0 0 20px rgba(255, 255, 255, 0.35);
+            0 0 4px #ffffff,
+            0 0 10px rgba(255, 255, 255, 0.85),
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 35px rgba(255, 255, 255, 0.4);
     }
     100% {
         text-shadow:
             0 0 8px #ffffff,
-            0 0 18px rgba(255, 255, 255, 0.95),
-            0 0 35px rgba(255, 255, 255, 0.75),
-            0 0 55px rgba(255, 255, 255, 0.45);
+            0 0 18px #ffffff,
+            0 0 32px rgba(255, 255, 255, 0.95),
+            0 0 55px rgba(255, 255, 255, 0.8),
+            0 0 75px rgba(255, 255, 255, 0.5);
     }
 }
 
@@ -298,7 +305,7 @@ body {
 /* Vùng bọc Dòng chạy ngang Tech Stack */
 .tech-marquee-wrapper {
     width: 100%;
-    padding: 50px 0;
+    padding: 30px 0 50px;
     margin-top: 50px;
     background: rgba(20, 22, 35, 0.4);
     backdrop-filter: blur(15px);
@@ -307,7 +314,19 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Khoảng cách giữa 2 hàng */
+    gap: 30px;
+}
+
+.marquee-section-label {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    user-select: none;
 }
 
 /* Dòng chạy ngang */
@@ -353,6 +372,64 @@ body {
     to {
         transform: translateX(calc(-100% - 50px)); /* Độ dịch bằng đúng 1 list + gap */
     }
+}
+
+.sponsor-marquee-wrapper {
+    width: 100%;
+    padding: 30px 0 50px;
+    margin-top: 50px;
+    background: rgba(20, 22, 35, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sponsor-marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 50px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.sponsor-track {
+    display: flex;
+    gap: 50px;
+    flex-shrink: 0;
+    align-items: center;
+    animation: scrollMarquee 30s linear infinite;
+}
+
+.sponsor-marquee.reverse .sponsor-track {
+    animation-direction: reverse;
+}
+
+.sponsor-track i {
+    font-size: 4.5rem;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.05));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+}
+
+.sponsor-track img {
+    height: 56px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.05));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+}
+
+.sponsor-track i:hover,
+.sponsor-track img:hover {
+    transform: scale(1.3) translateY(-10px);
+    filter: drop-shadow(0 15px 25px rgba(255,255,255,0.4));
+    z-index: 10;
 }
 
 /* Hiệu ứng Text "Tuấn Tú" bay lên khi click chuột */
@@ -798,10 +875,6 @@ body {
 .live-watch-btn i {
     font-size: 0.75rem;
 }
-
-/* ========================
-   Shop Section
-   ======================== */
 .shop-section {
     width: 100%;
     max-width: 960px;
@@ -1001,15 +1074,132 @@ body {
     border: 1px solid rgba(255, 0, 0, 0.2);
     animation: badgeGlow 2s ease-in-out infinite alternate;
 }
-
-.admin-link-btn {
-    border-color: rgba(56, 189, 248, 0.45);
-    color: #7dd3fc;
+.social-btn.admin-link-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.18) 0%, rgba(15, 23, 42, 0.85) 50%, rgba(99, 102, 241, 0.2) 100%) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(56, 189, 248, 0.65) !important;
+    box-shadow: 
+        0 0 15px rgba(56, 189, 248, 0.35),
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        inset 0 0 15px rgba(56, 189, 248, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    color: #ffffff !important;
+    font-weight: 600;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: tuanTuCyberPulse 3s ease-in-out infinite alternate;
 }
 
-.admin-link-btn:hover {
-    border-color: #38bdf8;
-    background: rgba(56, 189, 248, 0.08);
+.social-btn.admin-link-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        rgba(56, 189, 248, 0.5),
+        transparent
+    );
+    transform: rotate(25deg);
+    animation: tuanTuShimmer 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+}
+
+.social-btn.admin-link-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.25), transparent 70%);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.social-btn.admin-link-btn span.btn-text,
+.social-btn.admin-link-btn > span {
+    position: relative;
+    z-index: 2;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 20%, #e0f2fe 55%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+    transition: all 0.3s ease;
+}
+
+.social-btn.admin-link-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    border-color: #38bdf8 !important;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.3) 0%, rgba(15, 23, 42, 0.92) 50%, rgba(99, 102, 241, 0.3) 100%) !important;
+    box-shadow: 
+        0 0 25px rgba(56, 189, 248, 0.65),
+        0 0 45px rgba(99, 102, 241, 0.4),
+        0 6px 25px rgba(0, 0, 0, 0.5),
+        inset 0 0 18px rgba(56, 189, 248, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+}
+
+.social-btn.admin-link-btn:hover::before {
+    opacity: 1;
+}
+
+.social-btn.admin-link-btn:hover span.btn-text,
+.social-btn.admin-link-btn:hover > span {
+    letter-spacing: 2.5px;
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.95));
+}
+
+.social-btn.admin-link-btn:active {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+@keyframes tuanTuCyberPulse {
+    0% {
+        box-shadow: 
+            0 0 12px rgba(56, 189, 248, 0.3),
+            0 4px 15px rgba(0, 0, 0, 0.4),
+            inset 0 0 10px rgba(56, 189, 248, 0.12),
+            inset 0 1px 1px rgba(255, 255, 255, 0.25);
+        border-color: rgba(56, 189, 248, 0.55);
+    }
+    100% {
+        box-shadow: 
+            0 0 22px rgba(56, 189, 248, 0.6),
+            0 0 38px rgba(99, 102, 241, 0.28),
+            0 6px 20px rgba(0, 0, 0, 0.4),
+            inset 0 0 16px rgba(56, 189, 248, 0.22),
+            inset 0 1px 2px rgba(255, 255, 255, 0.5);
+        border-color: rgba(56, 189, 248, 0.9);
+    }
+}
+
+@keyframes tuanTuShimmer {
+    0% {
+        left: -80%;
+    }
+    28%, 100% {
+        left: 140%;
+    }
 }
 
 .admin-page {
@@ -1397,10 +1587,6 @@ body {
     max-height: 90vh;
     min-height: unset !important;
 }
-
-/* ========================
-   Check Host Custom UI
-   ======================== */
 .check-host-modal-content {
     width: 95%;
     max-width: 860px;
@@ -1720,10 +1906,6 @@ body {
     border-radius: 10px;
     border: 1px solid rgba(239,68,68,0.2);
 }
-
-/* ========================
-   Check SĐT Custom UI
-   ======================== */
 .sdt-modal-content {
     width: 95%;
     max-width: 520px;
