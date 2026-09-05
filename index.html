@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tuấn Tú - Profile</title>
-    <link rel="stylesheet" href="style.css?v=20260904_8">
+    <link rel="stylesheet" href="style.css?v=20260905_responsive">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
@@ -22,6 +22,35 @@
             -webkit-text-fill-color: #ffffff !important;
             text-shadow: 0 0 6px #ffffff, 0 0 15px rgba(255, 255, 255, 0.95), 0 0 28px rgba(255, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 0.5) !important;
             animation: neonWhitePulse 2s ease-in-out infinite alternate !important;
+        }
+
+        .web-viewer-traffic-lights {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 2px;
+        }
+
+        .tl {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .tl-red {
+            background: #ff5f57;
+            box-shadow: 0 0 4px rgba(255, 95, 87, 0.6);
+        }
+
+        .tl-yellow {
+            background: #febc2e;
+            box-shadow: 0 0 4px rgba(254, 188, 46, 0.6);
+        }
+
+        .tl-green {
+            background: #28c840;
+            box-shadow: 0 0 4px rgba(40, 200, 64, 0.6);
         }
     </style>
 </head>
@@ -191,22 +220,60 @@
             <div class="marquee-section-label">đơn vị đồng hành</div>
             <div class="sponsor-marquee">
                 <div class="sponsor-track">
-                    <img src="nha-tai-tro-va-dong-hanh/vnu.png" alt="VNU">
-                    <img src="nha-tai-tro-va-dong-hanh/fpt-software.png" alt="FPT Software">
-                    <img src="nha-tai-tro-va-dong-hanh/vnpt-cyber-immunity.png" alt="VNPT Cyber Immunity">
-                    <img src="nha-tai-tro-va-dong-hanh/Viettel-Security_2021.webp" alt="Viettel Security">
-                    <img src="nha-tai-tro-va-dong-hanh/beat-vn.png" alt="Beat VN">
-                    <img src="nha-tai-tro-va-dong-hanh/logo-Schannel-Network-crop.png" alt="Schannel Network">
-                    <img src="nha-tai-tro-va-dong-hanh/PayPal.svg.png" alt="PayPal">
+                    <a href="https://www.is.vnu.edu.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://www.is.vnu.edu.vn/" data-name="VNU-IS - Trường Quốc tế ĐHQGHN"
+                        title="VNU-IS - Trường Quốc tế Đại học Quốc gia Hà Nội">
+                        <img src="nha-tai-tro-va-dong-hanh/vnu.png" alt="VNU">
+                    </a>
+                    <a href="https://fptsoftware.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://fptsoftware.com/" data-name="FPT Software" title="FPT Software">
+                        <img src="nha-tai-tro-va-dong-hanh/fpt-software.png" alt="FPT Software">
+                    </a>
+                    <a href="https://sec.vnpt.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://sec.vnpt.vn/" data-name="VNPT Cyber Immunity" title="VNPT Cyber Immunity">
+                        <img src="nha-tai-tro-va-dong-hanh/vnpt-cyber-immunity.png" alt="VNPT Cyber Immunity">
+                    </a>
+                    <a href="https://viettelsecurity.com/" target="_blank" rel="noopener noreferrer"
+                        class="sponsor-link" data-url="https://viettelsecurity.com/" data-name="Viettel Cyber Security"
+                        title="Viettel Cyber Security">
+                        <img src="nha-tai-tro-va-dong-hanh/Viettel-Security_2021.webp" alt="Viettel Security">
+                    </a>
+                    <a href="https://beatnetwork.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://beatnetwork.vn/" data-name="Beat Network (Beatvn)" title="Beat Network">
+                        <img src="nha-tai-tro-va-dong-hanh/beat-vn.png" alt="Beat VN">
+                    </a>
+                    <a href="https://schannel.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://schannel.vn/" data-name="Schannel Network" title="Schannel Network">
+                        <img src="nha-tai-tro-va-dong-hanh/logo-Schannel-Network-crop.png" alt="Schannel Network">
+                    </a>
                 </div>
                 <div class="sponsor-track">
-                    <img src="nha-tai-tro-va-dong-hanh/vnu.png" alt="VNU">
-                    <img src="nha-tai-tro-va-dong-hanh/fpt-software.png" alt="FPT Software">
-                    <img src="nha-tai-tro-va-dong-hanh/vnpt-cyber-immunity.png" alt="VNPT Cyber Immunity">
-                    <img src="nha-tai-tro-va-dong-hanh/Viettel-Security_2021.webp" alt="Viettel Security">
-                    <img src="nha-tai-tro-va-dong-hanh/beat-vn.png" alt="Beat VN">
-                    <img src="nha-tai-tro-va-dong-hanh/logo-Schannel-Network-crop.png" alt="Schannel Network">
-                    <img src="nha-tai-tro-va-dong-hanh/PayPal.svg.png" alt="PayPal Team">
+                    <a href="https://www.is.vnu.edu.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://www.is.vnu.edu.vn/" data-name="VNU-IS - Trường Quốc tế ĐHQGHN"
+                        title="VNU-IS - Trường Quốc tế Đại học Quốc gia Hà Nội">
+                        <img src="nha-tai-tro-va-dong-hanh/vnu.png" alt="VNU">
+                    </a>
+                    <a href="https://fptsoftware.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://fptsoftware.com/" data-name="FPT Software" title="FPT Software">
+                        <img src="nha-tai-tro-va-dong-hanh/fpt-software.png" alt="FPT Software">
+                    </a>
+                    <a href="https://vnptcyber.io/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://vnptcyber.io/" data-name="VNPT Cyber Immunity" title="VNPT Cyber Immunity">
+                        <img src="nha-tai-tro-va-dong-hanh/vnpt-cyber-immunity.png" alt="VNPT Cyber Immunity">
+                    </a>
+                    <a href="https://viettelsecurity.com/" target="_blank" rel="noopener noreferrer"
+                        class="sponsor-link" data-url="https://viettelsecurity.com/" data-name="Viettel Cyber Security"
+                        title="Viettel Cyber Security">
+                        <img src="nha-tai-tro-va-dong-hanh/Viettel-Security_2021.webp" alt="Viettel Security">
+                    </a>
+                    <a href="https://beatnetwork.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://beatnetwork.vn/" data-name="Beat Network (Beatvn)" title="Beat Network">
+                        <img src="nha-tai-tro-va-dong-hanh/beat-vn.png" alt="Beat VN">
+                    </a>
+                    <a href="https://schannel.vn/" target="_blank" rel="noopener noreferrer" class="sponsor-link"
+                        data-url="https://schannel.vn/" data-name="Schannel Network" title="Schannel Network">
+                        <img src="nha-tai-tro-va-dong-hanh/logo-Schannel-Network-crop.png" alt="Schannel Network">
+                    </a>
                 </div>
             </div>
         </div>
@@ -581,6 +648,43 @@
         </div>
     </div>
 
+    <!-- Modal Xem Web Trực Tiếp Trong Trang (In-App Web Viewer) -->
+    <div id="web-viewer-modal" class="custom-modal hidden">
+        <div class="custom-modal-content web-viewer-content">
+            <div class="web-viewer-header">
+                <div class="web-viewer-title-group">
+                    <span class="web-viewer-traffic-lights">
+                        <span class="tl tl-red"></span>
+                        <span class="tl tl-yellow"></span>
+                        <span class="tl tl-green"></span>
+                    </span>
+                    <span id="web-viewer-name" class="web-viewer-name">Đang tải...</span>
+                </div>
+                <div class="web-viewer-actions">
+                    <a id="web-viewer-external-btn" href="#" target="_blank" rel="noopener noreferrer"
+                        class="web-viewer-btn" title="Mở trang trong tab mới nếu muốn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Url Của Nhà Tài Trợ</span>
+                    </a>
+                    <button id="web-viewer-reload-btn" class="web-viewer-btn" title="Tải lại trang">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <span class="custom-close-btn web-viewer-close-btn" id="web-viewer-close-btn">&times;</span>
+                </div>
+            </div>
+            <div class="web-viewer-body">
+                <div id="web-viewer-loading" class="web-viewer-loading">
+                    <div class="ch-spinner"></div>
+                    <p>Đang tải trang web trực tiếp...</p>
+                </div>
+                <iframe id="web-viewer-iframe" src="" frameborder="0" allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+            <div class="web-viewer-footer">
+                <span>Nếu không load được website của Nhà Tài Trợ, bấm <strong>Mở tab mới</strong> nhá.</span>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
