@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const _0x4f2a = ["Tmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6", "wqkgQuG6o24gcXV54buBbiB0aHXhu5ljIHbhu4EgTmd1eeG7hW4gVHLhu4tuaCBUdeG6pW4gVMO6"];
     try {
         const _n = document.getElementById('obf-name');
-        if(_n) _n.textContent = decodeURIComponent(escape(atob(_0x4f2a[0])));
+        if (_n) _n.textContent = decodeURIComponent(escape(atob(_0x4f2a[0])));
         const _c = document.getElementById('obf-copyright');
-        if(_c) _c.textContent = decodeURIComponent(escape(atob(_0x4f2a[1])));
-    } catch(e) {}
+        if (_c) _c.textContent = decodeURIComponent(escape(atob(_0x4f2a[1])));
+    } catch (e) { }
     const mapModal = document.getElementById('map-modal');
     const hstsBadge = document.getElementById('hsts-badge');
     if (hstsBadge && mapModal) {
@@ -17,60 +17,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const countryEl = document.getElementById('user-country');
 
     if (window.location.protocol === 'file:') {
-        if(ipEl) ipEl.textContent = '127.0.0.1 ';
-        if(countryEl) countryEl.textContent = 'Việt Nam';
+        if (ipEl) ipEl.textContent = '127.0.0.1 ';
+        if (countryEl) countryEl.textContent = 'Việt Nam';
     } else {
         fetch('https://freeipapi.com/api/json')
             .then(res => res.json())
             .then(data => {
-                if(data.ipAddress) {
-                    if(ipEl) ipEl.textContent = data.ipAddress;
-                    if(countryEl) countryEl.textContent = data.countryName;
+                if (data.ipAddress) {
+                    if (ipEl) ipEl.textContent = data.ipAddress;
+                    if (countryEl) countryEl.textContent = data.countryName;
                 } else {
-                    if(ipEl) ipEl.textContent = 'Không rõ';
-                    if(countryEl) countryEl.textContent = 'Không rõ';
+                    if (ipEl) ipEl.textContent = 'Không rõ';
+                    if (countryEl) countryEl.textContent = 'Không rõ';
                 }
             })
             .catch(() => {
                 fetch('https://ipapi.co/json/')
                     .then(res => res.json())
                     .then(data => {
-                        if(data.ip) {
-                            if(ipEl) ipEl.textContent = data.ip;
-                            if(countryEl) countryEl.textContent = data.country_name;
+                        if (data.ip) {
+                            if (ipEl) ipEl.textContent = data.ip;
+                            if (countryEl) countryEl.textContent = data.country_name;
                         } else {
-                            if(ipEl) ipEl.textContent = 'Không rõ';
-                            if(countryEl) countryEl.textContent = 'Không rõ';
+                            if (ipEl) ipEl.textContent = 'Không rõ';
+                            if (countryEl) countryEl.textContent = 'Không rõ';
                         }
                     })
                     .catch(() => {
-                        if(ipEl) ipEl.textContent = 'Lỗi';
-                        if(countryEl) countryEl.textContent = 'Lỗi';
+                        if (ipEl) ipEl.textContent = 'Lỗi';
+                        if (countryEl) countryEl.textContent = 'Lỗi';
                     });
             });
     }
-    const todayStr = new Date().toISOString().slice(0,10).replace(/-/g, '');
+    const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
     const countEl = document.getElementById('visit-count');
     if (window.location.protocol === 'file:') {
         let localVisits = localStorage.getItem(`visits_${todayStr}`) || 0;
         localVisits = parseInt(localVisits) + 1;
         localStorage.setItem(`visits_${todayStr}`, localVisits);
-        if(countEl) countEl.textContent = localVisits + " (Local)";
+        if (countEl) countEl.textContent = localVisits + " (Local)";
     } else {
         fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}/up`)
             .then(res => res.json())
             .then(data => {
-                if(countEl) countEl.textContent = data.count;
+                if (countEl) countEl.textContent = data.count;
                 setInterval(() => {
                     fetch(`https://api.counterapi.dev/v1/tuantu_profile/visits_${todayStr}`)
                         .then(r => r.json())
                         .then(d => {
-                            if(countEl) countEl.textContent = d.count;
-                        }).catch(() => {});
+                            if (countEl) countEl.textContent = d.count;
+                        }).catch(() => { });
                 }, 15000);
             })
             .catch(() => {
-                if(countEl) countEl.textContent = '---';
+                if (countEl) countEl.textContent = '---';
             });
     }
     const startScreen = document.getElementById('start-screen');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgMusic = document.getElementById('bg-music');
     const aboutBtn = document.getElementById('about-btn');
     const aboutModal = document.getElementById('about-modal');
-    
+
     if (aboutBtn && aboutModal) {
         aboutBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const skillBtn = document.getElementById('skill-btn');
     const skillModal = document.getElementById('skill-modal');
-    
+
     if (skillBtn && skillModal) {
         skillBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cvBtn = document.getElementById('cv-btn');
     const cvModal = document.getElementById('cv-modal');
-    
+
     if (cvBtn && cvModal) {
         cvBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const projectBtn = document.getElementById('project-btn');
     const projectModal = document.getElementById('project-modal');
-    
+
     if (projectBtn && projectModal) {
         projectBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -117,55 +117,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const checkSdtBtn = document.getElementById('check-sdt-btn');
-    const checkSdtModal = document.getElementById('check-sdt-modal');
-    
-    if (checkSdtBtn && checkSdtModal) {
+
+    if (checkSdtBtn) {
         checkSdtBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            checkSdtModal.classList.remove('hidden');
+            openWebViewer('https://phonel00kup01.vercel.app/', 'Phone L00kup — Tra cứu SĐT');
         });
     }
-    const sdtInput  = document.getElementById('sdt-input');
+    const sdtInput = document.getElementById('sdt-input');
     const sdtCheckBtn = document.getElementById('sdt-check-btn');
-    const sdtResult   = document.getElementById('sdt-result');
+    const sdtResult = document.getElementById('sdt-result');
 
     const VN_PREFIXES = {
-        '032':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '033':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '034':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '035':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '036':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '037':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '038':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '039':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '086':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '096':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '097':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '098':{ carrier:'Viettel', type:'Di động', color:'#e53935', bg:'#3d0808', emoji:'' },
-        '070':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '076':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '077':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '078':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '079':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '089':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '090':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '093':{ carrier:'MobiFone', type:'Di động', color:'#1565c0', bg:'#0a1929', emoji:'' },
-        '081':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '082':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '083':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '084':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '085':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '091':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '094':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '088':{ carrier:'VinaPhone', type:'Di động', color:'#2e7d32', bg:'#0a1f0a', emoji:'' },
-        '052':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
-        '056':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
-        '058':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
-        '092':{ carrier:'Vietnamobile', type:'Di động', color:'#f57c00', bg:'#1e1200', emoji:'' },
-        '059':{ carrier:'Gmobile', type:'Di động', color:'#7b1fa2', bg:'#1a0a1e', emoji:'' },
-        '099':{ carrier:'Gmobile', type:'Di động', color:'#7b1fa2', bg:'#1a0a1e', emoji:'' },
-        '055':{ carrier:'Reddi (Mobicast)', type:'Di động', color:'#c62828', bg:'#200808', emoji:'' },
-        '069':{ carrier:'Indochina Telecom', type:'Di động', color:'#00838f', bg:'#001a1c', emoji:'' },
+        '032': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '033': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '034': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '035': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '036': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '037': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '038': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '039': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '086': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '096': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '097': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '098': { carrier: 'Viettel', type: 'Di động', color: '#e53935', bg: '#3d0808', emoji: '' },
+        '070': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '076': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '077': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '078': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '079': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '089': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '090': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '093': { carrier: 'MobiFone', type: 'Di động', color: '#1565c0', bg: '#0a1929', emoji: '' },
+        '081': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '082': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '083': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '084': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '085': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '091': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '094': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '088': { carrier: 'VinaPhone', type: 'Di động', color: '#2e7d32', bg: '#0a1f0a', emoji: '' },
+        '052': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
+        '056': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
+        '058': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
+        '092': { carrier: 'Vietnamobile', type: 'Di động', color: '#f57c00', bg: '#1e1200', emoji: '' },
+        '059': { carrier: 'Gmobile', type: 'Di động', color: '#7b1fa2', bg: '#1a0a1e', emoji: '' },
+        '099': { carrier: 'Gmobile', type: 'Di động', color: '#7b1fa2', bg: '#1a0a1e', emoji: '' },
+        '055': { carrier: 'Reddi (Mobicast)', type: 'Di động', color: '#c62828', bg: '#200808', emoji: '' },
+        '069': { carrier: 'Indochina Telecom', type: 'Di động', color: '#00838f', bg: '#001a1c', emoji: '' },
     };
 
     function formatVNPhone(raw) {
@@ -186,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!info) return { valid: false, reason: `Đầu số ${prefix3} không nhận dạng được (chưa được cấp phép tại VN)` };
 
         // Format dạng đẹp: 0xxx xxx xxxx
-        const fmt = `${num.slice(0,4)} ${num.slice(4,7)} ${num.slice(7,10)}`;
+        const fmt = `${num.slice(0, 4)} ${num.slice(4, 7)} ${num.slice(7, 10)}`;
         return { valid: true, num, fmt, prefix: prefix3, ...info };
     }
 
@@ -247,12 +246,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const checkHostBtn = document.getElementById('check-host-btn');
-    const checkHostModal = document.getElementById('check-host-modal');
-    
-    if (checkHostBtn && checkHostModal) {
+    if (checkHostBtn) {
         checkHostBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            checkHostModal.classList.remove('hidden');
+            openWebViewer('https://check-host.net/', 'Check Host — Ping / HTTP / DNS / TCP');
+        });
+    }
+
+    const mapVnBtn = document.getElementById('map-vn-btn');
+    if (mapVnBtn) {
+        mapVnBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openWebViewer('https://gis.vn/ban-do-hanh-chinh-viet-nam', 'Bản đồ hành chính Việt Nam');
         });
     }
     const chInput = document.getElementById('ch-input');
@@ -346,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 chPollInterval = null;
                                 chCheckBtn.disabled = false;
                             }
-                        }).catch(() => {});
+                        }).catch(() => { });
                 }, 2500);
             })
             .catch(err => {
@@ -362,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const country = info[1] || '';
             const city = info[2] || '';
             const flag = countryFlags[country] || '';
-            html += `<div class="ch-node-card pending" id="ch-node-${nodeKey.replace(/\./g,'-')}">
+            html += `<div class="ch-node-card pending" id="ch-node-${nodeKey.replace(/\./g, '-')}">
                 <div class="ch-node-location"><span class="ch-flag">${flag}</span>${city}, ${country}</div>
                 <div class="ch-node-value pending"> Đang kiểm tra...</div>
                 <div class="ch-node-sub">${nodeKey}</div>
@@ -390,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 valueHtml = `<div class="ch-node-value ${statusClass}">${parsed.label}</div>`;
                 if (parsed.ok) okCount++; else errCount++;
             }
-            cards[nodeKey] = `<div class="ch-node-card ${statusClass}" id="ch-node-${nodeKey.replace(/\./g,'-')}">
+            cards[nodeKey] = `<div class="ch-node-card ${statusClass}" id="ch-node-${nodeKey.replace(/\./g, '-')}">
                 <div class="ch-node-location"><span class="ch-flag">${flag}</span>${city}, ${country}</div>
                 ${valueHtml}
                 <div class="ch-node-sub">${nodeKey}</div>
@@ -411,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const arr = result[0];
                 const times = arr.filter(r => r && r[0] === 'OK').map(r => r[1]);
                 if (times.length === 0) return { ok: false, label: ' Không phản hồi' };
-                const avg = (times.reduce((a,b) => a+b, 0) / times.length * 1000).toFixed(1);
+                const avg = (times.reduce((a, b) => a + b, 0) / times.length * 1000).toFixed(1);
                 return { ok: true, label: ` ${avg} ms` };
             } else if (type === 'http') {
                 if (!result || !result[0]) return { ok: false, label: ' Lỗi' };
@@ -434,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return { ok: false, label: ' Không kết nối được' };
             }
-        } catch(e) {}
+        } catch (e) { }
         return { ok: false, label: ' Không rõ' };
     }
 
@@ -487,14 +492,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const songPath = currentPlaylist[currentSongIndex];
         bgMusic.src = songPath;
         bgMusic.volume = 0.5;
-        
+
         bgMusic.play().then(() => {
             console.log("Đang phát bài hát ngẫu nhiên: " + songPath);
             hideStartScreen();
         }).catch(error => {
             console.log("Không thể tự động phát nhạc: ", error);
         });
-        
+
         currentSongIndex++;
     }
     bgMusic.addEventListener('ended', playNextSong);
@@ -590,7 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMobile = window.innerWidth <= 768;
         const count = isMobile ? 45 : 120;
         snowflakes = [];
-        for (let i = 0; i < count; i++) { 
+        for (let i = 0; i < count; i++) {
             snowflakes.push(new Snowflake());
         }
     }
@@ -606,16 +611,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createSnowflakes();
     animateSnowflakes();
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!startScreen.classList.contains('fade-out') || e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) return;
 
         const textElement = document.createElement('div');
         textElement.textContent = 'Tuấn Tú';
         textElement.className = 'floating-text-effect';
-        
+
         textElement.style.left = `${e.clientX}px`;
         textElement.style.top = `${e.clientY}px`;
-        
+
         document.body.appendChild(textElement);
 
         setTimeout(() => {
@@ -657,7 +662,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (webViewerName) webViewerName.textContent = name || 'Trang web';
         if (webViewerExternalBtn) webViewerExternalBtn.href = url;
         if (webViewerLoading) webViewerLoading.classList.remove('loaded');
-        
+
         webViewerIframe.src = url;
         webViewerModal.classList.remove('hidden');
     }
@@ -687,8 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         });
     }
-
-    // Gắn sự kiện mở trang web trực tiếp cho tất cả logo đơn vị đồng hành
     document.querySelectorAll('.sponsor-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -697,8 +700,6 @@ document.addEventListener('DOMContentLoaded', () => {
             openWebViewer(url, name);
         });
     });
-
-    // Đóng khi nhấn phím Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (webViewerModal && !webViewerModal.classList.contains('hidden')) {
@@ -721,10 +722,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             hls.loadSource(streamUrl);
             hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
                 console.log(videoElementId + " manifest loaded successfully!");
             });
-            hls.on(Hls.Events.ERROR, function(event, data) {
+            hls.on(Hls.Events.ERROR, function (event, data) {
                 if (data.fatal) {
                     switch (data.type) {
                         case Hls.ErrorTypes.NETWORK_ERROR:
@@ -808,8 +809,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (hnData && hnData.current) {
                     const correctedCode = adjustWeatherCode(
-                        hnData.current.weather_code, 
-                        hnData.current.precipitation, 
+                        hnData.current.weather_code,
+                        hnData.current.precipitation,
                         hnData.current.cloud_cover
                     );
                     const info = getWeatherDescription(correctedCode);
@@ -817,8 +818,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (hcmData && hcmData.current) {
                     const correctedCode = adjustWeatherCode(
-                        hcmData.current.weather_code, 
-                        hcmData.current.precipitation, 
+                        hcmData.current.weather_code,
+                        hcmData.current.precipitation,
                         hcmData.current.cloud_cover
                     );
                     const info = getWeatherDescription(correctedCode);
@@ -967,7 +968,6 @@ function applySiteSettings() {
         if (s.nameFontSize) root.setProperty('--name-font-size', s.nameFontSize);
         if (s.bgSize) root.setProperty('--bg-size', s.bgSize);
         if (s.bgImage) {
-            // set body background image (admins should use safe URLs)
             document.body.style.backgroundImage = `url('${s.bgImage}')`;
         }
     } catch (e) {
@@ -978,16 +978,14 @@ function applySiteSettings() {
 function warnStealer() {
     console.log("%cSTOP! Khu vực dành cho quản trị viên.", "color: red; font-size: 20px; font-weight: bold;");
 }
-
-// Cảnh báo ngay khi script tải
 warnStealer();
 
-document.addEventListener('contextmenu', function(e) {
+document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
     return false;
 });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.key === 'F12' || e.keyCode === 123) {
         warnStealer();
         e.preventDefault();
