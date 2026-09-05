@@ -537,6 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let width, height;
     let snowflakes = [];
 
+    let resizeTimeout;
     function initCanvas() {
         width = window.innerWidth;
         height = window.innerHeight;
@@ -544,49 +545,61 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = height;
     }
 
-    window.addEventListener('resize', initCanvas);
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            initCanvas();
+            createSnowflakes();
+        }, 200);
+    });
     initCanvas();
 
     class Snowflake {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height - height;
-            this.size = Math.random() * 3 + 1;
-            this.speedY = Math.random() * 1.5 + 0.5;
-            this.speedX = (Math.random() - 0.5) * 1;
-            this.opacity = Math.random() * 0.6 + 0.2;
+            this.size = Math.random() * 2.8 + 1;
+            this.speedY = Math.random() * 1.4 + 0.6;
+            this.speedX = (Math.random() - 0.5) * 0.8;
+            this.opacity = Math.random() * 0.55 + 0.25;
         }
         update() {
             this.y += this.speedY;
-            this.x += this.speedX + Math.sin(this.y * 0.01) * 0.5;
+            this.x += this.speedX + Math.sin(this.y * 0.01) * 0.4;
 
             if (this.y > height) {
                 this.y = -10;
                 this.x = Math.random() * width;
-                this.size = Math.random() * 3 + 1;
+                this.size = Math.random() * 2.8 + 1;
             }
             if (this.x > width) this.x = 0;
             if (this.x < 0) this.x = width;
         }
-        draw() {
+        draw(isMobile) {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-            ctx.shadowBlur = this.size;
-            ctx.shadowColor = "rgba(255, 255, 255, 0.8)";
+            if (!isMobile) {
+                ctx.shadowBlur = this.size;
+                ctx.shadowColor = "rgba(255, 255, 255, 0.7)";
+            }
             ctx.fill();
         }
     }
     function createSnowflakes() {
-        for (let i = 0; i < 150; i++) { 
+        const isMobile = window.innerWidth <= 768;
+        const count = isMobile ? 45 : 120;
+        snowflakes = [];
+        for (let i = 0; i < count; i++) { 
             snowflakes.push(new Snowflake());
         }
     }
     function animateSnowflakes() {
         ctx.clearRect(0, 0, width, height);
+        const isMobile = width <= 768;
         for (let i = 0; i < snowflakes.length; i++) {
             snowflakes[i].update();
-            snowflakes[i].draw();
+            snowflakes[i].draw(isMobile);
         }
         requestAnimationFrame(animateSnowflakes);
     }
@@ -614,6 +627,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const modal = e.target.closest('.custom-modal');
             if (modal) {
                 modal.classList.add('hidden');
+                if (modal.id === 'web-viewer-modal') {
+                    closeWebViewer();
+                }
             }
         });
     });
@@ -621,8 +637,74 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.add('hidden');
+                if (modal.id === 'web-viewer-modal') {
+                    closeWebViewer();
+                }
             }
         });
+    });
+
+    // In-App Web Viewer Controller
+    const webViewerModal = document.getElementById('web-viewer-modal');
+    const webViewerIframe = document.getElementById('web-viewer-iframe');
+    const webViewerName = document.getElementById('web-viewer-name');
+    const webViewerExternalBtn = document.getElementById('web-viewer-external-btn');
+    const webViewerReloadBtn = document.getElementById('web-viewer-reload-btn');
+    const webViewerLoading = document.getElementById('web-viewer-loading');
+
+    function openWebViewer(url, name) {
+        if (!webViewerModal || !webViewerIframe) return;
+        if (webViewerName) webViewerName.textContent = name || 'Trang web';
+        if (webViewerExternalBtn) webViewerExternalBtn.href = url;
+        if (webViewerLoading) webViewerLoading.classList.remove('loaded');
+        
+        webViewerIframe.src = url;
+        webViewerModal.classList.remove('hidden');
+    }
+
+    function closeWebViewer() {
+        if (!webViewerModal || !webViewerIframe) return;
+        webViewerModal.classList.add('hidden');
+        webViewerIframe.src = 'about:blank';
+        if (webViewerLoading) webViewerLoading.classList.remove('loaded');
+    }
+
+    if (webViewerIframe) {
+        webViewerIframe.addEventListener('load', () => {
+            if (webViewerLoading && webViewerIframe.src && webViewerIframe.src !== 'about:blank') {
+                webViewerLoading.classList.add('loaded');
+            }
+        });
+    }
+
+    if (webViewerReloadBtn && webViewerIframe) {
+        webViewerReloadBtn.addEventListener('click', () => {
+            if (webViewerLoading) webViewerLoading.classList.remove('loaded');
+            const currentSrc = webViewerIframe.src;
+            webViewerIframe.src = 'about:blank';
+            setTimeout(() => {
+                webViewerIframe.src = currentSrc;
+            }, 100);
+        });
+    }
+
+    // Gắn sự kiện mở trang web trực tiếp cho tất cả logo đơn vị đồng hành
+    document.querySelectorAll('.sponsor-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const url = link.dataset.url || link.href;
+            const name = link.dataset.name || link.title || 'Đơn vị đồng hành';
+            openWebViewer(url, name);
+        });
+    });
+
+    // Đóng khi nhấn phím Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (webViewerModal && !webViewerModal.classList.contains('hidden')) {
+                closeWebViewer();
+            }
+        }
     });
     const vtv1Url = "https://liveh12.vtvprime.vn/hls/VTV1/index.m3u8";
     const vtv3Url = "https://liveh12.vtvprime.vn/hls/VTV3/index.m3u8";
