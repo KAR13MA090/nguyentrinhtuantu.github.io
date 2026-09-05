@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tuấn Tú - Profile</title>
-    <link rel="stylesheet" href="style.css?v=20260905_responsive">
+    <link rel="stylesheet" href="style.css?v=20260905_v15">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
@@ -13,6 +13,144 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="icon" href="assets/images/627455463_782004324921612_3000827642054680263_n.jpg" type="image/jpeg">
     <style>
+        .social-btn.admin-link-btn {
+            position: relative !important;
+            overflow: hidden !important;
+            background: #000000 !important;
+            background-color: #000000 !important;
+            color: #ff2a2a !important;
+            border: 1.5px solid rgba(255, 42, 42, 0.6) !important;
+            border-radius: 50px !important;
+            padding: 9px 26px !important;
+            font-weight: 800 !important;
+            letter-spacing: 2.5px !important;
+            box-shadow:
+                0 0 15px rgba(255, 42, 42, 0.5),
+                0 4px 20px rgba(0, 0, 0, 0.8),
+                inset 0 0 12px rgba(255, 42, 42, 0.2) !important;
+            animation: tuantuSparkleGlow 2.5s infinite ease-in-out !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            cursor: pointer !important;
+            z-index: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+        }
+
+        #tuan-tu-btn span.btn-text,
+        #tuan-tu-btn>span,
+        .social-btn.admin-link-btn span.btn-text,
+        .social-btn.admin-link-btn>span {
+            color: #ff2a2a !important;
+            -webkit-text-fill-color: #ff2a2a !important;
+            font-weight: 800 !important;
+            letter-spacing: 2.5px !important;
+            font-size: 0.92rem !important;
+            text-transform: uppercase !important;
+            position: relative !important;
+            z-index: 3 !important;
+            text-shadow: 0 0 10px rgba(255, 42, 42, 0.8), 0 0 20px rgba(255, 42, 42, 0.4) !important;
+            display: inline-block !important;
+        }
+        .social-btn.admin-link-btn::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -50% !important;
+            left: -130% !important;
+            width: 60% !important;
+            height: 200% !important;
+            background: linear-gradient(115deg,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.15) 30%,
+                    rgba(255, 255, 255, 0.9) 50%,
+                    rgba(255, 255, 255, 0.15) 70%,
+                    rgba(255, 255, 255, 0) 100%) !important;
+            transform: rotate(25deg) !important;
+            animation: tuantuGlassReflection 2.6s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
+            pointer-events: none !important;
+            z-index: 2 !important;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9)) !important;
+        }
+        #tuan-tu-btn::after,
+        .social-btn.admin-link-btn::after {
+            content: '' !important;
+            position: absolute !important;
+            top: -50% !important;
+            left: -130% !important;
+            width: 25% !important;
+            height: 200% !important;
+            background: linear-gradient(115deg,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.75) 50%,
+                    rgba(255, 255, 255, 0) 100%) !important;
+            transform: rotate(25deg) !important;
+            animation: tuantuGlassReflection 2.6s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
+            animation-delay: 0.18s !important;
+            pointer-events: none !important;
+            z-index: 2 !important;
+        }
+
+        @keyframes tuantuGlassReflection {
+            0% {
+                left: -130%;
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            60% {
+                left: 140%;
+                opacity: 1;
+            }
+
+            100% {
+                left: 140%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes tuantuSparkleGlow {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 12px rgba(255, 42, 42, 0.5),
+                    0 0 25px rgba(255, 42, 42, 0.25),
+                    inset 0 0 10px rgba(255, 42, 42, 0.15);
+                border-color: rgba(255, 42, 42, 0.5);
+                transform: translateY(0);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 22px rgba(255, 42, 42, 0.85),
+                    0 0 40px rgba(255, 42, 42, 0.45),
+                    inset 0 0 16px rgba(255, 42, 42, 0.3);
+                border-color: rgba(255, 42, 42, 0.9);
+                transform: translateY(-1px);
+            }
+        }
+
+        #tuan-tu-btn:hover,
+        .social-btn.admin-link-btn:hover {
+            background: #000000 !important;
+            border-color: #ff2a2a !important;
+            box-shadow:
+                0 0 30px rgba(255, 42, 42, 0.9),
+                0 0 55px rgba(255, 42, 42, 0.6),
+                inset 0 0 20px rgba(255, 42, 42, 0.4) !important;
+            transform: translateY(-3px) scale(1.03) !important;
+        }
+
+        #tuan-tu-btn:hover span.btn-text,
+        .social-btn.admin-link-btn:hover span.btn-text {
+            color: #ff4d4d !important;
+            text-shadow: 0 0 15px rgba(255, 77, 77, 1), 0 0 25px rgba(255, 42, 42, 0.8) !important;
+        }
+
         .start-content h1 {
             color: #ffffff !important;
             background: none !important;
@@ -65,6 +203,7 @@
             <p>Chạm vào màn hình để bắt đầu</p>
         </div>
     </div>
+    <div class="bg-fixed-layer" aria-hidden="true"></div>
     <div class="bg-overlay"></div>
     <canvas id="canvas"></canvas>
     <div id="profile-container" class="hidden">
@@ -84,7 +223,7 @@
                 </a>
                 <a href="javascript:void(0)" id="cv-btn" class="social-btn">
                     <span>CV Profile</span>
-                    <i class="fa-solid fa-id-card"></i>
+                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="javascript:void(0)" id="skill-btn" class="social-btn">
                     <span>Skill</span>
@@ -92,7 +231,7 @@
                 </a>
                 <a href="javascript:void(0)" id="project-btn" class="social-btn">
                     <span>Project</span>
-                    <i class="fa-solid fa-laptop-code"></i>
+                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="javascript:void(0)" id="check-sdt-btn" class="social-btn">
                     <span>Check SĐT</span>
@@ -102,10 +241,14 @@
                     <span>Check Host</span>
                     <i class="fa-solid fa-server"></i>
                 </a>
+                <a href="javascript:void(0)" id="map-vn-btn" class="social-btn" title="Bản đồ hành chính Việt Nam">
+                    <span>Bản đồ hành chính Việt Nam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
                 <a href="https://zone-xsec.com/archive/team/Anonymous_VNPC" target="_blank" rel="noopener noreferrer"
                     class="social-btn">
                     <span>Zone-Xsec</span>
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
                     class="social-btn">
@@ -135,8 +278,8 @@
                     <span>Telegram</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="https://job.isvnu.vn/nguyen-trinh-tuan-tu-sv1559004" target="_blank" rel="noopener noreferrer"
-                    class="social-btn admin-link-btn" title="Hồ sơ xác thực - Tuấn Tú">
+                <a href="https://job.isvnu.vn/nguyen-trinh-tuan-tu-sv1559004" id="tuan-tu-btn" target="_blank"
+                    rel="noopener noreferrer" class="social-btn admin-link-btn" title="Hồ sơ xác thực - Tuấn Tú">
                     <span class="btn-text">TUAN TU</span>
                 </a>
             </div>
@@ -474,88 +617,161 @@
     <div id="about-modal" class="custom-modal hidden">
         <div class="custom-modal-content about-modal-content">
             <span class="custom-close-btn">&times;</span>
-            <div class="about-header">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-body">
-                <p>Xin chào! Mình là <strong>Tuấn Tú</strong>, một lập trình viên & Là Thành Viên Kì Cựu Của
-                    Anonymous_VNPC và nhieu Nhóm Khác và đam mê khám phá và xây dựng các sản phẩm công nghệ.</p>
+            <div class="about-card-inner">
+                <div class="about-profile-header">
+                    <img src="assets/images/627455463_782004324921612_3000827642054680263_n.jpg" alt="Tuấn Tú"
+                        class="about-avatar-img">
+                    <div class="about-profile-info">
+                        <h2 class="about-author-name">Nguyễn Trịnh Tuấn Tú</h2>
+                        <p class="about-author-role">Software Developer · Cyber Security</p>
+                    </div>
+                </div>
 
-                <h3>Nơi từng làm việc</h3>
-                <ul class="experience-list">
-                    <li>
-                        <strong>VNPT</strong><br>
-                        Vị trí: Security Operations Center (SOC)<br>
-                        <span style="font-size:0.85rem; color:#a1a1aa;">Giám sát, phân tích và phản hồi các sự cố bảo
-                            mật hệ thống</span>
-                    </li>
-                    <li>
-                        <strong>VNPT Cyber Immunity</strong><br>
-                        Vị trí: <br>
-                        <span style="font-size:0.85rem; color:#a1a1aa;">Phát triển và duy trì các ứng dụng phần mềm nội
-                            bộ</span>
-                    </li>
-                </ul>
+                <div class="about-bio-text">
+                    <p>Dân kỹ thuật, thích code và vọc hệ thống.</p>
+                    <p>Gắn bó với bảo mật từ thời <strong>Anonymous_VNPC</strong>, giờ đang làm dev ở <strong>VNPT Cyber
+                            Immunity</strong>. Ngoài giờ thì hay làm video công nghệ trên TikTok.</p>
+                </div>
+
+                <div class="about-exp-list">
+                    <div class="about-exp-row">
+                        <span class="about-exp-where">VNPT Cyber Immunity</span>
+                        <span class="about-exp-when">2023 – Nay</span>
+                    </div>
+                    <div class="about-exp-what">Software Engineer — Dev tool & hệ thống phục vụ ATTT</div>
+
+                    <div class="about-exp-row">
+                        <span class="about-exp-where">VNPT SOC</span>
+                        <span class="about-exp-when">2022 – 2023</span>
+                    </div>
+                    <div class="about-exp-what">SOC Analyst — Giám sát, phân tích log, xử lý sự cố</div>
+                </div>
+
+                <div class="about-footer-links">
+                    <a href="https://github.com/KAR13MA090" target="_blank" rel="noopener noreferrer"
+                        class="about-link-pill"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://www.tiktok.com/@gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer"
+                        class="about-link-pill"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                    <a href="https://t.me/gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer"
+                        class="about-link-pill"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                    <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                        class="about-link-pill"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                </div>
             </div>
         </div>
     </div>
     <div id="skill-modal" class="custom-modal hidden">
         <div class="custom-modal-content skill-modal-content">
             <span class="custom-close-btn">&times;</span>
-            <div class="skill-header">
-                <h2>My Skills</h2>
+
+            <div class="skill-classic-header">
+                <h2 class="skill-classic-title">Kỹ năng & Chuyên môn</h2>
+                <p class="skill-classic-subtitle">Các mảng kỹ thuật và công cụ mình làm việc thực tế.</p>
             </div>
-            <div class="skill-body">
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Full Stack Development</span>
-                        <span>95%</span>
+
+            <div class="skill-classic-body">
+                <div class="skill-classic-section">
+                    <div class="skill-sec-head">
+                        <span class="skill-sec-name">An Toàn Thông Tin & Vận Hành SOC</span>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%;"></div>
+                    <ul class="skill-sec-items">
+                        <li>
+                            <span class="skill-item-title">Giám sát SIEM:</span>
+                            <span class="skill-item-desc">Phân tích nhật ký sự kiện (log analysis), phân loại cảnh báo
+                                và tham gia ứng cứu sự cố an toàn thông tin.</span>
+                        </li>
+                        <li>
+                            <span class="skill-item-title">Bảo mật Web & API:</span>
+                            <span class="skill-item-desc">Rà soát lỗ hổng theo chuẩn OWASP Top 10, kiểm tra logic xác
+                                thực và an toàn dữ liệu đầu vào.</span>
+                        </li>
+                        <li>
+                            <span class="skill-item-title">Mạng & Phân tích gói tin:</span>
+                            <span class="skill-item-desc">Sử dụng Wireshark để phân tích luồng traffic mạng, Nmap kiểm
+                                tra cổng và trạng thái dịch vụ.</span>
+                        </li>
+                    </ul>
+                    <div class="skill-classic-tags">
+                        <span>SIEM Monitoring</span>
+                        <span>Log Analysis</span>
+                        <span>OWASP Top 10</span>
+                        <span>Wireshark</span>
+                        <span>Nmap</span>
+                        <span>Incident Response</span>
                     </div>
                 </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Video Editing (Quay dựng)</span>
-                        <span>90%</span>
+                <div class="skill-classic-section">
+                    <div class="skill-sec-head">
+                        <span class="skill-sec-name">Phát Triển Phần Mềm & Ứng Dụng</span>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%;"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Adobe Software (Pr, Ae, Ps, Ai...)</span>
-                        <span>50%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%;"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="expandable-text" title="Hover để xem toàn bộ">C++ / Python / Java / C# / C / Ruby /
-                            Dart / TypeScript / Kotlin / Swift / PHP / JavaScript / Rust / Go / Node.js / Django / Flask
-                            / Express.js / SQL / HTML / CSS / Tailwind / Bootstrap / React / React Native / Redux /
-                            Firebase / Git / GitHub </span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%;"></div>
+                    <ul class="skill-sec-items">
+                        <li>
+                            <span class="skill-item-title">Python Automation:</span>
+                            <span class="skill-item-desc">Xây dựng script tự động hoá xử lý dữ liệu, bot tiện ích
+                                (Telegram) và tool hỗ trợ nội bộ.</span>
+                        </li>
+                        <li>
+                            <span class="skill-item-title">Backend & APIs:</span>
+                            <span class="skill-item-desc">Thiết kế RESTful APIs với Node.js / Express; làm việc với cơ
+                                sở dữ liệu MySQL và MongoDB.</span>
+                        </li>
+                        <li>
+                            <span class="skill-item-title">Frontend Web:</span>
+                            <span class="skill-item-desc">HTML5, CSS3, JavaScript ES6+, tư duy giao diện gọn gàng, tương
+                                thích tốt trên nhiều thiết bị.</span>
+                        </li>
+                    </ul>
+                    <div class="skill-classic-tags">
+                        <span>Python</span>
+                        <span>Node.js</span>
+                        <span>JavaScript</span>
+                        <span>MySQL</span>
+                        <span>MongoDB</span>
+                        <span>Git & GitHub</span>
                     </div>
                 </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span>Photography (Chụp ảnh)</span>
-                        <span>65%</span>
+                <div class="skill-classic-section">
+                    <div class="skill-sec-head">
+                        <span class="skill-sec-name">Hệ Thống & Hạ Tầng Mạng</span>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%;"></div>
+                    <ul class="skill-sec-items">
+                        <li>
+                            <span class="skill-item-title">Quản trị Linux:</span>
+                            <span class="skill-item-desc">Vận hành máy chủ Linux (Ubuntu, Debian), phân quyền, quản lý
+                                tiến trình và viết Bash script.</span>
+                        </li>
+                        <li>
+                            <span class="skill-item-title">Mạng máy tính:</span>
+                            <span class="skill-item-desc">Hiểu biết về mô hình mạng, bộ giao thức TCP/IP, DNS, định
+                                tuyến và phân tích lưu lượng.</span>
+                        </li>
+                    </ul>
+                    <div class="skill-classic-tags">
+                        <span>Linux (Ubuntu/Debian)</span>
+                        <span>Bash Scripting</span>
+                        <span>TCP/IP & DNS</span>
+                    </div>
+                </div>
+                <div class="skill-classic-section">
+                    <div class="skill-sec-head">
+                        <span class="skill-sec-name">Sản Xuất Nội Dung & Đa Phương Tiện</span>
+                    </div>
+                    <ul class="skill-sec-items">
+                        <li>
+                            <span class="skill-item-title">Dựng video & Hậu kỳ:</span>
+                            <span class="skill-item-desc">Sử dụng Premiere Pro, CapCut PC để dựng các nội dung video
+                                ngắn.</span>
+                        </li>
+                        <li>
+                            <span class="skill-item-title">Chia sẻ công nghệ:</span>
+                            <span class="skill-item-desc">Biên tập và chia sẻ kiến thức bảo mật, kỹ thuật số dễ tiếp cận
+                                cho cộng đồng.</span>
+                        </li>
+                    </ul>
+                    <div class="skill-classic-tags">
+                        <span>Adobe Premiere</span>
+                        <span>CapCut PC</span>
+                        <span>Biên tập nội dung</span>
                     </div>
                 </div>
             </div>
@@ -588,9 +804,75 @@
         </div>
     </div>
     <div id="cv-modal" class="custom-modal hidden">
-        <div class="custom-modal-content project-modal-content">
+        <div class="custom-modal-content cv-modal-content">
             <span class="custom-close-btn">&times;</span>
 
+            <div class="cv-classic-header">
+                <h2 class="cv-classic-title">Hồ Sơ Năng Lực (CV)</h2>
+                <p class="cv-classic-subtitle">Nguyễn Trịnh Tuấn Tú · Software Developer & Cyber Security</p>
+            </div>
+
+            <div class="cv-classic-body">
+                <div class="cv-notice-box">
+                    <p class="cv-notice-text">
+                        Bản CV định dạng PDF đang được cập nhật lại các dự án và kinh nghiệm mới nhất.
+                    </p>
+                    <p class="cv-notice-subtext">
+                        Trong thời gian này, bạn có thể xem hồ sơ sinh viên chính thức tại Đại học Quốc gia Hà Nội hoặc
+                        liên hệ trực tiếp để nhận bản CV chi tiết.
+                    </p>
+                </div>
+
+                <div class="cv-links-list">
+                    <a href="https://job.isvnu.vn/nguyen-trinh-tuan-tu-sv1559004" target="_blank"
+                        rel="noopener noreferrer" class="cv-link-card">
+                        <div class="cv-link-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="cv-link-text">
+                            <span class="cv-link-name">Hồ sơ sinh viên tại VNU-IS</span>
+                            <span class="cv-link-desc">Trường Quốc tế — Đại học Quốc gia Hà Nội</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square cv-link-arrow"></i>
+                    </a>
+
+                    <a href="https://github.com/KAR13MA090" target="_blank" rel="noopener noreferrer"
+                        class="cv-link-card">
+                        <div class="cv-link-icon">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div class="cv-link-text">
+                            <span class="cv-link-name">GitHub Portfolio 2</span>
+                            <span class="cv-link-desc">Các dự án, mã nguồn và công cụ cá nhân</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square cv-link-arrow"></i>
+                    </a>
+
+                    <a href="https://t.me/gocnhinmuden_vnpt" target="_blank" rel="noopener noreferrer"
+                        class="cv-link-card">
+                        <div class="cv-link-icon">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div class="cv-link-text">
+                            <span class="cv-link-name">Kênh Telegram cá nhân</span>
+                            <span class="cv-link-desc">@gocnhinmuden_vnpt</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square cv-link-arrow"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/kar13ma09" target="_blank" rel="noopener noreferrer"
+                        class="cv-link-card">
+                        <div class="cv-link-icon">
+                            <i class="fa-brands fa-facebook"></i>
+                        </div>
+                        <div class="cv-link-text">
+                            <span class="cv-link-name">Facebook liên hệ</span>
+                            <span class="cv-link-desc">Trao đổi thông tin & cơ hội hợp tác</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square cv-link-arrow"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div id="project-modal" class="custom-modal hidden">
@@ -611,7 +893,7 @@
                 Mở Blog Ở Nút Này Ku
                 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.85rem;"></i>
             </a>
-            <p style="color:#52525b; font-size:0.8rem;">* Blogger chặn nhúng iframe của tôi anh em ạ *</p>
+            <p style="color:#52525b; font-size:0.8rem;">Blogger chặn nhúng iframe của tôi anh em ạ</p>
         </div>
     </div>
     <div id="check-host-modal" class="custom-modal hidden">
@@ -647,8 +929,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal Xem Web Trực Tiếp Trong Trang (In-App Web Viewer) -->
     <div id="web-viewer-modal" class="custom-modal hidden">
         <div class="custom-modal-content web-viewer-content">
             <div class="web-viewer-header">
@@ -664,7 +944,7 @@
                     <a id="web-viewer-external-btn" href="#" target="_blank" rel="noopener noreferrer"
                         class="web-viewer-btn" title="Mở trang trong tab mới nếu muốn">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <span>Url Của Nhà Tài Trợ</span>
+                        <span>Url Trang Chính</span>
                     </a>
                     <button id="web-viewer-reload-btn" class="web-viewer-btn" title="Tải lại trang">
                         <i class="fa-solid fa-rotate-right"></i>
@@ -686,7 +966,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260905_v2"></script>
 </body>
 
 </html>
