@@ -32,7 +32,7 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Lớp ảnh nền cố định toàn màn hình (chống méo, zoom, vỡ trên mobile và PC) */
+/* Lớp nền ảnh chính */
 .bg-fixed-layer {
     position: fixed;
     top: 0;
@@ -42,15 +42,13 @@ body {
     width: 100%;
     height: 100%;
     height: 100dvh;
+    background-color: #000000;
     background-image: url('assets/images/703760917_860850897062901_9071861183063486525_n.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     z-index: 0;
     pointer-events: none;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    will-change: transform;
 }
 
 /* Lớp phủ để làm tối ảnh nền + blur */
@@ -62,9 +60,11 @@ body {
     height: 100%;
     height: 100dvh;
     background: linear-gradient(135deg,
-            rgba(0, 0, 0, 0.42) 0%,
-            rgba(5, 5, 20, 0.32) 50%,
-            rgba(0, 0, 0, 0.48) 100%);
+            rgba(0, 0, 0, 0.58) 0%,
+            rgba(5, 5, 20, 0.48) 50%,
+            rgba(0, 0, 0, 0.62) 100%);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     z-index: 1;
     pointer-events: none;
 }
@@ -560,11 +560,11 @@ body {
     width: 100%;
     padding: 30px 0 50px;
     margin-top: 50px;
-    background: rgba(20, 22, 35, 0.4);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -633,11 +633,11 @@ body {
     width: 100%;
     padding: 30px 0 50px;
     margin-top: 50px;
-    background: rgba(20, 22, 35, 0.3);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -703,6 +703,18 @@ body {
     z-index: 10;
 }
 
+/* Tăng kích thước logo FPT Software do ảnh gốc có viền khoảng trắng lớn */
+.sponsor-track img[src*="fpt-software"] {
+    height: 80px;
+    max-width: 220px;
+    transform: scale(2.2);
+    margin: 0 20px;
+}
+
+.sponsor-track a:hover img[src*="fpt-software"] {
+    transform: scale(2.5) translateY(-6px);
+}
+
 /* Hiệu ứng Text "Tuấn Tú" bay lên khi click chuột */
 .floating-text-effect {
     position: absolute;
@@ -746,9 +758,9 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -770,23 +782,19 @@ body {
     max-width: 520px;
     max-height: 86vh;
     max-height: 86dvh;
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    background: #000000 !important;
     border-radius: 20px;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.35),
-        0 0 24px rgba(255, 255, 255, 0.18),
-        0 0 60px rgba(255, 255, 255, 0.08),
-        0 20px 60px rgba(0, 0, 0, 0.55),
-        inset 0 0 32px rgba(255, 255, 255, 0.04);
+        0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 24px 65px rgba(0, 0, 0, 0.95),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     display: flex;
     flex-direction: column;
     padding: 28px 22px 22px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     animation: neonModalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -815,11 +823,8 @@ body {
     top: 14px;
     right: 14px;
     color: rgba(255, 255, 255, 0.75);
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: none;
-    outline: none;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 8px;
     width: 32px;
     height: 32px;
@@ -839,26 +844,23 @@ body {
 
 .custom-close-btn:hover {
     color: #ffffff;
-    background: rgba(239, 68, 68, 0.85);
-    border: none;
-    outline: none;
-    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+    background: rgba(239, 68, 68, 0.9);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
 }
 
 .custom-modal-content iframe {
     width: 100%;
     height: 100%;
     border: none;
-    background: #fff;
+    background: #000000;
 }
 
 /* ============================================================
-   ABOUT MODAL — Glassmorphism, cổ điển, tôn trọng
+   ABOUT MODAL — Thuần nền đen (Pure Black)
    ============================================================ */
 .about-modal-content {
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    background: #000000 !important;
     color: #e2e8f0;
     padding: 28px 26px 24px;
     width: 100%;
@@ -868,14 +870,10 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.18),
-        0 0 28px rgba(255, 255, 255, 0.16),
-        0 0 60px rgba(255, 255, 255, 0.07),
-        0 20px 60px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 24px 60px rgba(0, 0, 0, 0.95) !important;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     animation: neonModalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -959,9 +957,9 @@ body {
     flex-direction: column;
     gap: 4px;
     padding: 14px 16px;
-    background: rgba(255, 255, 255, 0.04);
+    background: #080808 !important;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .about-exp-row {
@@ -1009,9 +1007,9 @@ body {
     gap: 6px;
     padding: 6px 13px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.65);
+    background: #0d0d0d !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.78rem;
     font-weight: 500;
     text-decoration: none;
@@ -1019,7 +1017,8 @@ body {
 }
 
 .about-link-pill:hover {
-    background: rgba(255, 255, 255, 0.14);
+    background: #181818 !important;
+    border-color: rgba(255, 42, 42, 0.5) !important;
     color: #ffffff;
 }
 
@@ -1045,12 +1044,10 @@ body {
 }
 
 /* ============================================================
-   SKILL MODAL — Glassmorphism, Cổ điển, Tôn trọng, Tinh tế
+   SKILL MODAL — Thuần nền đen (Pure Black)
    ============================================================ */
 .skill-modal-content {
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    background: #000000 !important;
     color: #e2e8f0;
     padding: 30px 28px 26px;
     width: 100%;
@@ -1060,14 +1057,10 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.18),
-        0 0 28px rgba(255, 255, 255, 0.16),
-        0 0 60px rgba(255, 255, 255, 0.07),
-        0 24px 60px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 24px 60px rgba(0, 0, 0, 0.95) !important;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     position: relative;
@@ -1185,26 +1178,24 @@ body {
 .skill-classic-tags span {
     font-size: 0.72rem;
     color: #cbd5e1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d0d0d !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     padding: 3px 8px;
     border-radius: 6px;
     letter-spacing: 0.2px;
 }
 
 .skill-classic-tags span:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.16);
+    background: #1a1a1a !important;
+    border-color: rgba(255, 42, 42, 0.5) !important;
     color: #ffffff;
 }
 
 /* ============================================================
-   CV MODAL — Glassmorphism, Cổ điển, Tôn trọng, Tinh tế
+   CV MODAL — Thuần nền đen (Pure Black)
    ============================================================ */
 .cv-modal-content {
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    background: #000000 !important;
     color: #e2e8f0;
     padding: 30px 28px 26px;
     width: 100%;
@@ -1214,14 +1205,10 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.18),
-        0 0 28px rgba(255, 255, 255, 0.16),
-        0 0 60px rgba(255, 255, 255, 0.07),
-        0 24px 60px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 24px 60px rgba(0, 0, 0, 0.95) !important;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     position: relative;
@@ -1268,8 +1255,8 @@ body {
 }
 
 .cv-notice-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #080808 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 12px;
     padding: 14px 16px;
 }
@@ -1301,8 +1288,8 @@ body {
     align-items: center;
     gap: 14px;
     padding: 12px 14px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #09090b !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 12px;
     text-decoration: none;
     color: #e2e8f0;
@@ -1310,8 +1297,8 @@ body {
 }
 
 .cv-link-card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.18);
+    background: #141417 !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
     transform: translateY(-1px);
     color: #ffffff;
 }
@@ -1320,8 +1307,8 @@ body {
     width: 38px;
     height: 38px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #141418 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2306,11 +2293,8 @@ body {
     max-width: 860px;
     height: auto;
     max-height: 90vh;
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    background: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
     border-radius: 24px;
     padding: 28px 30px 24px;
     display: flex;
@@ -2318,11 +2302,8 @@ body {
     gap: 20px;
     overflow-y: auto;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.18),
-        0 0 28px rgba(255, 255, 255, 0.16),
-        0 0 60px rgba(255, 255, 255, 0.07),
-        0 8px 60px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 24px 65px rgba(0, 0, 0, 0.95) !important;
     animation: neonModalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -2936,8 +2917,8 @@ body {
     }
 
     .bg-fixed-layer {
-        background-size: auto 136%;
-        background-position: center 68%;
+        background-size: cover;
+        background-position: center center;
     }
 
     .hero-section {
@@ -2961,9 +2942,11 @@ body {
         padding: 22px 0 28px;
         margin-top: 36px;
         gap: 18px;
-        background: rgba(20, 22, 35, 0.35);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .tech-marquee,
@@ -3064,6 +3047,7 @@ body {
         max-width: 390px;
         margin-bottom: 20px;
         padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.8);
     }
 
     .social-links {
@@ -3071,7 +3055,7 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 8px 10px;
+        gap: 8px 8px;
         width: 100%;
         max-width: 440px;
         margin-top: 10px;
@@ -3082,20 +3066,20 @@ body {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        padding: 8px 18px;
+        gap: 6px;
+        padding: 7.5px 14px;
         border-radius: 30px;
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         font-weight: 400;
         white-space: nowrap;
         width: auto;
         min-height: 38px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        color: #e2e8f0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: #f1f5f9;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
