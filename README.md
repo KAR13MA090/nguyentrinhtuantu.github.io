@@ -27,8 +27,8 @@
 
 <table>
 <tr>
-<th width="50%" align="center">🇻🇳 TIẾNG VIỆT</th>
-<th width="50%" align="center">🇷🇺 РУССКИЙ</th>
+<th width="50%" align="center">TIẾNG VIỆT</th>
+<th width="50%" align="center">РУССКИЙ</th>
 </tr>
 <tr>
 <td valign="top">
@@ -54,6 +54,90 @@ Khi rời màn hình dòng lệnh, mình chia sẻ góc nhìn thực chiến v�
 
 ---
 
+## 🛠️ Kỹ Năng & Chuyên Môn / Навыки и стек
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=linux,bash,python,js,ts,nodejs,express,cpp,mysql,mongodb,docker,git,github,vscode,postman,pr,ps,figma&theme=dark" alt="Tuấn Tú Skills" />
+</div>
+
+<br/>
+
+<table>
+<tr>
+<th width="50%" align="center"> Blue Team & Vận Hành SOC<br/><sub>Мониторинг SOC & Реагирование (DFIR)</sub></th>
+<th width="50%" align="center"> Red Team & Đánh Giá Lỗ Hổng<br/><sub>Тестирование на проникновение (Pentest)</sub></th>
+</tr>
+<tr>
+<td valign="top">
+
+- **Giám sát SIEM & Phân tích Log:** Vận hành SIEM (Splunk, Wazuh, ELK Stack), theo dõi sự kiện an ninh, phân tích log máy chủ (Windows Event Logs, Linux Auth/Syslog, Web logs).
+- **Ứng cứu sự cố & Điều tra số (DFIR):** Phân loại cảnh báo (alert triage), bóc tách dấu vết tấn công, thu thập chứng cứ số, cách ly và xử lý sự cố mã độc.
+- **Phân tích mạng & DPI:** Bắt và phân tích gói tin chuyên sâu với **Wireshark**, **tcpdump**, kiểm tra luồng kết nối bất thường.
+- **Threat Intelligence & Phòng Chống Lừa Đảo:** Ứng dụng mô hình **MITRE ATT&CK**, bóc tách chỉ số xâm phạm (IoCs: Hash, IP, Domain, C2 callback), dữ liệu nhận diện gian lận & cảnh báo phishing từ [Chống Lừa Đảo (chongluadao.vn)](https://chongluadao.vn/).
+
+</td>
+<td valign="top">
+
+- **Bảo mật Web & API (OWASP Top 10):** Kiểm thử và khai thác lỗ hổng Web: SQLi, XSS, SSRF, IDOR, CSRF, RCE, Broken Auth, Path Traversal.
+- **Trinh sát & Quét mạng:** Quét cổng, dịch vụ, lập bản đồ hệ thống với **Nmap**, **Masscan**, tối ưu hóa tham số né tránh phát hiện.
+- **Bộ công cụ thực chiến:** **Burp Suite Professional**, **Metasploit Framework**, Sqlmap, Nuclei, Gobuster/FFuf, Hydra, John the Ripper.
+- **Thu thập thông tin (OSINT):** Khai thác nguồn mở (OSINT), Shodan, Censys, trinh sát mục tiêu và phân tích bề mặt tấn công.
+
+</td>
+</tr>
+<tr>
+<th colspan="2" align="center">🔒 Hệ Thống, Phòng Thủ Hạ Tầng & Công Cụ ATTT / Системное администрирование & Инструменты ИБ</th>
+</tr>
+<tr>
+<td colspan="2">
+
+- **Quản trị & Hardening Linux:** Triển khai, phân quyền và củng cố máy chủ Linux (**Ubuntu**, **Debian**, **Kali Linux**), quản lý tiến trình, cấu hình bảo mật kernel.
+- **Bảo vệ mạng & Tường lửa:** Thiết lập luật tường lửa (**iptables**, **UFW**), cấu hình WAF cơ bản, Fail2ban chống brute-force, VPN tunnels.
+- **Tự động hóa an toàn thông tin:** Viết script **Python** tự động hóa quét lỗ hổng, công cụ hỗ trợ điều tra, bot cảnh báo sự cố **Telegram**, script giám sát định kỳ bằng **Bash**.
+- **Dev & Cơ sở dữ liệu phục vụ ATTT:** Xây dựng tool nội bộ với **Node.js/Express**, cơ sở dữ liệu lưu vết **MySQL**, **MongoDB**, đóng gói môi trường thử nghiệm với **Docker**.
+
+<br/>
+
+<div align="center">
+  <a href="https://chongluadao.vn/" target="_blank"><img src="https://img.shields.io/badge/Chống_Lừa_Đảo-chongluadao.vn-00B4D8?style=flat-square&logo=shield&logoColor=white" alt="Chống Lừa Đảo" /></a>
+  <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square&logo=kalilinux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Burp_Suite-FF6633?style=flat-square&logo=burpsuite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white" />
+  <img src="https://img.shields.io/badge/Metasploit-123456?style=flat-square&logo=metasploit&logoColor=white" />
+  <img src="https://img.shields.io/badge/Nmap-002B36?style=flat-square&logo=linux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Wazuh_SIEM-007EC6?style=flat-square&logo=wazuh&logoColor=white" />
+  <img src="https://img.shields.io/badge/OWASP_Top_10-00599C?style=flat-square&logo=owasp&logoColor=white" />
+  <img src="https://img.shields.io/badge/MITRE_ATT%26CK-ED1C24?style=flat-square" />
+  <img src="https://img.shields.io/badge/Python_Security-3776AB?style=flat-square&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Bash_Scripting-4EAA25?style=flat-square&logo=gnubash&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker_Containers-2496ED?style=flat-square&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/Incident_Response-ff2a2a?style=flat-square" />
+</div>
+
+</td>
+</tr>
+<tr>
+<th colspan="2" align="center">🎬 Sáng Tạo Nội Dung & Đa Phương Tiện / Мультимедиа и Контент</th>
+</tr>
+<tr>
+<td colspan="2" align="center">
+
+Adobe Premiere Pro &bull; Adobe Photoshop &bull; CapCut PC &bull; Figma &bull; Video Editing & Biên tập nội dung công nghệ
+
+<br/><br/>
+
+<img src="https://img.shields.io/badge/Adobe%20Premiere-9999FF?style=for-the-badge&logo=adobepremierepro&logoColor=white" />
+<img src="https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white" />
+<img src="https://img.shields.io/badge/CapCut-000000?style=for-the-badge&logo=tiktok&logoColor=white" />
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
+
+</td>
+</tr>
+</table>
+
+---
+
 ## 📬 Liên hệ / Контакты
 
 <div align="center">
@@ -65,6 +149,7 @@ Khi rời màn hình dòng lệnh, mình chia sẻ góc nhìn thực chiến v�
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KAR13MA090)
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCHNcZM5vBN2dOoXmza-e6LA)
 [![Zone-Xsec](https://img.shields.io/badge/Zone--Xsec-111111?style=for-the-badge&logo=hackthebox&logoColor=9fef00)](https://zone-xsec.com/archive/team/Anonymous_VNPC)
+[![Chống Lừa Đảo](https://img.shields.io/badge/Chống_Lừa_Đảo-00B4D8?style=for-the-badge&logo=shield&logoColor=white)](https://chongluadao.vn/)
 [![Blog](https://img.shields.io/badge/Blog-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://netgenievn.blogspot.com)
 
 </div>
@@ -75,8 +160,8 @@ Khi rời màn hình dòng lệnh, mình chia sẻ góc nhìn thực chiến v�
 
 <table>
 <tr>
-<th width="50%" align="center">🍂 Gửi Nguyễn Minh Thư — Chiều Thu Hà Nội</th>
-<th width="50%" align="center">🍂 Нгуен Минь Тхы — Осеннее письмо</th>
+<th width="50%" align="center"> Нгуен Ty</th>
+<th width="50%" align="center">Нгуен Ty </th>
 </tr>
 <tr>
 <td valign="top">
