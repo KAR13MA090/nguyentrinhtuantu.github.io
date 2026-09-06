@@ -974,6 +974,8 @@ function applySiteSettings() {
         if (s.nameFontSize) root.setProperty('--name-font-size', s.nameFontSize);
         if (s.bgSize) root.setProperty('--bg-size', s.bgSize);
         if (s.bgImage) {
+            const bgLayer = document.querySelector('.bg-fixed-layer');
+            if (bgLayer) bgLayer.style.backgroundImage = `url('${s.bgImage}')`;
             document.body.style.backgroundImage = `url('${s.bgImage}')`;
         }
     } catch (e) {
