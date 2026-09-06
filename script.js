@@ -444,18 +444,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const songs = [
-        "assets/audio/Beauty and a Beat.mp3",
         "assets/audio/Cỏ Dại Và Hoa Dành Dành.mp3",
-        "assets/audio/DỐC ĐỜI.mp3",
         "assets/audio/HÀNH LÝ TRÊN TAY.mp3",
         "assets/audio/Hẹn Lần Sau.mp3",
+        "assets/audio/In Love.mp3",
+        "assets/audio/Khởi My - 15.mp3",
+        "assets/audio/MỐI DUYÊN VÀNG.mp3",
         "assets/audio/NGÔ LAN HƯƠNG - Về Đi Thôi.mp3",
-        "assets/audio/Nhạc 8x đến đầu 9x.mp3",
         "assets/audio/SAU NÀY EM CƯỚI AI RỒI.mp3",
         "assets/audio/TRỘM VÍA.mp3",
+        "assets/audio/Thu Cuối.mp3",
         "assets/audio/VIỆT NAM TÔI.mp3",
         "assets/audio/Xuân Thì.mp3",
+        "assets/audio/playlist - you were fine until this played.mp3",
         "assets/audio/Đó chỉ là thành phố của anh.mp3",
+        "assets/audio/Đất Nước Trọn Niềm Vui.mp3",
         "assets/audio/Đập vỡ cây đàn.mp3"
     ];
 
@@ -694,6 +697,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.querySelectorAll('.sponsor-link').forEach(link => {
         link.addEventListener('click', (e) => {
+            if (link.dataset.external === 'true' || (link.href && link.href.includes('chongluadao.vn'))) {
+                return; // Trang bảo mật chặn iframe -> mở thẳng tab mới
+            }
             e.preventDefault();
             const url = link.dataset.url || link.href;
             const name = link.dataset.name || link.title || 'Đơn vị đồng hành';
